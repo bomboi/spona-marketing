@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spona — Tvoj posao, pod kontrolom.</title>
+  <link rel="icon" type="image/png" href="../logos/spona-default-logo.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ── Nav ──────────────────────────────────────────────────── -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <img src="../logos/iOS App icon - 1 - horizontal.png" alt="Spona" />
+        </a>
+        <div class="nav-links" id="nav-links">
+          <a href="#kupci">Kupci</a>
+          <a href="#porudzbine">Porudžbine</a>
+          <a href="#fakture">Fakture</a>
+          <a href="#zarada">Zarada</a>
+          <a href="#cene">Cene</a>
+          <a href="#pitanja">Pitanja</a>
+          <a href="https://app.spona.rs" class="btn nav-login-btn"><i class="bi bi-person-fill"></i> Prijava</a>
+          <a href="#kontakt" class="btn btn-primary" style="padding:9px 22px;font-size:0.82rem;">Počni besplatno</a>
+        </div>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Otvori meni">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <section class="hero" id="pocetak">
+    <div class="container">
+      <div class="hero-inner">
+
+        <!-- Left floating cards -->
+        <div class="hero-cards hero-cards--left">
+
+          <!-- Profit card -->
+          <div class="hero-card hero-card--profit">
+            <div class="hc-eyebrow"><i class="bi bi-graph-up-arrow"></i> Zarada ovaj mesec</div>
+            <div class="hc-amount">1.500.000 RSD</div>
+            <div class="hc-badge up"><i class="bi bi-arrow-up"></i> 14.2%</div>
+            <div class="hc-bars">
+              <span style="--h:40%"></span>
+              <span style="--h:55%"></span>
+              <span style="--h:48%"></span>
+              <span style="--h:68%"></span>
+              <span style="--h:62%"></span>
+              <span style="--h:82%"></span>
+              <span style="--h:100%" class="active"></span>
+            </div>
+          </div>
+
+          <!-- Customer card -->
+          <div class="hero-card hero-card--customer">
+            <div class="hc-eyebrow"><i class="bi bi-people-fill"></i> Kupac</div>
+            <div class="hc-avatar-row">
+              <div class="hc-avatar">MP</div>
+              <div class="hc-avatar-info">
+                <div class="hc-name">Marko Popović</div>
+                <div class="hc-sub">Popović Gradnja</div>
+              </div>
+              <div class="hc-dot"></div>
+            </div>
+            <div class="hc-divider"></div>
+            <div class="hc-stats-row">
+              <div><div class="hc-stat-num">47</div><div class="hc-stat-label">porudžbina</div></div>
+              <div><div class="hc-stat-num">975.000 RSD</div><div class="hc-stat-label">ukupno</div></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Center: hero text -->
+        <div class="hero-text">
+          <div class="hero-label-row">
+            <span class="pill"><i class="bi bi-people-fill"></i> Kupci</span>
+            <span class="pill"><i class="bi bi-box-seam"></i> Narudžbine</span>
+            <span class="pill"><i class="bi bi-receipt"></i> Fakture</span>
+            <span class="pill"><i class="bi bi-graph-up-arrow"></i> Zarada</span>
+          </div>
+          <h1>Tvoj posao —<br><span class="accent">red i mirna glava.</span></h1>
+          <p class="hero-sub">Sve na jednom mestu — kupci, narudžbine, fakture i pregled zarade.</p>
+          <div class="hero-cta">
+            <a href="#kontakt" class="btn btn-primary btn-lg">
+              <i class="bi bi-arrow-right-circle-fill"></i> Počni besplatno
+            </a>
+            <a href="#kako-poceti" class="btn btn-outline-white btn-lg">Kako funkcioniše</a>
+          </div>
+          <div class="hero-scroll-hint">
+            <i class="bi bi-mouse2"></i>
+            <span>Skroluj da vidiš više</span>
+          </div>
+        </div>
+
+        <!-- Right floating cards -->
+        <div class="hero-cards hero-cards--right">
+
+          <!-- Order card -->
+          <div class="hero-card hero-card--order">
+            <div class="hc-header-row">
+              <div class="hc-eyebrow"><i class="bi bi-box-seam"></i> Porudžbina</div>
+              <span class="hc-status-badge">Novo</span>
+            </div>
+            <div class="hc-order-num">#0042</div>
+            <div class="hc-sub" style="margin-bottom:10px;">Popović Gradnja</div>
+            <div class="hc-items">
+              <div class="hc-item"><span>3× Prozori ALU</span><span>280.000</span></div>
+              <div class="hc-item"><span>1× Montaža</span><span>70.000</span></div>
+            </div>
+            <div class="hc-divider"></div>
+            <div class="hc-total">Ukupno <strong>375.000 RSD</strong></div>
+          </div>
+
+          <!-- Product card -->
+          <div class="hero-card hero-card--product">
+            <div class="hc-eyebrow"><i class="bi bi-tag-fill"></i> Artikal</div>
+            <div class="hc-name" style="margin-bottom:6px;">Prozor ALU</div>
+            <div class="hc-price">56.000 din <span>/kom</span></div>
+            <div class="hc-divider"></div>
+            <div class="hc-desc">Aluminijumski prozor sa termoprekinutačom. Dostupan u više dimenzija i boja po zahtevu.</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Problems ──────────────────────────────────────────────── -->
+  <section class="section-problems" id="problemi">
+    <div class="container">
+      <div class="header reveal">
+        <div class="eyebrow">Problem koji poznaješ</div>
+        <h2 class="section-title">Da vam posao ne oduzima<br>sav mir</h2>
+        <p class="section-sub">Posao je porastao — i to je dobra stvar. Ali kad ima više posla, teže je sve držati u glavi. Papiri znaju da naprave pometnju.</p>
+      </div>
+      <div class="three-col">
+        <div class="problem-card">
+          <div class="p-icon"><i class="bi bi-journal-x"></i></div>
+          <h3>Tefter se izgubi baš kad treba</h3>
+          <p>Sve si zapisao — ali gde? U kojoj svesci, na kom papiru, u kojoj fascikli?</p>
+          <p class="pquote">"Znam da sam negde zapisao, ali..."</p>
+        </div>
+        <div class="problem-card">
+          <div class="p-icon"><i class="bi bi-file-earmark-x"></i></div>
+          <h3>Fakture i papiri gutaju vreme</h3>
+          <p>Kraj meseca dođe brzo. A onda kreće sabiranje, traženje papira i pisanje faktura ručno.</p>
+          <p class="pquote">"Ne znam ko mi duguje, a ko je platio."</p>
+        </div>
+        <div class="problem-card">
+          <div class="p-icon"><i class="bi bi-telephone-x"></i></div>
+          <h3>Radnik te zove, ti zoveš radnika</h3>
+          <p>Ko je preuzeo porudžbinu, šta je gotovo, šta čeka — teško pratiti kad nema jednog mesta.</p>
+          <p class="pquote">"Sto puta me pitaju istu stvar..."</p>
+        </div>
+      </div>
+      <div class="solve-strip">
+        <strong>Spona stavlja red u papire — i nije ništa komplikovanije od slanja poruke na Viberu.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Solution intro ────────────────────────────────────────── -->
+  <section class="section-solution">
+    <div class="container">
+      <div class="two-col two-col--center">
+        <div class="reveal from-left">
+          <div class="eyebrow">Rešenje</div>
+          <h2 class="section-title">Digitalni tefter<br>koji <span class="accent">sam računa</span></h2>
+          <p class="section-sub" style="margin-bottom:28px;">Spona je tefter koji se ne može izgubiti — sam sabira i oduzima, pamti svakog kupca i svaki dogovor, i drži sve na jednom mestu od prvog dana.</p>
+          <ul class="check-list">
+            <li>Svaki kupac i dogovor — zapisan i na mestu</li>
+            <li>Svaka porudžbina praćena od upisa do isporuke</li>
+            <li>Faktura gotova za pola minute, bez grešaka</li>
+            <li>Na kraju dana vidiš crno na belo kako stoji posao</li>
+            <li>Svaki radnik vidi samo šta njemu pripada</li>
+            <li>Radi na telefonu, tabletu i računaru</li>
+          </ul>
+          <br />
+          <a href="#kontakt" class="btn btn-primary">Isprobaj Sponu <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="reveal from-right">
+          <div class="mockup-box" style="min-height:340px;">
+            <i class="bi bi-display m-icon"></i>
+            <span class="m-label">
+              <strong>Glavni pregled</strong>
+              Sve najvažnije na jednom ekranu — odmah vidiš kako stoji posao
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stats ─────────────────────────────────────────────────── -->
+  <div class="stats-strip">
+    <div class="container">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <div class="stat-big"><i class="bi bi-graph-up-arrow"></i></div>
+          <div class="stat-label">Pregled zarade uvek pri ruci</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-big"><i class="bi bi-clock-fill"></i>&nbsp;½<span style="font-size:1.5rem;align-self:flex-end;padding-bottom:6px;">min</span></div>
+          <div class="stat-label">Faktura gotova za pola minute</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-big"><i class="bi bi-people-fill"></i></div>
+          <div class="stat-label">Ceo tim u jednom sistemu</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-big"><i class="bi bi-phone-fill"></i></div>
+          <div class="stat-label">Radi na svakom uređaju</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Feature: Kupci ─────────────────────────────────────────── -->
+  <section class="feature-section" id="kupci">
+    <div class="container">
+      <div class="feature-grid">
+        <div>
+          <div class="feature-tag"><i class="bi bi-people-fill"></i> 01 — Kupci</div>
+          <h2 class="feature-title">Nikad više izgubljen<br>kontakt ni dogovor</h2>
+          <p class="feature-desc">Upišeš kupca jednom — i sve što si s njim radio ostane u Sponi zauvek. Ime, telefon, istorija porudžbina, šta ste se dogovorili. Nema više: "Kako mu beše broj?"</p>
+          <ul class="dot-list" style="margin-bottom:24px;">
+            <li><strong>Ime, telefon, adresa</strong> — sve na jednom mestu</li>
+            <li><strong>Cela istorija porudžbina</strong> po svakom kupcu</li>
+            <li><strong>Nađeš bilo koga za sekunde</strong> — samo ukucaš ime</li>
+            <li><strong>Beleška uz profil</strong> — zapiši šta god treba upamtiti</li>
+            <li><strong>Grupe kupaca</strong> — veleprodaja odvojeno od maloprodaje</li>
+          </ul>
+          <div class="card">
+            <div class="eyebrow">Mirna glava</div>
+            <span style="font-size:0.9rem;color:var(--text-secondary);">Čisti računi s kupcima — znaš ko ti šta duguje i šta ste se dogovorili, čak i kad si na odmoru.</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="mockup-box">
+            <i class="bi bi-people-fill m-icon"></i>
+            <span class="m-label">
+              <strong>Pregled kupaca</strong>
+              Jasna lista svih kupaca — nađeš koga treba za par sekundi
+            </span>
+          </div>
+          <div class="mockup-box">
+            <i class="bi bi-person-fill m-icon"></i>
+            <span class="m-label">
+              <strong>Kartica kupca</strong>
+              Sve porudžbine, dugovanja i beleške za jednog kupca
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature: Porudžbine ────────────────────────────────────── -->
+  <section class="feature-section" style="background:var(--bg-container);" id="porudzbine">
+    <div class="container">
+      <div class="feature-grid feature-grid--flipped">
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="mockup-box">
+            <i class="bi bi-box-seam m-icon"></i>
+            <span class="m-label">
+              <strong>Pregled porudžbina</strong>
+              Vidiš sve porudžbine — šta čeka, šta je u radu, šta je gotovo
+            </span>
+          </div>
+          <div class="mockup-box">
+            <i class="bi bi-pencil m-icon"></i>
+            <span class="m-label">
+              <strong>Unos nove porudžbine</strong>
+              Brz unos — odabereš kupca, dodaš artikle, gotovo
+            </span>
+          </div>
+        </div>
+        <div>
+          <div class="feature-tag"><i class="bi bi-box-seam"></i> 02 — Porudžbine</div>
+          <h2 class="feature-title">Svaka porudžbina —<br>zapisana i praćena</h2>
+          <p class="feature-desc">Kupac naruči — ti upišeš u Sponu za minut. Od tog trenutka svaki radnik zna šta treba da uradi, bez telefoniranja i petljanja.</p>
+          <ul class="dot-list" style="margin-bottom:24px;">
+            <li><strong>Odabereš kupca</strong> iz svoje baze jednim klikom</li>
+            <li><strong>Dodaš šta je naručeno</strong> — cene se same upišu</li>
+            <li><strong>Gotovinsko, na fakturu, karticom</strong> — piše odmah</li>
+            <li><strong>Pratiš gde je porudžbina</strong> — u radu, gotovo, otkazano</li>
+            <li><strong>Ostavi napomenu radniku</strong> — bez telefoniranja</li>
+          </ul>
+          <div class="card" style="background:var(--brand-primary-light);">
+            <h3 style="color:var(--brand-primary-dark);font-size:0.95rem;margin-bottom:6px;"><i class="bi bi-printer-fill"></i> Radni nalog na štampu</h3>
+            <span style="font-size:0.87rem;color:var(--text-secondary);">Jednim klikom odštampaš nalog za radionicu ili magacin — jasno napisano, bez grešaka. Radnik uzme papir i zna šta radi.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature: Fakture ───────────────────────────────────────── -->
+  <section class="feature-section" id="fakture">
+    <div class="container">
+      <div class="feature-grid">
+        <div>
+          <div class="feature-tag"><i class="bi bi-receipt"></i> 03 — Fakture</div>
+          <h2 class="feature-title">Faktura za pola minute,<br>bez greške</h2>
+          <p class="feature-desc">Nema više ručnog pisanja. Spona napravi fakturu sama iz porudžbine — uredno, ispravno, s tvojim logom — za pola minute. Odštampaš ili pošalješ mejlom, gotovo.</p>
+          <ul class="dot-list" style="margin-bottom:24px;">
+            <li><strong>Sve se samo popuni</strong> iz porudžbine — nema ponovnog kucanja</li>
+            <li><strong>Odštampaj ili pošalji mejlom</strong> za dva klika</li>
+            <li><strong>Brojevi faktura idu sami po redu</strong> — ne moraš da pamtiš</li>
+            <li><strong>Jasno vidiš ko je platio, a ko nije</strong></li>
+            <li><strong>Tvoj logo i firma</strong> na svakoj fakturi</li>
+          </ul>
+          <div class="quote">
+            "Faktura je gotova pre nego što kupac izađe iz radnje."
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="mockup-box" style="min-height:200px;">
+            <i class="bi bi-receipt m-icon"></i>
+            <span class="m-label">
+              <strong>Gotova faktura</strong>
+              Uredno odštampana faktura s tvojim logom — profesionalno, bez muke
+            </span>
+          </div>
+          <div class="mockup-box">
+            <i class="bi bi-list-ul m-icon"></i>
+            <span class="m-label">
+              <strong>Pregled faktura</strong>
+              Jasna lista — ko je platio, a ko nije
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature: Cenovnik ──────────────────────────────────────── -->
+  <section class="feature-section" style="background:var(--bg-container);" id="cenovnik">
+    <div class="container">
+      <div class="feature-grid feature-grid--flipped">
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="mockup-box">
+            <i class="bi bi-grid m-icon"></i>
+            <span class="m-label">
+              <strong>Cenovnik</strong>
+              Svi tvoji artikli i cene na jednom mestu
+            </span>
+          </div>
+          <div class="mockup-box">
+            <i class="bi bi-tag-fill m-icon"></i>
+            <span class="m-label">
+              <strong>Kartica artikla</strong>
+              Varijante, cene i opis — sve na jednom mestu
+            </span>
+          </div>
+        </div>
+        <div>
+          <div class="feature-tag"><i class="bi bi-tag-fill"></i> 04 — Cenovnik</div>
+          <h2 class="feature-title">Cene se ne zaboravljaju —<br>i uvek su ispravne</h2>
+          <p class="feature-desc">Upišeš sve što prodaješ jednom — i Spona to sama nudi svaki put kad praviš porudžbinu. Nema više računanja na papiru ili grešaka u ceni.</p>
+          <ul class="dot-list" style="margin-bottom:24px;">
+            <li><strong>Naziv i cena</strong> za svaki artikal ili uslugu</li>
+            <li><strong>Varijante</strong> — veličina, boja, tip — sve jasno razdvojeno</li>
+            <li><strong>Grupe</strong> za lakše snalaženje u velikim cenovnicima</li>
+            <li><strong>Posebne cene po kupcu</strong> — veleprodaja, stalni kupci</li>
+          </ul>
+          <div class="card">
+            <div class="eyebrow">Kako to izgleda u praksi</div>
+            <span style="font-size:0.87rem;color:var(--text-secondary);">Pri unosu porudžbine samo ukucaš par slova — Spona iskoči s artiklom i cenom. Odabereš količinu, gotovo. Nema greške, nema računanja.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature: Zarada ────────────────────────────────────────── -->
+  <section class="feature-section" id="zarada">
+    <div class="container">
+      <div class="feature-grid">
+        <div>
+          <div class="feature-tag"><i class="bi bi-graph-up-arrow"></i> 05 — Zarada</div>
+          <h2 class="feature-title">Crno na belo —<br>bez digitrona</h2>
+          <p class="feature-desc">Nema više sabiranja do ponoći. Otvoriš Sponu — i odmah vidiš čiste račune: ko je platio, koliko si zaradio, šta se dobro prodaje.</p>
+          <div class="three-col" style="gap:12px;margin-bottom:20px;">
+            <div class="card" style="text-align:center;padding:16px 12px;">
+              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-graph-up-arrow"></i></div>
+              <div style="font-size:0.76rem;color:var(--text-secondary);margin-top:6px;font-weight:500;">Koliko si zaradio</div>
+            </div>
+            <div class="card" style="text-align:center;padding:16px 12px;">
+              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-star-fill"></i></div>
+              <div style="font-size:0.76rem;color:var(--text-secondary);margin-top:6px;font-weight:500;">Ko ti nosi najviše</div>
+            </div>
+            <div class="card" style="text-align:center;padding:16px 12px;">
+              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-box-seam"></i></div>
+              <div style="font-size:0.76rem;color:var(--text-secondary);margin-top:6px;font-weight:500;">Šta ide, šta stoji</div>
+            </div>
+          </div>
+          <ul class="dot-list">
+            <li><strong>Zarada po danu, mesecu ili godini</strong> — bez jednog sabiranja</li>
+            <li><strong>Ko ti donosi najviše para</strong> — da znaš na koga da računaš</li>
+            <li><strong>Šta se dobro prodaje, a šta skuplja prašinu</strong></li>
+            <li><strong>Ko od radnika šta uradi</strong> — bez ispitivanja</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mockup-box" style="min-height:320px;">
+            <i class="bi bi-graph-up-arrow m-icon"></i>
+            <span class="m-label">
+              <strong>Pregled poslovanja</strong>
+              Odmah vidiš gde si u plusu i šta se dobro prodaje
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature: Tim ───────────────────────────────────────────── -->
+  <section class="feature-section" style="background:var(--bg-container);" id="tim">
+    <div class="container">
+      <div class="feature-grid feature-grid--flipped">
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="mockup-box">
+            <i class="bi bi-people-fill m-icon"></i>
+            <span class="m-label">
+              <strong>Pregled radnika</strong>
+              Ko je u timu i šta svako sme da radi
+            </span>
+          </div>
+          <div class="mockup-box">
+            <i class="bi bi-gear-fill m-icon"></i>
+            <span class="m-label">
+              <strong>Nalog radnika</strong>
+              Svaki radnik ima svoje pristupne podatke
+            </span>
+          </div>
+        </div>
+        <div>
+          <div class="feature-tag"><i class="bi bi-people-fill"></i> 06 — Tim</div>
+          <h2 class="feature-title">Svako zna<br>svoj deo posla</h2>
+          <p class="feature-desc">Svaki radnik se prijavi sa svojim nalogom i odmah vidi šta ga čeka — ni više ni manje. A ti kao gazda uvek možeš da proveriš šta se radi, gde god da si.</p>
+          <div class="card" style="margin-bottom:12px;">
+            <div class="eyebrow">Ko šta vidi</div>
+            <ul class="dot-list">
+              <li><strong>Ti kao gazda</strong> — vidiš i menjaš baš sve</li>
+              <li><strong>Poslovođa</strong> — prati tim i sve porudžbine</li>
+              <li><strong>Radnik / prodavac</strong> — unosi porudžbine, vidi samo što mu treba</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="eyebrow">Čisti računi unutar firme</div>
+            <span style="font-size:0.87rem;color:var(--text-secondary);">Svako ima svoju lozinku. Cene, kupci, zarada — to ostaje između tebe i Spone. Niko sa strane ne može da zaviri.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Devices ────────────────────────────────────────────────── -->
+  <section class="section-devices" id="uredjaji">
+    <div class="container">
+      <div class="section-header-center" style="margin-bottom:48px;">
+        <div class="eyebrow" style="color:rgba(2,204,129,0.8);">Jednostavno kao daljinski od TV-a</div>
+        <h2 class="section-title" style="color:#fff;margin:0 auto 12px;">Radi na telefonu,<br>tabletu i računaru</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.5);margin:0 auto;">Nema komplikovane obuke — ako umeš da koristiš telefon, umeš da koristiš Sponu.</p>
+      </div>
+      <div class="three-col" style="margin-bottom:28px;">
+        <div class="device-card">
+          <div class="d-icon"><i class="bi bi-display"></i></div>
+          <h3>U kancelariji</h3>
+          <p>Na računaru imaš pun pregled — idealno za unos i praćenje svega.</p>
+        </div>
+        <div class="device-card">
+          <div class="d-icon"><i class="bi bi-phone-fill"></i></div>
+          <h3>Na terenu</h3>
+          <p>Na telefonu proveriš porudžbinu ili status dok si kod kupca ili na isporuci.</p>
+        </div>
+        <div class="device-card">
+          <div class="d-icon"><i class="bi bi-airplane-fill"></i></div>
+          <h3>Na odmoru</h3>
+          <p>Otvoriš Sponu na telefonu i za minut znaš šta se dešava u firmi — pa se opusti.</p>
+        </div>
+      </div>
+      <div class="no-install-strip">
+        <div class="eyebrow" style="color:rgba(2,204,129,0.8);">Nema instalacije, nema komplikacija</div>
+        <strong>Spona radi u pretraživaču — otvoriš kao stranicu, kao Facebook ili YouTube. Ništa posebno ne treba instalirati.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Steps ──────────────────────────────────────────────────── -->
+  <section class="section-steps" id="kako-poceti">
+    <div class="container">
+      <div class="section-header-center">
+        <div class="eyebrow">Kako početi?</div>
+        <h2 class="section-title">Kreneš za tri koraka —<br><span class="accent">mi smo uz tebe</span></h2>
+        <p class="section-sub">Mi smo tu uz tebe — od prvog dana.</p>
+      </div>
+      <div class="three-col" style="margin-bottom:32px;">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Javi nam se</h3>
+          <p>Pozoveš ili napišeš — za koji minut dobiješ pristup. Nema paperologije.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>Unesemo zajedno</h3>
+          <p>Mi ti pomognemo da uneseš kupce, artikle i cenovnik. Ne moraš ništa sam.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>Kreneš odmah</h3>
+          <p>Napraviš prvu porudžbinu i odmah osetiš razliku. A mi smo tu kad zatreba.</p>
+        </div>
+      </div>
+      <div class="support-strip">
+        <div class="eyebrow">Nisi sam u tome</div>
+        <strong>Obučimo tebe i tvoje radnike, odgovorimo na sva pitanja i budemo dostupni kad zatreba. Nisi prepušten sam sebi.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pricing ──────────────────────────────────────────────────── -->
+  <section class="section-pricing" id="cene">
+    <div class="container">
+      <div class="section-header-center reveal">
+        <div class="eyebrow">Cene</div>
+        <h2 class="section-title">Jasne cene, <span class="accent">bez iznenađenja</span></h2>
+        <p class="section-sub">Odaberi plan koji odgovara tvojoj firmi. Besplatan period od 14 dana — bez kreditne kartice.</p>
+      </div>
+      <div class="pricing-grid stagger">
+        <!-- Starter -->
+        <div class="pricing-card reveal">
+          <div class="pricing-plan">Starter</div>
+          <div class="pricing-price">2.900 RSD</div>
+          <div class="pricing-per">*mesečno</div>
+          <div class="pricing-desc">Savršen za samozaposlene i male timove koji tek počinju.</div>
+          <ul class="pricing-features">
+            <li><i class="bi bi-check-circle-fill"></i> Do 3 korisnika</li>
+            <li><i class="bi bi-check-circle-fill"></i> Kupci i porudžbine</li>
+            <li><i class="bi bi-check-circle-fill"></i> Fakture (PDF)</li>
+            <li><i class="bi bi-check-circle-fill"></i> Osnovni izveštaji</li>
+            <li><i class="bi bi-check-circle-fill"></i> Email podrška</li>
+          </ul>
+          <a href="https://app.spona.rs" class="btn btn-outline-dark w-full">Počni besplatno</a>
+        </div>
+        <!-- Standard (popular) -->
+        <div class="pricing-card popular reveal">
+          <div class="pricing-badge"><i class="bi bi-star-fill"></i> Najpopularniji</div>
+          <div class="pricing-plan">Standard</div>
+          <div class="pricing-price">5.900 RSD</div>
+          <div class="pricing-per">*mesečno</div>
+          <div class="pricing-desc">Za rastuće firme kojima treba više kontrole i saradnje.</div>
+          <ul class="pricing-features">
+            <li><i class="bi bi-check-circle-fill"></i> Do 10 korisnika</li>
+            <li><i class="bi bi-check-circle-fill"></i> Sve iz Starter plana</li>
+            <li><i class="bi bi-check-circle-fill"></i> Korisnički uloge</li>
+            <li><i class="bi bi-check-circle-fill"></i> Napredni izveštaji</li>
+            <li><i class="bi bi-check-circle-fill"></i> Prioritetna podrška</li>
+          </ul>
+          <a href="https://app.spona.rs" class="btn btn-primary w-full">Počni besplatno</a>
+        </div>
+        <!-- Pro -->
+        <div class="pricing-card reveal">
+          <div class="pricing-plan">Pro</div>
+          <div class="pricing-price">Po dogovoru</div>
+          <div class="pricing-per">*mesečno</div>
+          <div class="pricing-desc">Za etablirane firme sa velikim timovima i punim zahtevima.</div>
+          <ul class="pricing-features">
+            <li><i class="bi bi-check-circle-fill"></i> Neograničeni korisnici</li>
+            <li><i class="bi bi-check-circle-fill"></i> Sve iz Standard plana</li>
+            <li><i class="bi bi-check-circle-fill"></i> API pristup</li>
+            <li><i class="bi bi-check-circle-fill"></i> Prilagođeni izveštaji</li>
+            <li><i class="bi bi-check-circle-fill"></i> Dedicirani menadžer</li>
+          </ul>
+          <a href="https://app.spona.rs" class="btn btn-outline-dark w-full">Počni besplatno</a>
+        </div>
+      </div>
+      <p class="pricing-note reveal">Nisi siguran koji plan? <a href="#kontakt">Javi nam se</a> i pomoći ćemo ti da odabereš pravi.</p>
+    </div>
+  </section>
+
+  <!-- ── FAQ ────────────────────────────────────────────────────────── -->
+  <section class="section-faq" id="pitanja">
+    <div class="container">
+      <div class="section-header-center reveal">
+        <div class="eyebrow">Česta pitanja</div>
+        <h2 class="section-title">Imaš pitanja? <span class="accent">Imamo odgovore.</span></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-q">Da li postoji besplatni probni period?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
+          <div class="faq-a"><p>Da! Svaki plan dolazi sa 14 dana besplatnog korišćenja — bez kreditne kartice. Možeš testirati sve funkcije pre nego što se odlučiš.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">Da li moram da instaliram nešto?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
+          <div class="faq-a"><p>Ne. Spona je cloud aplikacija koju koristiš direktno iz browsera. Nema instalacije, nema ažuriranja — uvek si na najnovijoj verziji.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">Kako počinjem?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
+          <div class="faq-a"><p>Registruj se, unesite podatke o firmi i za manje od 5 minuta si spreman za rad. Vodiće te kroz svaki korak onboarding procesa.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">Koji korisnički uloge postoje?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
+          <div class="faq-a"><p>Postoje dve uloge: <strong>Admin</strong> koji ima pun pristup svim funkcijama, i <strong>Radnik</strong> koji može pregledati i raditi sa dodeljenim podacima.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">Da li su moji podaci bezbedni?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
+          <div class="faq-a"><p>Apsolutno. Svi podaci su šifrovani SSL/TLS protokolom, a serveri se nalaze u EU datacentrima koji zadovoljavaju GDPR standarde.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">Kakva podrška je dostupna?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
+          <div class="faq-a"><p>Dostupan je email i live chat. Starter plan ima standardnu email podršku, dok Standard i Pro planovi imaju prioritetni pristup sa kraćim vremenom odgovora.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">Mogu li da otkažem pretplatu u bilo kom trenutku?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
+          <div class="faq-a"><p>Da, bez ikakvih penala. Možeš otkazati pretplatu direktno iz podešavanja naloga. Pristup ostaje aktivan do kraja plaćenog perioda.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────────────────── -->
+  <section class="section-cta" id="kontakt">
+    <div class="container">
+      <div class="cta-inner">
+        <span class="pill reveal">Spona</span>
+        <div class="divider animate reveal"></div>
+        <h2 class="reveal">Tvoj posao,<br><span class="accent">pod kontrolom.</span></h2>
+        <p class="reveal">Kupci. Porudžbine. Fakture. Zarada.<br>Sve na jednom mestu — i mirna glava na kraju dana.</p>
+        <div class="cta-buttons reveal">
+          <a href="mailto:info@spona.app" class="btn btn-primary btn-lg">
+            <i class="bi bi-envelope-fill"></i> Pošalji upit
+          </a>
+          <a href="tel:+381" class="btn btn-outline-white btn-lg">
+            <i class="bi bi-telephone-fill"></i> Pozovi nas
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <img src="../logos/iOS App icon - 1 - horizontal.png" alt="Spona" />
+        <p>© 2026 Spona. Sva prava zadržana.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // ── Auto-apply reveal classes ─────────────────────────────────
+      [
+        '.problem-card',
+        '.step-card',
+        '.device-card',
+        '.section-header-center',
+        '.support-strip',
+        '.no-install-strip',
+        '.solve-strip',
+        '.quote',
+      ].forEach(sel =>
+        document.querySelectorAll(sel).forEach(el => el.classList.add('reveal'))
+      );
+
+      // Scale reveal for stat items
+      document.querySelectorAll('.stat-item').forEach(el =>
+        el.classList.add('reveal', 'scale')
+      );
+
+      // Stagger parent containers
+      document.querySelectorAll(
+        '.stats-inner, .section-problems .three-col, .section-steps .three-col, .section-devices .three-col'
+      ).forEach(el => el.classList.add('stagger'));
+
+      // Feature section columns: slide in from opposite sides
+      document.querySelectorAll('.feature-section .container > div').forEach(grid => {
+        const cols = Array.from(grid.children);
+        if (cols.length === 2) {
+          cols[0].classList.add('reveal', 'from-left');
+          cols[1].classList.add('reveal', 'from-right');
+        }
+      });
+
+      // Mockup boxes with slight stagger
+      document.querySelectorAll('.mockup-box').forEach((el, i) => {
+        el.classList.add('reveal');
+        el.style.transitionDelay = (i % 2 === 0 ? 0.05 : 0.2) + 's';
+      });
+
+      // ── Intersection Observer for all .reveal elements ────────────
+      const io = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+      // ── Animated CTA divider ──────────────────────────────────────
+      document.querySelectorAll('.divider.animate').forEach(el => {
+        new IntersectionObserver(
+          ([e]) => { if (e.isIntersecting) el.classList.add('visible'); },
+          { threshold: 0.8 }
+        ).observe(el);
+      });
+
+      // ── FAQ accordion ─────────────────────────────────────────────
+      document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.faq-item');
+          const answer = item.querySelector('.faq-a');
+          const isOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item.open').forEach(el => {
+            el.classList.remove('open');
+            el.querySelector('.faq-a').classList.remove('open');
+          });
+          if (!isOpen) {
+            item.classList.add('open');
+            answer.classList.add('open');
+          }
+        });
+      });
+
+      // ── Nav scrolled class ────────────────────────────────────────
+      const nav = document.querySelector('.nav');
+      window.addEventListener(
+        'scroll',
+        () => nav.classList.toggle('scrolled', window.scrollY > 20),
+        { passive: true }
+      );
+
+      // ── Hamburger menu ────────────────────────────────────────────
+      const hamburger = document.getElementById('nav-hamburger');
+      const navLinks  = document.getElementById('nav-links');
+      hamburger.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', open);
+        document.body.classList.toggle('nav-open', open);
+      });
+      // Close on nav link click
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          document.body.classList.remove('nav-open');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
