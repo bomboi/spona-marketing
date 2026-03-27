@@ -1,9 +1,66 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9E7SX8L2N3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9E7SX8L2N3');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spona — Tvoj posao, pod kontrolom.</title>
+
+  <!-- ── SEO ──────────────────────────────────────────────────── -->
+  <title>Spona — Program za porudžbine, fakture i kupce | Za male firme u Srbiji</title>
+  <meta name="description" content="Spona je jednostavan program za male firme u Srbiji. Vodi porudžbine, pravi fakture za 30 sekundi, prati kupce i zaradu — sve na jednom mestu. Besplatno 14 dana." />
+  <meta name="keywords" content="program za porudžbine, aplikacija za fakture, software za male firme, evidencija kupaca, online fakturisanje Srbija, digitalni rokovnik, praćenje narudžbina" />
+  <link rel="canonical" href="https://spona.rs/" />
+
+  <!-- ── Open Graph (Facebook, Viber, WhatsApp) ───────────────── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://spona.rs/" />
+  <meta property="og:site_name" content="Spona" />
+  <meta property="og:title" content="Spona — Program za porudžbine i fakture za male firme" />
+  <meta property="og:description" content="Vodi porudžbine, pravi fakture za 30 sekundi i prati kupce — sve na jednom mestu. Napravljeno u Srbiji, za srpske firme. Besplatno 14 dana." />
+  <meta property="og:image" content="https://spona.rs/logos/og-image.png" />
+  <meta property="og:locale" content="sr_RS" />
+
+  <!-- ── Twitter Card ──────────────────────────────────────────── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Spona — Program za porudžbine i fakture za male firme" />
+  <meta name="twitter:description" content="Vodi porudžbine, pravi fakture za 30 sekundi i prati kupce — sve na jednom mestu. Besplatno 14 dana." />
+  <meta name="twitter:image" content="https://spona.rs/logos/og-image.png" />
+
+  <!-- ── Schema.org: SoftwareApplication ─────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Spona",
+    "url": "https://spona.rs",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "sr",
+    "description": "Program za male firme u Srbiji — vođenje porudžbina, fakturisanje, evidencija kupaca i pregled zarade na jednom mestu.",
+    "offers": {
+      "@type": "Offer",
+      "price": "2900",
+      "priceCurrency": "RSD",
+      "priceValidUntil": "2027-01-01",
+      "availability": "https://schema.org/InStock"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Spona",
+      "url": "https://spona.rs",
+      "areaServed": "RS"
+    }
+  }
+  </script>
+
   <link rel="icon" type="image/png" href="logos/spona-default-logo.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -96,9 +153,9 @@
 
         <!-- Center: hero text -->
         <div class="hero-text">
-          <p class="hero-eyebrow">Tvoj posao, pod kontrolom.</p>
-          <h1>Tvoj posao<br><em>red i mirna glava.</em></h1>
-          <p class="hero-sub">Sve na jednom mestu — kupci, narudžbine, fakture i pregled zarade.</p>
+          <p class="hero-eyebrow">Tvoj biznis, pod kontrolom.</p>
+          <h1>Tvoj biznis<br><em>red i mirna glava.</em></h1>
+          <p class="hero-sub">Program za porudžbine, fakture i kupce — sve na jednom mestu, za male firme u Srbiji.</p>
           <div class="hero-cta">
             <button type="button" onclick="openLeadModal('')" class="btn btn-primary btn-lg">
               Počni besplatno <i class="bi bi-arrow-right"></i>
@@ -208,7 +265,7 @@
             <li>Svaki kupac i dogovor — zapisan i na mestu</li>
             <li>Svaka porudžbina praćena od upisa do isporuke</li>
             <li>Faktura gotova za pola minute, bez grešaka</li>
-            <li>Na kraju dana vidiš crno na belo kako stoji posao</li>
+            <li>Na kraju dana vidiš crno na belo kako stojiš</li>
             <li>Svaki radnik vidi samo šta njemu pripada</li>
             <li>Radi na telefonu, tabletu i računaru</li>
           </ul>
@@ -998,7 +1055,7 @@
   <section class="section-cta" id="kontakt">
     <div class="container">
       <div class="cta-inner">
-        <h2 class="reveal">Tvoj posao,<br><em>pod kontrolom.</em></h2>
+        <h2 class="reveal">Tvoj biznis,<br><em>pod kontrolom.</em></h2>
         <p class="reveal">Kupci. Porudžbine. Fakture. Zarada.<br>Sve na jednom mestu — i mirna glava na kraju dana.</p>
         <div class="cta-buttons reveal">
           <button type="button" onclick="openLeadModal('')" class="btn btn-primary btn-lg">
@@ -1016,7 +1073,7 @@
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <img src="logos/iOS App icon - 1 - horizontal.png" alt="Spona" />
+        <img src="logos/iOS App icon - 1 - horizontal.png" alt="Spona — program za male firme u Srbiji" />
         <p>© 2026 Spona. Sva prava zadržana.</p>
       </div>
     </div>
