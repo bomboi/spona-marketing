@@ -401,6 +401,79 @@ style: |
     border-top: 1px solid rgba(255,255,255,0.08);
     margin: 0;
   }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    align-items: stretch;
+  }
+  .price-card {
+    border-radius: 1rem;
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-container);
+    border: 1.5px solid #e2e8f0;
+  }
+  .price-card--popular {
+    background: var(--bg-overlay);
+    border-color: var(--brand-primary);
+    border-width: 2px;
+  }
+  .price-badge {
+    display: inline-block;
+    background: var(--brand-primary);
+    color: #0a2a1c;
+    border-radius: 100px;
+    padding: 2px 10px;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    align-self: flex-start;
+  }
+  .price-name {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brand-primary);
+    margin-bottom: 6px;
+  }
+  .price-card--popular .price-name { color: rgba(255,255,255,0.45); }
+  .price-amount {
+    font-size: 1.9rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 2px;
+  }
+  .price-card--popular .price-amount { color: #ffffff; }
+  .price-period {
+    font-size: 0.66rem;
+    color: var(--text-tertiary);
+    margin-bottom: 12px;
+  }
+  .price-card--popular .price-period { color: rgba(255,255,255,0.35); }
+  .price-divider {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 10px 0 12px;
+  }
+  .price-card--popular .price-divider { border-color: rgba(255,255,255,0.12); }
+  .price-list { flex: 1; }
+  .price-list li { font-size: 0.76rem; padding: 3px 0 3px 20px; }
+  .price-card--popular .price-list li { color: rgba(255,255,255,0.7); }
+  .price-card--popular .price-list li::before { background: var(--brand-primary); }
+  .price-footnote {
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--text-tertiary);
+    margin-top: 14px;
+  }
 ---
 
 <!-- _class: cover -->
@@ -919,7 +992,7 @@ Mi smo tu uz tebe — od prvog dana.
 <div class="card" style="margin:0;text-align:center;">
 <div style="font-size:2.5rem;font-weight:700;color:var(--brand-primary);margin-bottom:8px;">3</div>
 <h3>Kreneš odmah</h3>
-<p style="color:var(--text-secondary);font-size:0.84rem;">Napraviš prvu porudžbinu i odmah osétiš razliku. A mi smo tu kad zatreba.</p>
+<p style="color:var(--text-secondary);font-size:0.84rem;">Napraviš prvu porudžbinu i odmah osetiš razliku. A mi smo tu kad zatreba.</p>
 </div>
 
 </div>
@@ -931,6 +1004,72 @@ Mi smo tu uz tebe — od prvog dana.
 
 ---
 
+<!-- _class: section-green -->
+<!-- _paginate: false -->
+
+<div class="num">07</div>
+
+## Jasne cene, bez iznenađenja
+
+Odaberi plan koji odgovara tvojoj firmi. Besplatan period od 14 dana — bez kreditne kartice.
+
+---
+
+## Jasne cene, bez iznenađenja
+
+<p class="page-sub">Odaberi plan koji odgovara tvojoj firmi. Besplatan period od 14 dana — bez kreditne kartice.</p>
+
+<div class="pricing-grid">
+
+<div class="price-card">
+<div class="price-name">Starter</div>
+<div class="price-amount">2.900 RSD</div>
+<div class="price-period">*mesečno</div>
+<hr class="price-divider">
+<ul class="price-list">
+<li>Do 3 korisnika</li>
+<li>Kupci i porudžbine</li>
+<li>Fakture (PDF)</li>
+<li>Osnovni izveštaji</li>
+<li>Email podrška</li>
+</ul>
+</div>
+
+<div class="price-card price-card--popular">
+<div class="price-badge">★ Najpopularniji</div>
+<div class="price-name">Standard</div>
+<div class="price-amount">5.900 RSD</div>
+<div class="price-period">*mesečno</div>
+<hr class="price-divider">
+<ul class="price-list">
+<li>Do 10 korisnika</li>
+<li>Sve iz Starter plana</li>
+<li>Korisnički uloge</li>
+<li>Napredni izveštaji</li>
+<li>Prioritetna podrška</li>
+</ul>
+</div>
+
+<div class="price-card">
+<div class="price-name">Pro</div>
+<div class="price-amount">Po dogovoru</div>
+<div class="price-period">*mesečno</div>
+<hr class="price-divider">
+<ul class="price-list">
+<li>Neograničeni korisnici</li>
+<li>Sve iz Standard plana</li>
+<li>API pristup</li>
+<li>Prilagođeni izveštaji</li>
+<li>Dedicirani menadžer</li>
+</ul>
+</div>
+
+</div>
+
+<p class="price-footnote">Nisi siguran koji plan? Javi nam se i pomoći ćemo ti da odabereš pravi.</p>
+
+---
+
 <!-- _class: cover -->
 <!-- _paginate: false -->
 
@@ -939,7 +1078,7 @@ Mi smo tu uz tebe — od prvog dana.
 </div>
 
 <div style="display:flex;align-items:center;gap:24px;margin-bottom:0;">
-<img src="../client/public/logos/iOS%20App%20icon%20-%205.svg" class="brand-logo" style="margin-bottom:0;flex-shrink:0;">
+<img src="../logos/iOS App icon - 1 - horizontal.png" class="brand-logo" style="margin-bottom:0;flex-shrink:0;">
 <h1 style="font-size:3.8rem;font-weight:700;line-height:1.1;margin:0;color:#ffffff;letter-spacing:-0.02em;">Tvoj posao, <span style="color:var(--brand-primary);">pod kontrolom.</span></h1>
 </div>
 
