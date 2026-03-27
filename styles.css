@@ -65,6 +65,16 @@ a { text-decoration: none; color: inherit; }
   to   { opacity: 1; transform: translateX(0); }
 }
 
+@keyframes slideLeft {
+  from { transform: translateX(-48px); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(48px); }
+  to   { transform: translateX(0); }
+}
+
 @keyframes scaleIn {
   from { opacity: 0; transform: scale(0.9); }
   to   { opacity: 1; transform: scale(1); }
@@ -560,37 +570,37 @@ ul.dot-list li strong { color: var(--text-primary); }
 
 /* ─── Hero card float keyframes ───────────────────────────── */
 @keyframes hcFloat1 {
-  0%, 100% { transform: rotate(-7deg) translateY(0px); }
-  50%       { transform: rotate(-7deg) translateY(-14px); }
+  0%, 100% { translate: 0 0px; }
+  50%       { translate: 0 -14px; }
 }
 @keyframes hcFloat2 {
-  0%, 100% { transform: rotate(5deg) translateY(-8px); }
-  50%       { transform: rotate(5deg) translateY(8px); }
+  0%, 100% { translate: 0 0px; }
+  50%       { translate: 0 16px; }
 }
 @keyframes hcFloat3 {
-  0%, 100% { transform: rotate(6deg) translateY(0px); }
-  50%       { transform: rotate(6deg) translateY(-16px); }
+  0%, 100% { translate: 0 0px; }
+  50%       { translate: 0 -16px; }
 }
 @keyframes hcFloat4 {
-  0%, 100% { transform: rotate(-5deg) translateY(-6px); }
-  50%       { transform: rotate(-5deg) translateY(10px); }
+  0%, 100% { translate: 0 0px; }
+  50%       { translate: 0 16px; }
 }
 /* Mobile variants — gentler tilt */
 @keyframes hcFloat1Mob {
-  0%, 100% { transform: rotate(-3deg) translateY(0px); }
-  50%       { transform: rotate(-3deg) translateY(-8px); }
+  0%, 100% { translate: 0 0px; }
+  50%       { translate: 0 -8px; }
 }
 @keyframes hcFloat2Mob {
-  0%, 100% { transform: rotate(2deg) translateY(-4px); }
-  50%       { transform: rotate(2deg) translateY(4px); }
+  0%, 100% { translate: 0 0px; }
+  50%       { translate: 0 8px; }
 }
 @keyframes hcFloat3Mob {
-  0%, 100% { transform: rotate(3deg) translateY(0px); }
-  50%       { transform: rotate(3deg) translateY(-8px); }
+  0%, 100% { translate: 0 0px; }
+  50%       { translate: 0 -8px; }
 }
 @keyframes hcFloat4Mob {
-  0%, 100% { transform: rotate(-2deg) translateY(-3px); }
-  50%       { transform: rotate(-2deg) translateY(5px); }
+  0%, 100% { translate: 0 0px; }
+  50%       { translate: 0 8px; }
 }
 
 /* ─── Hero 3-column layout ──────────────────────────────────── */
@@ -711,11 +721,11 @@ ul.dot-list li strong { color: var(--text-primary); }
 }
 .hero-cards--left {
   align-items: flex-end;
-  animation: fadeLeft 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+  animation: slideLeft 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
 }
 .hero-cards--right {
   align-items: flex-start;
-  animation: fadeRight 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+  animation: slideRight 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
 }
 
 /* ─── Hero card base ────────────────────────────────────────── */
@@ -729,19 +739,26 @@ ul.dot-list li strong { color: var(--text-primary); }
               inset 0 1px 0 rgba(255,255,255,0.08);
   color: #fff;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .hero-cards--left .hero-card:nth-child(1) {
-  animation: hcFloat1 6s   ease-in-out       infinite backwards;
+  rotate: -7deg;
+  animation: hcFloat1 6s   ease-in-out       infinite;
 }
 .hero-cards--left .hero-card:nth-child(2) {
-  animation: hcFloat2 7.5s ease-in-out 1.2s  infinite backwards;
+  rotate: 5deg;
+  animation: hcFloat2 7.5s ease-in-out 1.2s  infinite;
 }
 .hero-cards--right .hero-card:nth-child(1) {
-  animation: hcFloat3 8s   ease-in-out 0.6s  infinite backwards;
+  rotate: 6deg;
+  animation: hcFloat3 8s   ease-in-out 0.6s  infinite;
 }
 .hero-cards--right .hero-card:nth-child(2) {
-  animation: hcFloat4 6.5s ease-in-out 2s    infinite backwards;
+  rotate: -5deg;
+  animation: hcFloat4 6.5s ease-in-out 2s    infinite;
 }
 
 /* Card inner parts */
@@ -1026,6 +1043,46 @@ ul.dot-list li strong { color: var(--text-primary); }
 .hero-scroll-hint i {
   font-size: 1rem;
   animation: scrollBounce 2s ease-in-out 1.5s infinite;
+}
+
+/* ─── Trust Bar ──────────────────────────────────────────────── */
+.trust-bar {
+  background: #ffffff;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+}
+.trust-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.trust-item i {
+  color: var(--brand-primary);
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+.trust-divider {
+  width: 1px;
+  height: 18px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .trust-bar-inner { justify-content: center; flex-wrap: wrap; gap: 4px; }
+  .trust-divider { display: none; }
 }
 
 /* ─── Problem Section ────────────────────────────────────────── */
@@ -1488,6 +1545,73 @@ ul.dot-list li strong { color: var(--text-primary); }
 }
 .role-card .eyebrow { margin-bottom: 8px; }
 .role-card h3 { font-size: 0.97rem; font-weight: 700; margin-bottom: 6px; }
+
+/* ─── Testimonial Section ────────────────────────────────────── */
+.section-testimonial {
+  padding: 80px 0;
+  background: var(--bg-base);
+}
+.testimonial-card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--bg-container);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 48px 52px;
+  text-align: center;
+}
+.testimonial-stars {
+  color: var(--brand-primary);
+  font-size: 1.1rem;
+  letter-spacing: 4px;
+  margin-bottom: 24px;
+}
+.testimonial-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.18rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+  margin: 0 0 32px;
+  quotes: none;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--brand-primary-light);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+.testimonial-meta {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 2px;
+}
+.testimonial-meta strong {
+  font-size: 0.93rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+.testimonial-meta span {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+@media (max-width: 640px) {
+  .testimonial-card { padding: 32px 24px; }
+  .testimonial-quote { font-size: 1rem; }
+}
 
 /* ─── CTA Section ────────────────────────────────────────────── */
 .section-cta {
