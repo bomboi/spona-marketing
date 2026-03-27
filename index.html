@@ -559,39 +559,6 @@
               Uredno odštampana faktura s tvojim logom — profesionalno, bez muke
             </span>
           </div>
-          <div class="app-mockup">
-            <div class="am-body">
-              <div class="am-tabs">
-                <span class="am-tab active">Sve (24)</span>
-                <span class="am-tab" style="color:#dc3545;">Neplaćeno (3)</span>
-                <span class="am-tab">Plaćeno (21)</span>
-              </div>
-              <div class="am-order-row">
-                <span class="am-order-status placeno">Plaćeno</span>
-                <div style="flex:1;min-width:0;">
-                  <div class="am-order-name">F-2026-042 · Popović Gradnja</div>
-                  <div style="font-size:0.6rem;color:var(--text-tertiary);">Plaćeno 12.6.2026.</div>
-                </div>
-                <span class="am-order-amt">375.000</span>
-              </div>
-              <div class="am-order-row" style="background:rgba(220,53,69,0.03);border-radius:6px;">
-                <span class="am-order-status" style="background:rgba(220,53,69,0.12);color:#dc3545;">Nije plaćeno</span>
-                <div style="flex:1;min-width:0;">
-                  <div class="am-order-name">F-2026-041 · Janković Trgovina</div>
-                  <div style="font-size:0.6rem;color:#dc3545;">Dospela 8.6.2026.</div>
-                </div>
-                <span class="am-order-amt" style="color:#dc3545;">88.000</span>
-              </div>
-              <div class="am-order-row">
-                <span class="am-order-status placeno">Plaćeno</span>
-                <div style="flex:1;min-width:0;">
-                  <div class="am-order-name">F-2026-040 · Luka Andrić</div>
-                  <div style="font-size:0.6rem;color:var(--text-tertiary);">Plaćeno 5.6.2026.</div>
-                </div>
-                <span class="am-order-amt">120.000</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -699,13 +666,56 @@
             <li><strong>Ko od radnika šta uradi</strong> — bez ispitivanja</li>
           </ul>
         </div>
-        <div>
-          <div class="mockup-box" style="min-height:320px;">
-            <img src="LandingPage/statistics.png" alt="Pregled poslovanja">
-            <span class="m-label">
-              <strong>Pregled poslovanja</strong>
-              Odmah vidiš gde si u plusu i šta se dobro prodaje
-            </span>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <!-- KPI + chart mockup -->
+          <div class="app-mockup">
+            <div class="am-body">
+              <div class="am-stats-row">
+                <div class="am-stat-block">
+                  <div class="am-stat-val">142.500</div>
+                  <div class="am-stat-lbl">Zarada<br>ovaj mesec</div>
+                  <div class="am-stat-up"><i class="bi bi-arrow-up"></i> +18%</div>
+                </div>
+                <div class="am-stat-block">
+                  <div class="am-stat-val">37</div>
+                  <div class="am-stat-lbl">Porudžbine<br>ovaj mesec</div>
+                  <div class="am-stat-up"><i class="bi bi-arrow-up"></i> +5</div>
+                </div>
+                <div class="am-stat-block">
+                  <div class="am-stat-val">Nikolić d.o.o.</div>
+                  <div class="am-stat-lbl">Top kupac<br>ovaj mesec</div>
+                </div>
+              </div>
+              <div class="am-chart">
+                <div class="am-chart-label">Zarada — poslednjih 6 meseci (RSD)</div>
+                <div class="am-chart-bars">
+                  <div class="am-bar-wrap"><div class="am-bar-fill" style="--h:45%"></div><span>Jan</span></div>
+                  <div class="am-bar-wrap"><div class="am-bar-fill" style="--h:58%"></div><span>Feb</span></div>
+                  <div class="am-bar-wrap"><div class="am-bar-fill" style="--h:50%"></div><span>Mar</span></div>
+                  <div class="am-bar-wrap"><div class="am-bar-fill" style="--h:70%"></div><span>Apr</span></div>
+                  <div class="am-bar-wrap"><div class="am-bar-fill" style="--h:82%"></div><span>Maj</span></div>
+                  <div class="am-bar-wrap"><div class="am-bar-fill active" style="--h:100%"></div><span>Jun</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Top products mockup -->
+          <div class="app-mockup">
+            <div class="am-body">
+              <div class="am-section-label">Najprodavaniji artikli</div>
+              <div class="am-order-row">
+                <div class="am-order-name">Prozor ALU 120×140</div>
+                <div class="am-order-amt">41.200 RSD</div>
+              </div>
+              <div class="am-order-row">
+                <div class="am-order-name">Vrata PVC 90×210</div>
+                <div class="am-order-amt">28.500 RSD</div>
+              </div>
+              <div class="am-order-row">
+                <div class="am-order-name">Montaža i ugradnja</div>
+                <div class="am-order-amt">18.000 RSD</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1025,15 +1035,11 @@
         </div>
         <div class="faq-item reveal">
           <button class="faq-q">Da li moram da instaliram nešto?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
-          <div class="faq-a"><p>Ne. Spona je cloud aplikacija koju koristiš direktno iz browsera. Nema instalacije, nema ažuriranja — uvek si na najnovijoj verziji.</p></div>
+          <div class="faq-a"><p>Ne. Spona je internet aplikacija koju koristiš direktno iz browsera. Nema instalacije, nema ažuriranja — uvek si na najnovijoj verziji.</p></div>
         </div>
         <div class="faq-item reveal">
           <button class="faq-q">Kako počinjem?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
-          <div class="faq-a"><p>Registruj se, unesite podatke o firmi i za manje od 5 minuta si spreman za rad. Vodiće te kroz svaki korak onboarding procesa.</p></div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-q">Koji korisnički uloge postoje?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
-          <div class="faq-a"><p>Postoje dve uloge: <strong>Admin</strong> koji ima pun pristup svim funkcijama, i <strong>Radnik</strong> koji može pregledati i raditi sa dodeljenim podacima.</p></div>
+          <div class="faq-a"><p>Registruj se, unesite podatke o firmi i spreman si za rad. Vodićemo te kroz svaki korak procesa.</p></div>
         </div>
         <div class="faq-item reveal">
           <button class="faq-q">Da li su moji podaci bezbedni?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
@@ -1041,7 +1047,7 @@
         </div>
         <div class="faq-item reveal">
           <button class="faq-q">Kakva podrška je dostupna?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
-          <div class="faq-a"><p>Dostupan je email i live chat. Starter plan ima standardnu email podršku, dok Standard i Pro planovi imaju prioritetni pristup sa kraćim vremenom odgovora.</p></div>
+          <div class="faq-a"><p>Dostupan je email i telefon. Starter plan ima standardnu email podršku, dok Standard i Pro planovi imaju prioritetni pristup sa kraćim vremenom odgovora.</p></div>
         </div>
         <div class="faq-item reveal">
           <button class="faq-q">Mogu li da otkažem pretplatu u bilo kom trenutku?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
