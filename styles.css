@@ -1874,6 +1874,43 @@ footer {
   padding: 96px 0;
 }
 
+.pricing-toggle {
+  width: fit-content;
+  margin: 0 auto 32px;
+  padding: 6px;
+  background: #f4f5f6;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 999px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pricing-toggle-btn {
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background var(--transition-base), color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.pricing-toggle-btn span {
+  color: var(--brand-primary-dark);
+}
+
+.pricing-toggle-btn.active {
+  background: #ffffff;
+  color: var(--text-primary);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1971,6 +2008,35 @@ footer {
 .pricing-card.popular .pricing-price {
   color: var(--brand-primary-dark);
 }
+
+.pricing-value-yearly {
+  display: none;
+}
+
+.section-pricing[data-billing='yearly'] .pricing-value-monthly {
+  display: none;
+}
+
+.section-pricing[data-billing='yearly'] .pricing-value-yearly {
+  display: inline;
+}
+
+.pricing-price .pricing-value {
+  display: inline-block;
+}
+
+.pricing-price .pricing-value-yearly {
+  display: none;
+}
+
+.section-pricing[data-billing='yearly'] .pricing-price .pricing-value-yearly {
+  display: inline-block;
+}
+
+.section-pricing[data-billing='yearly'] .pricing-price .pricing-value-monthly {
+  display: none;
+}
+
 .pricing-price sup {
   font-size: 1.2rem;
   font-weight: 700;
@@ -1981,8 +2047,22 @@ footer {
 .pricing-per {
   font-size: 0.72rem;
   color: var(--text-tertiary);
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   letter-spacing: 0.01em;
+}
+
+.pricing-meta {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-bottom: 18px;
+  min-height: 1.45em;
+}
+
+.pricing-old-price {
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  color: var(--text-tertiary);
 }
 
 .pricing-desc {
@@ -2031,6 +2111,11 @@ footer {
   margin-top: 32px;
   font-size: 0.82rem;
   color: var(--text-tertiary);
+}
+.pricing-custom-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
 }
 .pricing-note a {
   color: var(--brand-primary);

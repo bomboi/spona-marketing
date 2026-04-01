@@ -237,34 +237,39 @@ style: |
 
   /* ── Problem cards ───────────────────────────────────── */
   .problem-card {
-    background: rgba(220,53,69,0.06);
+    background: #ffffff;
     border-radius: 1rem;
     padding: 24px 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border: 1px solid rgba(0,0,0,0.07);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
   }
   .problem-card .p-icon {
-    width: 52px;
-    height: 52px;
-    background: rgba(220,53,69,0.1);
-    border-radius: 14px;
+    width: 48px;
+    height: 48px;
+    background: rgba(2,204,129,0.10);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.5rem;
+    color: var(--brand-primary);
     margin-bottom: 4px;
   }
-  .p-icon .bi { font-size: 1.5rem; color: var(--error); }
-  .problem-card h3 { color: var(--text-primary); font-size: 0.95rem; margin: 0; line-height: 1.35; }
-  .problem-card p { color: var(--text-secondary); font-size: 0.82rem; margin: 0; line-height: 1.5; }
+  .p-icon .bi { font-size: 1.5rem; color: var(--brand-primary); }
+  .problem-card h3 { color: var(--text-primary); font-size: 0.95rem; margin: 0; line-height: 1.35; font-weight: 700; }
+  .problem-card p { color: var(--text-secondary); font-size: 0.82rem; margin: 0; line-height: 1.6; }
   .problem-card .pquote {
     font-style: italic;
-    color: var(--error);
-    background: rgba(220,53,69,0.06);
-    border-radius: 0.5rem;
-    padding: 7px 12px;
-    font-size: 0.78rem;
-    line-height: 1.4;
+    color: var(--text-tertiary);
+    background: rgba(255,255,255,0.75);
+    border-left: 3px solid rgba(2,204,129,0.5);
+    border-radius: 0 4px 4px 0;
+    padding: 6px 10px;
+    font-size: 0.79rem;
+    line-height: 1.5;
     margin: 0;
   }
 
@@ -442,9 +447,9 @@ style: |
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 24px;
-    background: var(--bg-container);
+    background: transparent;
     border-radius: 1.5rem;
-    padding: 32px;
+    padding: 0;
     margin-top: 28px;
   }
   .stat-item { text-align: center; }
@@ -454,24 +459,122 @@ style: |
     font-weight: 800;
     color: var(--brand-primary);
     line-height: 1;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    letter-spacing: -0.03em;
   }
   .stat-unit {
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--brand-primary);
+    color: rgba(2,204,129,0.65);
     margin-left: 2px;
   }
   .stat-label {
-    font-size: 0.78rem;
-    color: var(--text-secondary);
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
     font-weight: 500;
-    margin-top: 6px;
+    margin-top: 8px;
   }
   .stat-meta {
-    font-size: 0.72rem;
-    color: var(--text-secondary);
-    margin-top: 4px;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.38);
+    font-weight: 500;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
   }
+
+  /* ── App mockup components ───────────────────────────── */
+  .app-mockup {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.07);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.04), 0 16px 40px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+  }
+  .app-mockup + .app-mockup { margin-top: 14px; }
+  .am-body { padding: 18px 16px 16px; display: flex; flex-direction: column; gap: 0; }
+  .am-stats-row { display: flex; gap: 8px; margin-bottom: 10px; }
+  .am-stat-block { flex: 1; background: var(--bg-container); border-radius: 10px; padding: 10px 10px 8px; }
+  .am-stat-val { font-size: 1rem; font-weight: 800; color: var(--text-primary); line-height: 1.1; letter-spacing: -0.02em; }
+  .am-stat-lbl { font-size: 0.6rem; color: var(--text-tertiary); margin-top: 3px; line-height: 1.3; }
+  .am-stat-up  { font-size: 0.62rem; font-weight: 600; color: var(--brand-primary); margin-top: 4px; }
+  .am-chart { background: var(--bg-container); border-radius: 10px; padding: 10px 12px 12px; margin-bottom: 10px; }
+  .am-chart-label { font-size: 0.58rem; font-weight: 700; color: var(--text-tertiary); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+  .am-chart-bars { display: flex; align-items: stretch; gap: 5px; height: 48px; }
+  .am-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; justify-content: flex-end; }
+  .am-bar-fill { width: 100%; height: var(--h, 40%); background: rgba(2,204,129,0.18); border-radius: 3px 3px 0 0; }
+  .am-bar-fill.active { background: var(--brand-primary); box-shadow: 0 0 10px rgba(2,204,129,0.45); }
+  .am-bar-wrap > span { font-size: 0.56rem; color: var(--text-tertiary); }
+  .am-section-label { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin: 8px 0 4px; }
+  .am-order-row { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .am-order-row:last-child { border-bottom: none; }
+  .am-order-status { font-size: 0.58rem; font-weight: 700; padding: 2px 7px; border-radius: 100px; letter-spacing: 0.03em; white-space: nowrap; flex-shrink: 0; }
+  .am-order-status.novo   { background: rgba(2,204,129,0.14); color: var(--brand-primary); }
+  .am-order-status.uradu  { background: rgba(255,186,0,0.14);  color: #a07000; }
+  .am-order-status.gotovo { background: rgba(0,0,0,0.05);      color: var(--text-secondary); }
+  .am-order-name { flex: 1; font-size: 0.73rem; font-weight: 500; color: var(--text-primary); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .am-order-amt  { font-size: 0.73rem; font-weight: 700; color: var(--text-primary); white-space: nowrap; }
+  .am-cust-row { display: flex; align-items: center; gap: 9px; padding: 7px 6px; border-radius: 8px; cursor: default; }
+  .am-cust-row.active { background: rgba(2,204,129,0.07); outline: 1px solid rgba(2,204,129,0.2); }
+  .am-cust-av { width: 32px; height: 32px; border-radius: 50%; background: var(--av, linear-gradient(135deg,rgba(2,204,129,0.7),rgba(1,120,77,0.9))); display: flex; align-items: center; justify-content: center; font-size: 0.62rem; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .am-cust-info { flex: 1; min-width: 0; }
+  .am-cust-name { font-size: 0.73rem; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .am-cust-sub  { font-size: 0.6rem; color: var(--text-tertiary); }
+  .am-product-row { display: flex; align-items: center; gap: 10px; padding: 8px 4px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .am-product-row:last-child { border-bottom: none; }
+  .am-product-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--brand-primary-light); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .am-product-info { flex: 1; min-width: 0; }
+  .am-product-name  { font-size: 0.73rem; font-weight: 600; color: var(--text-primary); }
+  .am-product-price { font-size: 0.75rem; font-weight: 700; color: var(--brand-primary-dark); white-space: nowrap; }
+  .am-team-row { display: flex; align-items: center; gap: 9px; padding: 7px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .am-team-row:last-child { border-bottom: none; }
+  .am-role-badge { font-size: 0.58rem; font-weight: 700; padding: 2px 8px; border-radius: 100px; letter-spacing: 0.03em; white-space: nowrap; flex-shrink: 0; }
+  .am-role-badge.admin      { background: rgba(2,204,129,0.14); color: var(--brand-primary); }
+  .am-role-badge.poslovodja { background: rgba(255,186,0,0.14);  color: #a07000; }
+  .am-role-badge.radnik     { background: rgba(0,0,0,0.06);      color: var(--text-secondary); }
+  .am-perm-table { width: 100%; border-collapse: collapse; font-size: 0.68rem; }
+  .am-perm-table th { padding: 4px 6px; text-align: center; font-weight: 600; }
+  .am-perm-table th:first-child { text-align: left; }
+  .am-perm-table td { padding: 6px 6px; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-secondary); text-align: center; }
+  .am-perm-table td:first-child { text-align: left; font-size: 0.68rem; }
+  .am-perm-table tr:last-child td { border-bottom: none; }
+  .am-check { color: var(--brand-primary); font-size: 0.9rem; }
+  .am-dash  { color: var(--brand-secondary); font-size: 0.9rem; }
+  .am-cross { color: #dc3545; font-size: 0.9rem; opacity: 0.5; }
+  .am-form-field { margin-bottom: 8px; }
+  .am-field-label { font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-tertiary); margin-bottom: 4px; }
+  .am-field-val { background: var(--bg-container); border-radius: 8px; padding: 7px 10px; font-size: 0.73rem; color: var(--text-primary); font-weight: 500; display: flex; align-items: center; gap: 6px; }
+  .am-field-selected { border: 1px solid rgba(2,204,129,0.4); background: rgba(2,204,129,0.06); }
+  .am-item-row { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .am-item-row:last-child { border-bottom: none; }
+  .am-item-info { flex: 1; min-width: 0; }
+  .am-item-qty { font-size: 0.65rem; font-weight: 600; color: var(--text-tertiary); background: var(--bg-container); padding: 2px 8px; border-radius: 6px; white-space: nowrap; }
+  .am-divider-line { height: 1px; background: rgba(0,0,0,0.07); margin: 8px 0; }
+  .am-tabs { display: flex; gap: 5px; margin-bottom: 10px; flex-wrap: wrap; }
+  .am-tab { font-size: 0.62rem; font-weight: 600; padding: 3px 9px; border-radius: 100px; background: var(--bg-container); color: var(--text-secondary); white-space: nowrap; }
+  .am-tab.active { background: rgba(2,204,129,0.12); color: var(--brand-primary); }
+
+  /* ── Testimonial ─────────────────────────────────────── */
+  .testimonial-card { background: var(--bg-container); border-radius: 1.5rem; padding: 32px 36px; max-width: 800px; margin: 0 auto; }
+  .testimonial-stars { color: var(--brand-secondary); font-size: 1rem; margin-bottom: 16px; letter-spacing: 3px; }
+  .testimonial-quote { font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; color: var(--text-primary); line-height: 1.7; margin: 0 0 20px; border: none; padding: 0; background: none; }
+  .testimonial-author { display: flex; align-items: center; gap: 14px; }
+  .testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--brand-primary-light); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--brand-primary); flex-shrink: 0; }
+  .testimonial-meta strong { display: block; font-size: 0.88rem; color: var(--text-primary); font-weight: 700; }
+  .testimonial-meta span { font-size: 0.78rem; color: var(--text-tertiary); }
+
+  /* ── Trust bar ───────────────────────────────────────── */
+  .trust-bar-inner { display: flex; align-items: center; justify-content: center; gap: 0; }
+  .trust-item { display: flex; align-items: center; gap: 8px; padding: 8px 20px; font-size: 0.82rem; font-weight: 500; color: var(--text-secondary); }
+  .trust-item .bi { color: var(--brand-primary); font-size: 0.95rem; }
+  .trust-divider { width: 1px; height: 18px; background: rgba(0,0,0,0.1); flex-shrink: 0; }
 
   /* ── Quote ───────────────────────────────────────────── */
   .quote {
@@ -521,6 +624,27 @@ style: |
   }
   .step-duration.active { background: var(--brand-primary); color: #0a2a1c; }
 
+  .step-node-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--brand-primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: var(--brand-primary);
+    margin: 0 auto 10px;
+    box-shadow: 0 4px 16px rgba(2,204,129,0.12);
+  }
+  .step-node-icon.active {
+    background: var(--brand-primary);
+    border-color: var(--brand-primary);
+    color: white;
+    box-shadow: 0 6px 24px rgba(2,204,129,0.38);
+  }
+
   .support-strip {
     background: var(--bg-container);
     border-radius: 1rem;
@@ -562,7 +686,7 @@ style: |
   .no-install-strip .eyebrow { color: rgba(2,204,129,0.8); margin-bottom: 6px; }
   .no-install-strip strong { color: #ffffff; font-size: 0.9rem; }
 
-  /* ── Pricing ─────────────────────────────────────────── */
+  /* ── Pricing (mirroring index.html styling) ──────────── */
   .pricing-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -570,80 +694,65 @@ style: |
     align-items: stretch;
     margin-top: 20px;
   }
-  .price-card {
-    border-radius: 1rem;
-    padding: 22px 18px;
+  .pricing-card {
+    background: #ffffff;
+    border-radius: 1.25rem;
+    padding: 28px 22px 24px;
+    border: 1.5px solid rgba(0,0,0,0.09);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
     display: flex;
     flex-direction: column;
-    background: var(--bg-container);
-    border: 1.5px solid #e2e8f0;
   }
-  .price-card--popular {
-    background: var(--bg-overlay);
-    border-color: var(--brand-primary);
-    border-width: 2px;
+  .pricing-card.popular {
+    background: #f4fdf9;
+    border-color: rgba(2,204,129,0.40);
+    box-shadow: 0 12px 48px rgba(2,204,129,0.16), 0 4px 16px rgba(0,0,0,0.07);
   }
-  .price-badge {
-    display: inline-block;
-    background: var(--brand-primary);
-    color: #0a2a1c;
-    border-radius: 100px;
-    padding: 2px 10px;
-    font-size: 0.58rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    align-self: flex-start;
-  }
-  .price-name {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--brand-primary);
-    margin-bottom: 6px;
-  }
-  .price-card--popular .price-name { color: rgba(255,255,255,0.45); }
-  .price-amount {
-    font-family: var(--font-sans);
-    font-size: 1.9rem;
+  .pricing-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(2,204,129,0.15);
+    color: var(--brand-primary-dark);
+    font-size: 0.6rem;
     font-weight: 800;
-    line-height: 1;
-    color: var(--text-primary);
-    letter-spacing: -0.02em;
-    margin-bottom: 2px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+    width: fit-content;
+    border: 1px solid rgba(2,204,129,0.25);
   }
-  .price-card--popular .price-amount { color: #ffffff; }
-  .price-period {
-    font-size: 0.66rem;
-    color: var(--text-tertiary);
-    margin-bottom: 8px;
-  }
-  .price-card--popular .price-period { color: rgba(255,255,255,0.35); }
-  .price-desc {
+  .pricing-plan {
     font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--text-secondary);
-    margin-bottom: 12px;
-    line-height: 1.4;
+    margin-bottom: 10px;
   }
-  .price-card--popular .price-desc { color: rgba(255,255,255,0.55); }
-  .price-divider {
-    border: none;
-    border-top: 1px solid #e2e8f0;
-    margin: 10px 0 12px;
+  .pricing-price {
+    font-family: var(--font-sans);
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 4px;
+    letter-spacing: -0.04em;
   }
-  .price-card--popular .price-divider { border-color: rgba(255,255,255,0.12); }
-  .price-list { flex: 1; }
-  .price-list li { font-size: 0.76rem; padding: 3px 0 3px 20px; }
-  .price-card--popular .price-list li { color: rgba(255,255,255,0.7); }
-  .price-card--popular .price-list li::before { background: var(--brand-primary); }
-  .price-footnote {
-    text-align: center;
-    font-size: 0.72rem;
-    color: var(--text-tertiary);
-    margin-top: 14px;
-  }
+  .pricing-card.popular .pricing-price { color: var(--brand-primary-dark); }
+  .pricing-price sup { font-size: 1rem; font-weight: 700; vertical-align: super; margin-right: 3px; }
+  .pricing-per { font-size: 0.68rem; color: var(--text-tertiary); margin-bottom: 14px; }
+  .pricing-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid rgba(0,0,0,0.06); flex-shrink: 0; }
+  .pricing-features { list-style: none; padding: 0; margin: 0 0 20px; flex: 1; }
+  .pricing-features li { display: flex; align-items: flex-start; gap: 8px; padding: 5px 0; font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+  .pricing-features li::before { display: none; }
+  .pricing-features li .bi { color: var(--brand-primary); font-size: 0.88rem; flex-shrink: 0; margin-top: 2px; }
+  .pricing-cta { display: block; width: 100%; text-align: center; border-radius: 100px; padding: 11px 20px; font-size: 0.85rem; font-weight: 700; cursor: pointer; border: none; margin-top: auto; }
+  .pricing-cta.primary { background: var(--brand-primary); color: #fff; }
+  .pricing-cta.outline { background: transparent; border: 1.5px solid rgba(0,0,0,0.15); color: var(--text-primary); }
+  .pricing-note { text-align: center; margin-top: 16px; font-size: 0.78rem; color: var(--text-tertiary); }
 
   /* ── FAQ ─────────────────────────────────────────────── */
   .faq-item {
@@ -694,17 +803,18 @@ style: |
 
 <img src="../logos/iOS App icon - 1 - horizontal.png" class="brand-logo">
 
-<div class="eyebrow" style="margin-top:28px;">Tvoj posao, pod kontrolom.</div>
+<div class="eyebrow" style="margin-top:28px;">Tvoj biznis, pod kontrolom.</div>
 
-<h1>Tvoj posao —<br><em>red i mirna glava.</em></h1>
+<h1>Tvoj biznis<br><em>red i mirna glava.</em></h1>
 
-<p class="subtitle">Sve na jednom mestu — kupci, narudžbine, fakture i pregled zarade.</p>
+<p class="subtitle">Program za porudžbine, fakture i kupce — sve na jednom mestu, za male firme u Srbiji.</p>
 
-<div style="display:flex;gap:12px;">
-<span class="pill"><i class="bi bi-people-fill"></i> Kupci</span>
-<span class="pill"><i class="bi bi-box-seam"></i> Porudžbine</span>
-<span class="pill"><i class="bi bi-receipt"></i> Fakture</span>
-<span class="pill"><i class="bi bi-graph-up-arrow"></i> Zarada</span>
+<div class="trust-bar-inner" style="margin-top:20px;justify-content:flex-start;gap:20px;">
+<div class="trust-item"><i class="bi bi-gift"></i> <span>14 dana besplatno — bez kartice</span></div>
+<div class="trust-divider"></div>
+<div class="trust-item"><i class="bi bi-flag-fill"></i> <span>Napravljeno u Srbiji, za srpske firme</span></div>
+<div class="trust-divider"></div>
+<div class="trust-item"><i class="bi bi-x-circle"></i> <span>Otkaži kad hoćeš, bez penala</span></div>
 </div>
 
 ---
@@ -769,10 +879,29 @@ style: |
 </div>
 <div>
 
-<div class="screenshot">
-  <div class="icon"><i class="bi bi-display"></i></div>
-  <strong>Glavni pregled</strong>
-  Sve najvažnije na jednom ekranu — odmah vidiš kako stoji posao
+<div class="app-mockup">
+<div class="am-body">
+<div class="am-stats-row">
+<div class="am-stat-block"><div class="am-stat-val">1,5M</div><div class="am-stat-lbl">Zarada<br>ovaj mesec</div><div class="am-stat-up"><i class="bi bi-arrow-up"></i> +14%</div></div>
+<div class="am-stat-block"><div class="am-stat-val">42</div><div class="am-stat-lbl">Porudžbina</div></div>
+<div class="am-stat-block"><div class="am-stat-val">8</div><div class="am-stat-lbl">Kupaca</div></div>
+</div>
+<div class="am-chart">
+<div class="am-chart-label">Zarada — poslednjih 6 meseci</div>
+<div class="am-chart-bars">
+<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:55%"></div><span>Jan</span></div>
+<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:42%"></div><span>Feb</span></div>
+<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:68%"></div><span>Mar</span></div>
+<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:50%"></div><span>Apr</span></div>
+<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:75%"></div><span>Maj</span></div>
+<div class="am-bar-wrap"><div class="am-bar-fill active" style="--h:100%"></div><span>Jun</span></div>
+</div>
+</div>
+<div class="am-section-label">Poslednje porudžbine</div>
+<div class="am-order-row"><span class="am-order-status novo">Novo</span><span class="am-order-name">Popović Gradnja</span><span class="am-order-amt">375.000</span></div>
+<div class="am-order-row"><span class="am-order-status uradu">U izradi</span><span class="am-order-name">Janković Trgovina</span><span class="am-order-amt">88.000</span></div>
+<div class="am-order-row"><span class="am-order-status gotovo">Gotovo</span><span class="am-order-name">Luka Andrić</span><span class="am-order-amt">120.000</span></div>
+</div>
 </div>
 
 </div>
@@ -790,22 +919,22 @@ style: |
 
 <div class="stat-item">
 <div class="stat-big">30<span class="stat-unit">sek</span></div>
-<div class="stat-label"><i class="bi bi-receipt"></i> Faktura od porudžbine do PDF-a</div>
+<div class="stat-meta"><i class="bi bi-receipt"></i> Faktura od porudžbine do PDF-a</div>
 </div>
 
 <div class="stat-item">
-<div class="stat-big">100<span class="stat-unit">%</span></div>
-<div class="stat-label"><i class="bi bi-shield-fill-check"></i> Sigurni podaci</div>
+<div class="stat-big">14<span class="stat-unit">dana</span></div>
+<div class="stat-meta"><i class="bi bi-gift"></i> Besplatno — bez kartice</div>
 </div>
 
 <div class="stat-item">
-<div class="stat-big">3<span class="stat-unit"> uloge</span></div>
-<div class="stat-label"><i class="bi bi-people-fill"></i> Admin, Poslovođa, Radnik</div>
+<div class="stat-big">3<span class="stat-unit">uloge</span></div>
+<div class="stat-meta"><i class="bi bi-people-fill"></i> Admin, Poslovođa, Radnik</div>
 </div>
 
 <div class="stat-item">
-<div class="stat-big">0<span class="stat-unit"> inst.</span></div>
-<div class="stat-label"><i class="bi bi-globe2"></i> Radi u svakom pretraživaču</div>
+<div class="stat-big">2022<span class="stat-unit">.</span></div>
+<div class="stat-meta"><i class="bi bi-flag-fill"></i> Napravljeno u Srbiji</div>
 </div>
 
 </div>
@@ -849,18 +978,44 @@ Da uvek znaš šta si se s kim dogovorio — čak i za godinu dana.
 </div>
 <div style="display:flex;flex-direction:column;gap:14px;">
 
-<div class="mockup-box">
-<img src="../LandingPage/users.png" alt="Pregled kupaca">
-<div class="m-cap">
-<strong>Pregled kupaca</strong>
-Jasna lista svih kupaca — nađeš koga treba za par sekundi
+<div class="app-mockup">
+<div class="am-body">
+<div class="am-cust-row active">
+<div class="am-cust-av">MP</div>
+<div class="am-cust-info"><div class="am-cust-name">Marko Popović</div><div class="am-cust-sub">47 porudžbina</div></div>
+<i class="bi bi-chevron-right" style="color:var(--brand-primary);font-size:0.72rem;"></i>
+</div>
+<div class="am-cust-row">
+<div class="am-cust-av" style="--av:linear-gradient(135deg,#667eea,#764ba2)">JT</div>
+<div class="am-cust-info"><div class="am-cust-name">Janković Trgovina</div><div class="am-cust-sub">31 porudžbina</div></div>
+<i class="bi bi-chevron-right" style="color:var(--text-tertiary);font-size:0.72rem;"></i>
+</div>
+<div class="am-cust-row">
+<div class="am-cust-av" style="--av:linear-gradient(135deg,#f093fb,#f5576c)">MM</div>
+<div class="am-cust-info"><div class="am-cust-name">Mila Marković</div><div class="am-cust-sub">12 porudžbina</div></div>
+<i class="bi bi-chevron-right" style="color:var(--text-tertiary);font-size:0.72rem;"></i>
+</div>
 </div>
 </div>
 
-<div class="screenshot">
-  <div class="icon"><i class="bi bi-person-fill"></i></div>
-  <strong>Kartica kupca</strong>
-  Sve porudžbine, dugovanja i beleške za jednog kupca
+<div class="app-mockup">
+<div class="am-body">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+<div class="am-cust-av" style="width:40px;height:40px;font-size:0.78rem;">MP</div>
+<div>
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-primary);">Marko Popović</div>
+<div style="font-size:0.65rem;color:var(--text-tertiary);">Popović Gradnja · Veleprodaja</div>
+</div>
+<div style="margin-left:auto;font-size:0.65rem;font-weight:700;color:var(--brand-primary);"><i class="bi bi-circle-fill" style="font-size:0.5rem;"></i> Aktivan</div>
+</div>
+<div class="am-stats-row" style="margin-bottom:8px;">
+<div class="am-stat-block" style="text-align:center;"><div class="am-stat-val">47</div><div class="am-stat-lbl">Porudžbina</div></div>
+<div class="am-stat-block" style="text-align:center;"><div class="am-stat-val" style="font-size:0.85rem;">975.000</div><div class="am-stat-lbl">Ukupno RSD</div></div>
+</div>
+<div class="am-section-label">Istorija porudžbina</div>
+<div class="am-order-row"><span class="am-order-status gotovo">Isporučeno</span><span class="am-order-name">#0041 — Prozori ALU</span><span class="am-order-amt">280.000</span></div>
+<div class="am-order-row"><span class="am-order-status novo">Novo</span><span class="am-order-name">#0042 — Montaža i isporuka</span><span class="am-order-amt">375.000</span></div>
+</div>
 </div>
 
 </div>
@@ -905,16 +1060,58 @@ Da radnik ne mora da te zove deset puta dnevno da pita šta da radi.
 </div>
 <div style="display:flex;flex-direction:column;gap:14px;">
 
-<div class="screenshot">
-  <div class="icon"><i class="bi bi-box-seam"></i></div>
-  <strong>Pregled porudžbina</strong>
-  Vidiš sve porudžbine — šta čeka, šta je u radu, šta je gotovo
+<div class="app-mockup">
+<div class="am-body">
+<div class="am-tabs">
+<span class="am-tab active">Sve (18)</span>
+<span class="am-tab">Novo (5)</span>
+<span class="am-tab">U izradi (8)</span>
+<span class="am-tab">Isporučeno (5)</span>
+</div>
+<div class="am-order-row">
+<span class="am-order-status novo">Novo</span>
+<div style="flex:1;min-width:0;"><div class="am-order-name">#0042 — Popović Gradnja</div><div style="font-size:0.6rem;color:var(--text-tertiary);">3× Prozori ALU + Montaža</div></div>
+<span class="am-order-amt">375.000</span>
+</div>
+<div class="am-order-row">
+<span class="am-order-status uradu">U izradi</span>
+<div style="flex:1;min-width:0;"><div class="am-order-name">#0041 — Janković Trgovina</div><div style="font-size:0.6rem;color:var(--text-tertiary);">5× Roletne PVC</div></div>
+<span class="am-order-amt">88.000</span>
+</div>
+<div class="am-order-row">
+<span class="am-order-status gotovo">Isporučeno</span>
+<div style="flex:1;min-width:0;"><div class="am-order-name">#0040 — Luka Andrić</div><div style="font-size:0.6rem;color:var(--text-tertiary);">2× Vrata ALU</div></div>
+<span class="am-order-amt">120.000</span>
+</div>
+</div>
 </div>
 
-<div class="screenshot">
-  <div class="icon"><i class="bi bi-pencil"></i></div>
-  <strong>Unos nove porudžbine</strong>
-  Brz unos — odabereš kupca, dodaš artikle, gotovo
+<div class="app-mockup">
+<div class="am-body">
+<div class="am-form-field">
+<div class="am-field-label">Kupac</div>
+<div class="am-field-val am-field-selected">
+<div class="am-cust-av" style="width:22px;height:22px;font-size:0.55rem;">MP</div>
+Marko Popović
+</div>
+</div>
+<div class="am-section-label">Artikli</div>
+<div class="am-item-row">
+<div class="am-item-info"><div style="font-size:0.72rem;font-weight:600;color:var(--text-primary);">Prozor ALU</div><div style="font-size:0.6rem;color:var(--text-tertiary);">56.000 din/kom</div></div>
+<div class="am-item-qty">× 3</div>
+<div style="font-size:0.78rem;font-weight:700;color:var(--text-primary);">168.000</div>
+</div>
+<div class="am-item-row">
+<div class="am-item-info"><div style="font-size:0.72rem;font-weight:600;color:var(--text-primary);">Montaža</div><div style="font-size:0.6rem;color:var(--text-tertiary);">35.000 din/kom</div></div>
+<div class="am-item-qty">× 2</div>
+<div style="font-size:0.78rem;font-weight:700;color:var(--text-primary);">70.000</div>
+</div>
+<div class="am-divider-line"></div>
+<div style="display:flex;justify-content:space-between;align-items:center;">
+<span style="font-size:0.7rem;color:var(--text-secondary);">Ukupno</span>
+<span style="font-size:0.92rem;font-weight:800;color:var(--text-primary);">238.000 RSD</span>
+</div>
+</div>
 </div>
 
 </div>
@@ -964,12 +1161,6 @@ Uredno odštampana faktura s tvojim logom — profesionalno, bez muke
 </div>
 </div>
 
-<div class="screenshot">
-  <div class="icon"><i class="bi bi-list-ul"></i></div>
-  <strong>Pregled faktura</strong>
-  Jasna lista — ko je platio, a ko nije
-</div>
-
 </div>
 </div>
 
@@ -1011,16 +1202,45 @@ Pri unosu porudžbine samo ukucaš par slova — Spona iskoči s artiklom i ceno
 </div>
 <div style="display:flex;flex-direction:column;gap:14px;">
 
-<div class="screenshot">
-  <div class="icon"><i class="bi bi-grid"></i></div>
-  <strong>Cenovnik</strong>
-  Svi tvoji artikli i cene na jednom mestu
+<div class="app-mockup">
+<div class="am-body">
+<div class="am-tabs">
+<span class="am-tab active">Svi (24)</span>
+<span class="am-tab">Prozori</span>
+<span class="am-tab">Vrata</span>
+<span class="am-tab">Usluge</span>
+</div>
+<div class="am-product-row">
+<div class="am-product-icon">🪟</div>
+<div class="am-product-info"><div class="am-product-name">Prozor ALU</div></div>
+<div class="am-product-price">56.000 din</div>
+</div>
+<div class="am-product-row">
+<div class="am-product-icon">🚪</div>
+<div class="am-product-info"><div class="am-product-name">Vrata ALU</div></div>
+<div class="am-product-price">85.000 din</div>
+</div>
+<div class="am-product-row">
+<div class="am-product-icon" style="font-size:0.9rem;">🔧</div>
+<div class="am-product-info"><div class="am-product-name">Montaža</div></div>
+<div class="am-product-price">35.000 din</div>
+</div>
+</div>
 </div>
 
-<div class="screenshot">
-  <div class="icon"><i class="bi bi-tag-fill"></i></div>
-  <strong>Kartica artikla</strong>
-  Varijante, cene i opis — sve na jednom mestu
+<div class="app-mockup">
+<div class="am-body">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+<div class="am-product-icon" style="width:44px;height:44px;font-size:1.5rem;border-radius:12px;">🪟</div>
+<div>
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-primary);">Prozor ALU</div>
+<div style="font-size:0.65rem;color:var(--text-tertiary);">Kategorija: Prozori</div>
+</div>
+</div>
+<div class="am-stats-row" style="margin-bottom:10px;">
+<div class="am-stat-block" style="text-align:center;"><div class="am-stat-val" style="font-size:0.88rem;">56.000 RSD</div></div>
+</div>
+</div>
 </div>
 
 </div>
@@ -1072,11 +1292,33 @@ Bez sabiranja do ponoći — crno na belo vidiš kako stoji posao.
 </div>
 <div>
 
-<div class="mockup-box" style="min-height:260px;">
-<img src="../LandingPage/statistics.png" alt="Pregled poslovanja">
-<div class="m-cap">
-<strong>Pregled poslovanja</strong>
-Odmah vidiš gde si u plusu i šta se dobro prodaje
+<div class="app-mockup">
+<div class="am-body">
+<div class="am-stats-row">
+<div class="am-stat-block"><div class="am-stat-val">142.500</div><div class="am-stat-lbl">Zarada<br>ovaj mesec</div><div class="am-stat-up"><i class="bi bi-arrow-up"></i> +18%</div></div>
+<div class="am-stat-block"><div class="am-stat-val">37</div><div class="am-stat-lbl">Porudžbine<br>ovaj mesec</div><div class="am-stat-up"><i class="bi bi-arrow-up"></i> +5</div></div>
+<div class="am-stat-block"><div class="am-stat-val">Nikolić d.o.o.</div><div class="am-stat-lbl">Top kupac<br>ovaj mesec</div></div>
+</div>
+<div class="am-chart">
+<div class="am-chart-label">Zarada — poslednjih 6 meseci (RSD)</div>
+<div class="am-chart-bars">
+<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:45%"></div><span>Jan</span></div>
+<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:58%"></div><span>Feb</span></div>
+<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:50%"></div><span>Mar</span></div>
+<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:70%"></div><span>Apr</span></div>
+<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:82%"></div><span>Maj</span></div>
+<div class="am-bar-wrap"><div class="am-bar-fill active" style="--h:100%"></div><span>Jun</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="app-mockup">
+<div class="am-body">
+<div class="am-section-label">Najprodavaniji artikli</div>
+<div class="am-order-row"><div class="am-order-name">Prozor ALU 120×140</div><div class="am-order-amt">41.200 RSD</div></div>
+<div class="am-order-row"><div class="am-order-name">Vrata PVC 90×210</div><div class="am-order-amt">28.500 RSD</div></div>
+<div class="am-order-row"><div class="am-order-name">Montaža i ugradnja</div><div class="am-order-amt">18.000 RSD</div></div>
 </div>
 </div>
 
@@ -1121,16 +1363,45 @@ Svako ima svoju lozinku. Cene, kupci, zarada — to ostaje između tebe i Spone.
 </div>
 <div style="display:flex;flex-direction:column;gap:14px;">
 
-<div class="screenshot">
-  <div class="icon"><i class="bi bi-people-fill"></i></div>
-  <strong>Pregled radnika</strong>
-  Ko je u timu i šta svako sme da radi
+<div class="app-mockup">
+<div class="am-body">
+<div class="am-team-row">
+<div class="am-cust-av" style="width:34px;height:34px;font-size:0.7rem;">MM</div>
+<div class="am-cust-info" style="flex:1;"><div class="am-cust-name">Milan Matić</div><div class="am-cust-sub">Admin</div></div>
+<span class="am-role-badge admin">Admin</span>
+</div>
+<div class="am-team-row">
+<div class="am-cust-av" style="width:34px;height:34px;font-size:0.7rem;--av:linear-gradient(135deg,#4facfe,#00f2fe);">NK</div>
+<div class="am-cust-info" style="flex:1;"><div class="am-cust-name">Nina Kovač</div><div class="am-cust-sub">Prodavac</div></div>
+<span class="am-role-badge radnik">Prodavac</span>
+</div>
+<div class="am-team-row">
+<div class="am-cust-av" style="width:34px;height:34px;font-size:0.7rem;--av:linear-gradient(135deg,#f093fb,#f5576c);">DV</div>
+<div class="am-cust-info" style="flex:1;"><div class="am-cust-name">Dragan Vukić</div><div class="am-cust-sub">Radnik</div></div>
+<span class="am-role-badge radnik">Radnik</span>
+</div>
+</div>
 </div>
 
-<div class="screenshot">
-  <div class="icon"><i class="bi bi-gear-fill"></i></div>
-  <strong>Nalog radnika</strong>
-  Svaki radnik ima svoje pristupne podatke
+<div class="app-mockup">
+<div class="am-body">
+<table class="am-perm-table">
+<thead>
+<tr>
+<th></th>
+<th><span class="am-role-badge admin">Admin</span></th>
+<th><span class="am-role-badge poslovodja" style="font-size:0.52rem;">Posl.</span></th>
+<th><span class="am-role-badge radnik">Radnik</span></th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Porudžbine</td><td><i class="bi bi-check-circle-fill am-check"></i></td><td><i class="bi bi-check-circle-fill am-check"></i></td><td><i class="bi bi-check-circle-fill am-check"></i></td></tr>
+<tr><td>Kupci</td><td><i class="bi bi-check-circle-fill am-check"></i></td><td><i class="bi bi-check-circle-fill am-check"></i></td><td><i class="bi bi-dash-circle am-dash"></i></td></tr>
+<tr><td>Zarada</td><td><i class="bi bi-check-circle-fill am-check"></i></td><td><i class="bi bi-dash-circle am-dash"></i></td><td><i class="bi bi-x-circle am-cross"></i></td></tr>
+<tr><td>Podešavanja</td><td><i class="bi bi-check-circle-fill am-check"></i></td><td><i class="bi bi-x-circle am-cross"></i></td><td><i class="bi bi-x-circle am-cross"></i></td></tr>
+</tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -1169,7 +1440,7 @@ Svako ima svoju lozinku. Cene, kupci, zarada — to ostaje između tebe i Spone.
 </div>
 
 <div class="device-card">
-<div class="d-icon"><i class="bi bi-airplane-fill"></i></div>
+<div class="d-icon"><i class="bi bi-tablet-landscape-fill"></i></div>
 <h3>Na odmoru</h3>
 <p>Otvoriš Sponu na telefonu i za minut znaš šta se dešava u firmi — pa se opusti.</p>
 </div>
@@ -1188,35 +1459,38 @@ Svako ima svoju lozinku. Cene, kupci, zarada — to ostaje između tebe i Spone.
 
 <div class="eyebrow">Kako početi?</div>
 
-## Kreneš za tri koraka —<br>mi smo uz tebe
+## Kreneš u tri koraka —<br><span class="accent">mi smo uz tebe</span>
 
-<p>Mi smo tu uz tebe — od prvog dana.</p>
+<p>Mi smo tu za tebe — od prvog dana.</p>
 
 ---
 
-## Kreneš za tri koraka — mi smo uz tebe
+## Kreneš u tri koraka — mi smo uz tebe
 
 <div class="steps-grid">
 
 <div class="step-card">
 <div class="step-num">1</div>
+<div class="step-node-icon"><i class="bi bi-telephone-fill"></i></div>
 <h3>Javi nam se</h3>
-<p>Pozoveš ili nam pišeš — za koji minut dobiješ pristup. Nema papirologije.</p>
+<p>Pozoveš nas ili nam pišeš — vrlo brzo dobiješ pristup. Nema papirologije.</p>
 <div class="step-duration"><i class="bi bi-clock"></i> Odmah</div>
 </div>
 
 <div class="step-card">
 <div class="step-num">2</div>
-<h3>Unesimo podatke zajedno</h3>
-<p>Mi ti pomognemo da uneseš kupce, artikle i cenovnik. Ne moraš ništa sam.</p>
+<div class="step-node-icon"><i class="bi bi-person-fill-add"></i></div>
+<h3>Unosimo podatke zajedno</h3>
+<p>Mi ti pomažemo da uneseš kupce, artikle i cenovnik. Ne moraš ništa sam.</p>
 <div class="step-duration"><i class="bi bi-clock"></i> ~30 minuta</div>
 </div>
 
 <div class="step-card">
 <div class="step-num">3</div>
-<h3>Spreman odmah</h3>
-<p>Napraviš prvu porudžbinu i odmah osetiš razliku. A mi smo tu kad zatreba.</p>
-<div class="step-duration active"><i class="bi bi-check-circle-fill"></i> Spreman!</div>
+<div class="step-node-icon active"><i class="bi bi-rocket-takeoff-fill"></i></div>
+<h3>Kreni — sve radi</h3>
+<p>Upišeš prvu porudžbinu i odmah osetiš razliku — red na jednom mestu, bez papira, bez telefoniranja.</p>
+<div class="step-duration active"><i class="bi bi-check-circle-fill"></i> Gotovo!</div>
 </div>
 
 </div>
@@ -1224,6 +1498,19 @@ Svako ima svoju lozinku. Cene, kupci, zarada — to ostaje između tebe i Spone.
 <div class="support-strip">
 <div class="eyebrow">Nisi sam</div>
 <strong>Obučavamo tebe i tvoje radnike, odgovaramo na sva pitanja i dostupni smo kad zatreba. Nisi prepušten sam sebi.</strong>
+</div>
+
+---
+
+<!-- _paginate: false -->
+
+<div class="testimonial-card">
+<div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+<blockquote class="testimonial-quote">"Pre Spone sam sve vodila u rokovniku — uvek nešto nedostaje, a kraj meseca je bio noćna mora. Sad otvoriš i sve stoji tamo gde si ostavio. Faktura se napravi sama, radnici znaju šta rade."</blockquote>
+<div class="testimonial-author">
+<div class="testimonial-avatar"><i class="bi bi-person-fill"></i></div>
+<div class="testimonial-meta"><strong>Vlasnica Arbor Nameštaja</strong><span>Srbija · koristi Sponu od 2022.</span></div>
+</div>
 </div>
 
 ---
@@ -1245,53 +1532,53 @@ Odaberi plan koji odgovara tvojoj firmi. Besplatan period od 14 dana — bez kre
 
 <div class="pricing-grid">
 
-<div class="price-card">
-<div class="price-name">Starter</div>
-<div class="price-amount">2.900 RSD</div>
-<div class="price-period">mesečno</div>
-<div class="price-desc">Savršen za frilensere i male timove koji tek počinju.</div>
-<hr class="price-divider">
-<ul class="price-list">
-<li>Do 3 korisnika</li>
-<li>Kupci i porudžbine</li>
-<li>Predračuni (PDF)</li>
-<li>Email podrška</li>
+<div class="pricing-card">
+<div class="pricing-plan">Starter</div>
+<div class="pricing-price">2.900 <sup>RSD</sup></div>
+<div class="pricing-per">mesečno</div>
+<div class="pricing-desc">Savršen za frilensere i male timove koji tek počinju.</div>
+<ul class="pricing-features">
+<li><i class="bi bi-check"></i> Do 3 korisnika</li>
+<li><i class="bi bi-check"></i> Kupci i porudžbine</li>
+<li><i class="bi bi-check"></i> Predračuni (PDF)</li>
+<li><i class="bi bi-check"></i> Email podrška</li>
 </ul>
+<a style="display:inline-flex;align-items:center;justify-content:center;gap:8px;border:2px solid var(--text-primary);color:var(--text-primary);border-radius:100px;padding:10px 24px;font-size:0.84rem;font-weight:700;text-decoration:none;width:100%;box-sizing:border-box;">Počni besplatno</a>
 </div>
 
-<div class="price-card price-card--popular">
-<div class="price-badge">★ Najpopularniji</div>
-<div class="price-name">Standard</div>
-<div class="price-amount">5.900 RSD</div>
-<div class="price-period">mesečno</div>
-<div class="price-desc">Za rastuće firme kojima treba više kontrole i saradnje.</div>
-<hr class="price-divider">
-<ul class="price-list">
-<li>Sve iz Starter plana</li>
-<li>Do 10 korisnika</li>
-<li>Korisničke uloge</li>
-<li>Statistika</li>
-<li>Prioritetna podrška</li>
+<div class="pricing-card popular">
+<div class="pricing-badge"><i class="bi bi-star-fill"></i> Najpopularniji</div>
+<div class="pricing-plan">Standard</div>
+<div class="pricing-price">5.900 <sup>RSD</sup></div>
+<div class="pricing-per">mesečno</div>
+<div class="pricing-desc">Za rastuće firme kojima treba više kontrole i saradnje.</div>
+<ul class="pricing-features">
+<li><i class="bi bi-check"></i> Sve iz Starter plana</li>
+<li><i class="bi bi-check"></i> Do 10 korisnika</li>
+<li><i class="bi bi-check"></i> Korisničke uloge</li>
+<li><i class="bi bi-check"></i> Statistika</li>
+<li><i class="bi bi-check"></i> Prioritetna podrška</li>
 </ul>
+<a style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--brand-primary);color:#0a2a1c;border-radius:100px;padding:10px 24px;font-size:0.84rem;font-weight:700;text-decoration:none;width:100%;box-sizing:border-box;">Počni besplatno</a>
 </div>
 
-<div class="price-card">
-<div class="price-name">Pro</div>
-<div class="price-amount">Dogovor</div>
-<div class="price-period">mesečno</div>
-<div class="price-desc">Za etablirane firme sa velikim timovima i punim zahtevima.</div>
-<hr class="price-divider">
-<ul class="price-list">
-<li>Sve iz Standard plana</li>
-<li>Neograničeni korisnici</li>
-<li>Napredne funkcionalnosti</li>
-<li>Personalizovane funkcionalnosti</li>
+<div class="pricing-card">
+<div class="pricing-plan">Pro</div>
+<div class="pricing-price">Dogovor</div>
+<div class="pricing-per">mesečno</div>
+<div class="pricing-desc">Za etablirane firme sa velikim timovima i punim zahtevima.</div>
+<ul class="pricing-features">
+<li><i class="bi bi-check"></i> Sve iz Standard plana</li>
+<li><i class="bi bi-check"></i> Neograničeni broj korisnika</li>
+<li><i class="bi bi-check"></i> Napredne funkcionalnosti</li>
+<li><i class="bi bi-check"></i> Personalizovane funkcionalnosti</li>
 </ul>
+<a style="display:inline-flex;align-items:center;justify-content:center;gap:8px;border:2px solid var(--text-primary);color:var(--text-primary);border-radius:100px;padding:10px 24px;font-size:0.84rem;font-weight:700;text-decoration:none;width:100%;box-sizing:border-box;">Počni besplatno</a>
 </div>
 
 </div>
 
-<p class="price-footnote">Nisi siguran koji plan? Javi nam se i pomoći ćemo ti da odabereš pravi.</p>
+<p class="pricing-note">Nisi siguran koji plan? Javi nam se i pomoći ćemo ti da odabereš pravi.</p>
 
 ---
 
@@ -1308,7 +1595,12 @@ Odaberi plan koji odgovara tvojoj firmi. Besplatan period od 14 dana — bez kre
 
 <div class="faq-item">
 <p class="faq-q"><i class="bi bi-plus-circle"></i> Da li moram da instaliram nešto?</p>
-<p class="faq-a">Ne. Spona je cloud aplikacija koju koristiš direktno iz browsera. Nema instalacije, nema ažuriranja — uvek si na najnovijoj verziji.</p>
+<p class="faq-a">Ne. Spona je internet aplikacija koju koristiš direktno iz browsera. Nema instalacije, nema ažuriranja — uvek si na najnovijoj verziji.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q"><i class="bi bi-plus-circle"></i> Kako počinjem?</p>
+<p class="faq-a">Registruj se, unesite podatke o firmi i spreman si za rad. Vodićemo te kroz svaki korak procesa.</p>
 </div>
 
 <div class="faq-item">
@@ -1319,6 +1611,11 @@ Odaberi plan koji odgovara tvojoj firmi. Besplatan period od 14 dana — bez kre
 <div class="faq-item">
 <p class="faq-q"><i class="bi bi-plus-circle"></i> Da li su moji podaci bezbedni?</p>
 <p class="faq-a">Apsolutno. Svi podaci su šifrovani SSL/TLS protokolom, a serveri se nalaze u EU datacentrima koji zadovoljavaju GDPR standarde.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q"><i class="bi bi-plus-circle"></i> Kakva podrška je dostupna?</p>
+<p class="faq-a">Dostupan je email i telefon. Starter plan ima standardnu email podršku, dok Standard i Pro planovi imaju prioritetni pristup sa kraćim vremenom odgovora.</p>
 </div>
 
 <div class="faq-item">
@@ -1337,7 +1634,7 @@ Odaberi plan koji odgovara tvojoj firmi. Besplatan period od 14 dana — bez kre
 
 <div style="display:flex;align-items:center;gap:24px;margin-bottom:0;">
 <img src="../logos/iOS App icon - 1 - horizontal.png" class="brand-logo" style="margin-bottom:0;flex-shrink:0;">
-<h1 style="font-family:'Bricolage Grotesque','Inter',sans-serif;font-size:3.2rem;font-weight:800;line-height:1.1;margin:0;color:#ffffff;letter-spacing:-0.02em;">Tvoj posao, <span class="accent">pod kontrolom.</span></h1>
+<h1 style="font-family:'Bricolage Grotesque','Inter',sans-serif;font-size:3.2rem;font-weight:800;line-height:1.1;margin:0;color:#ffffff;letter-spacing:-0.02em;">Tvoj biznis, <span class="accent">pod kontrolom.</span></h1>
 </div>
 
 <div class="divider"></div>
