@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9E7SX8L2N3"></script>
+  <!-- Consent-gated tracking loaders -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    window.SPONA_TRACKING_IDS = {
+      google: 'G-9E7SX8L2N3',
+      meta: '968619672350903'
+    };
 
-    gtag('config', 'G-9E7SX8L2N3');
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+
+    window.loadGoogleAnalytics = function () {
+      if (window.__sponaGoogleLoaded) return;
+      window.__sponaGoogleLoaded = true;
+
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.SPONA_TRACKING_IDS.google;
+      document.head.appendChild(script);
+
+      window.gtag('js', new Date());
+      window.gtag('config', window.SPONA_TRACKING_IDS.google);
+    };
+
+    window.loadMetaPixel = function () {
+      if (window.__sponaMetaLoaded) return;
+      window.__sponaMetaLoaded = true;
+
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      window.fbq('init', window.SPONA_TRACKING_IDS.meta);
+      window.fbq('track', 'PageView');
+    };
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '968619672350903');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=968619672350903&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
 
   <!-- ── SEO ──────────────────────────────────────────────────── -->
   <title>Spona — Program za porudžbine, fakture i kupce | Za male firme u Srbiji</title>
@@ -1140,9 +1153,46 @@
       <div class="footer-inner">
         <img src="logos/iOS App icon - 1 - horizontal.png" alt="Spona — program za male firme u Srbiji" />
         <p>© 2026 Spona. Sva prava zadržana.</p>
+        <button type="button" class="footer-consent-link" onclick="openConsentSettings()">Podešavanja kolačića</button>
       </div>
     </div>
   </footer>
+
+  <div id="consent-banner" class="consent-banner" hidden>
+    <div class="consent-banner-inner">
+      <div class="consent-copy">
+        <strong>Koristimo analitičke i marketinške kolačiće samo uz tvoju dozvolu.</strong>
+        <p>Ovi alati nam pomažu da merimo posete, razumemo kampanje i pratimo upite. Možeš prihvatiti sve, odbiti sve ili izabrati koje kategorije dozvoljavaš.</p>
+      </div>
+      <div class="consent-actions">
+        <div class="consent-secondary-actions">
+          <button type="button" id="consent-customize" class="consent-text-btn">Podesi</button>
+          <button type="button" id="consent-reject" class="consent-text-btn">Odbij sve</button>
+        </div>
+        <button type="button" id="consent-accept" class="btn btn-primary consent-accept-btn">Prihvati sve</button>
+      </div>
+    </div>
+    <form id="consent-form" class="consent-form" hidden>
+      <label class="consent-option">
+        <input type="checkbox" id="consent-google" name="google">
+        <span>
+          <strong>Analitički kolačići</strong>
+          <small>Pomažu nam da merimo posećenost sajta i razumemo ponašanje na stranicama.</small>
+        </span>
+      </label>
+      <label class="consent-option">
+        <input type="checkbox" id="consent-meta" name="meta">
+        <span>
+          <strong>Marketinški kolačići</strong>
+          <small>Pomažu nam da merimo učinak kampanja i prikazujemo relevantnije oglase.</small>
+        </span>
+      </label>
+      <p class="consent-note">Ako promeniš odluku kasnije, podešavanja možeš ponovo otvoriti iz futera.</p>
+      <div class="consent-form-actions">
+        <button type="button" id="consent-save" class="btn btn-primary">Sačuvaj izbor</button>
+      </div>
+    </form>
+  </div>
 
   <script>
     (function () {
@@ -1238,6 +1288,92 @@
           });
         });
       });
+
+      // ── Consent manager ──────────────────────────────────────────
+      const CONSENT_STORAGE_KEY = 'spona-consent-v1';
+      const consentBanner = document.getElementById('consent-banner');
+      const consentForm = document.getElementById('consent-form');
+      const consentGoogle = document.getElementById('consent-google');
+      const consentMeta = document.getElementById('consent-meta');
+
+      function readConsent() {
+        try {
+          const raw = localStorage.getItem(CONSENT_STORAGE_KEY);
+          return raw ? JSON.parse(raw) : null;
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function writeConsent(consent) {
+        localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify({
+          google: !!consent.google,
+          meta: !!consent.meta,
+          savedAt: new Date().toISOString()
+        }));
+      }
+
+      function applyConsent(consent) {
+        if (consent.google) {
+          window.loadGoogleAnalytics();
+        }
+        if (consent.meta) {
+          window.loadMetaPixel();
+        }
+      }
+
+      function syncConsentForm(consent) {
+        consentGoogle.checked = !!consent.google;
+        consentMeta.checked = !!consent.meta;
+      }
+
+      function closeConsentBanner() {
+        consentForm.hidden = true;
+        consentBanner.hidden = true;
+      }
+
+      function openConsentBanner(showForm) {
+        const currentConsent = readConsent() || { google: false, meta: false };
+        syncConsentForm(currentConsent);
+        consentBanner.hidden = false;
+        consentForm.hidden = !showForm;
+      }
+
+      function saveConsent(consent) {
+        writeConsent(consent);
+        applyConsent(consent);
+        closeConsentBanner();
+      }
+
+      window.openConsentSettings = function () {
+        openConsentBanner(true);
+      };
+
+      document.getElementById('consent-customize').addEventListener('click', () => {
+        consentForm.hidden = false;
+      });
+
+      document.getElementById('consent-reject').addEventListener('click', () => {
+        saveConsent({ google: false, meta: false });
+      });
+
+      document.getElementById('consent-accept').addEventListener('click', () => {
+        saveConsent({ google: true, meta: true });
+      });
+
+      document.getElementById('consent-save').addEventListener('click', () => {
+        saveConsent({
+          google: consentGoogle.checked,
+          meta: consentMeta.checked,
+        });
+      });
+
+      const storedConsent = readConsent();
+      if (storedConsent) {
+        applyConsent(storedConsent);
+      } else {
+        openConsentBanner(false);
+      }
 
       // ── Nav scrolled class ────────────────────────────────────────
       const nav = document.querySelector('.nav');

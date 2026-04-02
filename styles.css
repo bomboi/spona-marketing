@@ -2124,6 +2124,178 @@ footer {
   text-underline-offset: 3px;
 }
 
+.footer-consent-link {
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.footer-consent-link:hover {
+  color: var(--brand-primary);
+}
+
+.consent-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1100;
+  max-width: 560px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 12px 14px;
+}
+
+.consent-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.consent-copy strong {
+  display: block;
+  font-size: 0.88rem;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.consent-copy p {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.consent-actions {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 0;
+  width: 100%;
+  max-width: 200px;
+}
+
+.consent-actions .btn,
+.consent-form-actions .btn {
+  height: 36px;
+  min-height: 36px;
+  padding: 0 12px;
+  font-size: 0.78rem;
+}
+
+.consent-secondary-actions {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.consent-text-btn {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--text-tertiary);
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: color var(--transition-base), opacity var(--transition-base);
+  opacity: 0.8;
+}
+
+.consent-text-btn:hover {
+  color: var(--text-secondary);
+  opacity: 1;
+}
+
+.consent-accept-btn {
+  width: 100%;
+  min-width: 0;
+  justify-content: center;
+}
+
+.consent-actions .btn-outline-dark,
+.consent-form-actions .btn-outline-dark {
+  border-color: rgba(0,0,0,0.12);
+  color: var(--text-secondary);
+}
+
+.consent-actions .btn-outline-dark:hover,
+.consent-form-actions .btn-outline-dark:hover {
+  border-color: rgba(2,204,129,0.3);
+  color: var(--brand-primary-dark);
+}
+
+.consent-form {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.consent-option {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px 0;
+  text-align: left;
+}
+
+.consent-option input {
+  margin-top: 3px;
+  accent-color: var(--brand-primary);
+}
+
+.consent-option span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.consent-option strong {
+  font-size: 0.8rem;
+  color: var(--text-primary);
+}
+
+.consent-option small {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.consent-note {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  line-height: 1.4;
+  margin: 4px 0 0;
+}
+
+.consent-form-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
 /* ─── Pricing responsive overrides (must come after base styles) ─ */
 @media (min-width: 769px) and (max-width: 1100px) {
   .pricing-grid {
@@ -2147,12 +2319,45 @@ footer {
   .pricing-price { font-size: 2.6rem; }
   .pricing-features { margin-bottom: 20px; }
   .w-full { margin-top: 20px; }
+
+  .consent-actions {
+    align-items: center;
+    min-width: 0;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .consent-actions .btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .consent-accept-btn {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    align-self: stretch;
+  }
+
+  .consent-secondary-actions {
+    justify-content: center;
+    padding: 0;
+  }
 }
 
 @media (max-width: 540px) {
   .pricing-grid { max-width: 100%; }
   .pricing-card { padding: 26px 22px 24px; }
   .pricing-price { font-size: 2.2rem; }
+
+  .consent-banner {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 12px;
+    border-radius: 14px;
+  }
 }
 
 /* ─── FAQ Section ────────────────────────────────────────────── */
