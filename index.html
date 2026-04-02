@@ -5,7 +5,8 @@
   <script>
     window.SPONA_TRACKING_IDS = {
       google: 'G-9E7SX8L2N3',
-      meta: '968619672350903'
+      meta: '968619672350903',
+      clarity: 'w5gf1alf3u'
     };
 
     window.dataLayer = window.dataLayer || [];
@@ -22,6 +23,17 @@
 
       window.gtag('js', new Date());
       window.gtag('config', window.SPONA_TRACKING_IDS.google);
+    };
+
+    window.loadMicrosoftClarity = function () {
+      if (window.__sponaClarityLoaded) return;
+      window.__sponaClarityLoaded = true;
+
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, 'clarity', 'script', window.SPONA_TRACKING_IDS.clarity);
     };
 
     window.loadMetaPixel = function () {
@@ -1316,6 +1328,7 @@
       function applyConsent(consent) {
         if (consent.google) {
           window.loadGoogleAnalytics();
+          window.loadMicrosoftClarity();
         }
         if (consent.meta) {
           window.loadMetaPixel();
