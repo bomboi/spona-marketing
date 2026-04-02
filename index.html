@@ -1302,6 +1302,7 @@
       });
 
       // ── Consent manager ──────────────────────────────────────────
+      const ENABLE_CONSENT = false;
       const CONSENT_STORAGE_KEY = 'spona-consent-v1';
       const consentBanner = document.getElementById('consent-banner');
       const consentForm = document.getElementById('consent-form');
@@ -1391,33 +1392,41 @@
       }
 
       window.openConsentSettings = function () {
+        if (!ENABLE_CONSENT) return;
         openConsentBanner(true);
       };
 
-      document.getElementById('consent-customize').addEventListener('click', () => {
-        consentForm.hidden = false;
-      });
-
-      document.getElementById('consent-reject').addEventListener('click', () => {
-        saveConsent({ google: false, meta: false });
-      });
-
-      document.getElementById('consent-accept').addEventListener('click', () => {
-        saveConsent({ google: true, meta: true });
-      });
-
-      document.getElementById('consent-save').addEventListener('click', () => {
-        saveConsent({
-          google: consentGoogle.checked,
-          meta: consentMeta.checked,
+      if (ENABLE_CONSENT) {
+        document.getElementById('consent-customize').addEventListener('click', () => {
+          consentForm.hidden = false;
         });
-      });
 
-      const storedConsent = readConsent();
-      if (storedConsent) {
-        applyConsent(storedConsent);
+        document.getElementById('consent-reject').addEventListener('click', () => {
+          saveConsent({ google: false, meta: false });
+        });
+
+        document.getElementById('consent-accept').addEventListener('click', () => {
+          saveConsent({ google: true, meta: true });
+        });
+
+        document.getElementById('consent-save').addEventListener('click', () => {
+          saveConsent({
+            google: consentGoogle.checked,
+            meta: consentMeta.checked,
+          });
+        });
+
+        const storedConsent = readConsent();
+        if (storedConsent) {
+          applyConsent(storedConsent);
+        } else {
+          openConsentBanner(false);
+        }
       } else {
-        openConsentBanner(false);
+        const footerConsentLink = document.querySelector('.footer-consent-link');
+        if (footerConsentLink) footerConsentLink.hidden = true;
+        closeConsentBanner();
+        applyConsent({ google: true, meta: true });
       }
 
       // ── Nav scrolled class ────────────────────────────────────────
