@@ -1345,6 +1345,38 @@
         closeConsentBanner();
       }
 
+      function trackLeadConversion(leadData) {
+        if (typeof window.fbq !== 'function') return;
+
+        window.fbq('track', 'Lead', {
+          content_name: 'Spona Lead Form',
+          plan: leadData.planName || 'unknown',
+          billing: leadData.billing || 'monthly',
+          value: Number(leadData.priceValue) || 0,
+          currency: 'RSD'
+        });
+      }
+
+      function trackLeadModalOpen(leadData) {
+        if (typeof window.fbq !== 'function') return;
+
+        window.fbq('trackCustom', 'LeadFormOpened', {
+          content_name: 'Spona Lead Form',
+          plan: leadData.planName || 'unknown',
+          billing: leadData.billing || 'monthly'
+        });
+      }
+
+      function trackLeadFormStarted(leadData) {
+        if (typeof window.fbq !== 'function') return;
+
+        window.fbq('trackCustom', 'LeadFormStarted', {
+          content_name: 'Spona Lead Form',
+          plan: leadData.planName || 'unknown',
+          billing: leadData.billing || 'monthly'
+        });
+      }
+
       window.openConsentSettings = function () {
         openConsentBanner(true);
       };
@@ -1469,8 +1501,14 @@
         modal.classList.add('active');
         document.body.classList.add('modal-open');
         modal._openedAt = Date.now();
+        modal._leadFormStartedTracked = false;
         requestAnimationFrame(() => modal.classList.add('open'));
         modal.querySelector('input:not([type=hidden]):not(.lead-honeypot)').focus();
+
+        trackLeadModalOpen({
+          planName: plan || 'unknown',
+          billing: selectedBilling,
+        });
 
         // Wire up events only once (guard with dataset flag)
         if (!modal.dataset.wired) {
@@ -1516,12 +1554,39 @@
                 price:   selectedPrice,
                 priceValue: selectedPriceValue,
               });
-              fetch(SHEETS_URL, { method: 'POST', body: params, mode: 'no-cors' });
+              fetch(SHEETS_URL, { method: 'POST', body: params, mode: 'no-cors' })
+                .then(() => {
+                  trackLeadConversion({
+                    planName: selectedPlan,
+                    billing: selectedBilling,
+                    priceValue: selectedPriceValue,
+                  });
+                })
+                .catch(() => {
+                  // Ignore network errors here; UI flow remains optimistic for no-cors endpoint.
+                });
             }
 
             document.getElementById('lead-form-state').hidden    = true;
             document.getElementById('lead-success-state').hidden = false;
             setTimeout(closeLeadModal, 2500);
+          });
+
+          leadForm.querySelectorAll('input:not(.lead-honeypot), select').forEach(field => {
+            const handleLeadFormStart = () => {
+              if (modal._leadFormStartedTracked) return;
+
+              const currentPlan = document.getElementById('lead-plan-select').value;
+              const currentBilling = document.getElementById('lead-billing-select').value;
+              modal._leadFormStartedTracked = true;
+              trackLeadFormStarted({
+                planName: currentPlan || 'unknown',
+                billing: currentBilling || 'monthly',
+              });
+            };
+
+            field.addEventListener('input', handleLeadFormStart);
+            field.addEventListener('change', handleLeadFormStart);
           });
 
           document.getElementById('lead-billing-select').addEventListener('change', e => {
