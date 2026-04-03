@@ -3,6 +3,9 @@
 <head>
   <!-- Consent-gated tracking loaders -->
   <script>
+    // DISABLE TRACKING FOR LOCAL DEVELOPMENT
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('192.168.');
+    
     window.SPONA_TRACKING_IDS = {
       google: 'G-9E7SX8L2N3',
       meta: '968619672350903',
@@ -13,7 +16,7 @@
     window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
 
     window.loadGoogleAnalytics = function () {
-      if (window.__sponaGoogleLoaded) return;
+      if (isLocal || window.__sponaGoogleLoaded) return;
       window.__sponaGoogleLoaded = true;
 
       var script = document.createElement('script');
@@ -26,7 +29,7 @@
     };
 
     window.loadMicrosoftClarity = function () {
-      if (window.__sponaClarityLoaded) return;
+      if (isLocal || window.__sponaClarityLoaded) return;
       window.__sponaClarityLoaded = true;
 
       (function(c,l,a,r,i,t,y){
@@ -37,7 +40,7 @@
     };
 
     window.loadMetaPixel = function () {
-      if (window.__sponaMetaLoaded) return;
+      if (isLocal || window.__sponaMetaLoaded) return;
       window.__sponaMetaLoaded = true;
 
       !function(f,b,e,v,n,t,s)
@@ -371,6 +374,43 @@
     </div>
   </section>
 
+  <!-- ── Workflow (Mental Model) ───────────────────────────────── -->
+  <section class="section-workflow" style="padding: 80px 0; background: var(--bg-body);">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom: 48px;">
+        <div class="eyebrow" style="color: var(--brand-primary-dark);">Kako Spona menja radni dan</div>
+        <h2 class="section-title">Od upisa do naplate — <br>pravo iz džepa</h2>
+        <p class="section-sub">Zaboravi na prepisivanje iz sveske u svesku. Ovako izgleda tok posla kada firma pređe na Sponu.</p>
+      </div>
+      <div class="steps-timeline" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+        <div class="step-node reveal">
+          <div class="step-node-icon"><i class="bi bi-phone-vibrate"></i></div>
+          <div class="step-num-badge">01</div>
+          <h3>Unos</h3>
+          <p>Kupac zove ili piše. Umesto u svesku, prodavac kuca porudžbinu direktno na telefonu ili računaru.</p>
+        </div>
+        <div class="step-node reveal">
+          <div class="step-node-icon"><i class="bi bi-tools"></i></div>
+          <div class="step-num-badge">02</div>
+          <h3>Proizvodnja</h3>
+          <p>Radnik na svom ekranu vidi <b>samo</b> šta treba da napravi i od kog materijala. Ne vidi cene ni podatke kupca.</p>
+        </div>
+        <div class="step-node reveal">
+          <div class="step-node-icon"><i class="bi bi-check2-all"></i></div>
+          <div class="step-num-badge">03</div>
+          <h3>Izrada</h3>
+          <p>Kada završi posao, radnik jednim klikom menja status iz "U izradi" u "Spremno". Status se odmah ažurira.</p>
+        </div>
+        <div class="step-node reveal">
+          <div class="step-node-icon active"><i class="bi bi-receipt"></i></div>
+          <div class="step-num-badge active">04</div>
+          <h3>Naplata</h3>
+          <p>Jednim klikom odštampaš radni nalog ili pošalješ PDF fakturu na email. Čisto, brzo i profesionalno.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Stats ─────────────────────────────────────────────────── -->
   <div class="stats-strip">
     <div class="container">
@@ -565,14 +605,14 @@
           <p class="feature-desc">Kupac naruči — ti upišeš u Sponu za minut. Od tog trenutka svaki radnik zna šta treba da uradi, bez telefoniranja i petljanja.</p>
           <ul class="dot-list" style="margin-bottom:24px;">
             <li><strong>Odabereš kupca</strong> iz svoje baze jednim klikom</li>
-            <li><strong>Dodaš šta je naručeno</strong> — cene se same upišu</li>
+            <li><strong>Dodaš šta je naručeno i materijale</strong> — cene se same upišu</li>
+            <li><strong>Podela na grupe porudžbina</strong> — odvoji veleprodaju, maloprodaju ili Instagram prodaju</li>
             <li><strong>Gotovinsko, na fakturu, karticom</strong> — piše odmah</li>
-            <li><strong>Pratiš gde je porudžbina</strong> — u radu, gotovo, otkazano</li>
-            <li><strong>Ostavi napomenu radniku</strong> — bez telefoniranja</li>
+            <li><strong>Pratiš gde je porudžbina</strong> — u radu, gotovo, isporučeno</li>
           </ul>
           <div class="card" style="background:var(--brand-primary-light);">
-            <h3 style="color:var(--brand-primary-dark);font-size:0.95rem;margin-bottom:6px;"><i class="bi bi-printer-fill"></i> Radni nalog na štampu</h3>
-            <span style="font-size:0.87rem;color:var(--text-secondary);">Jednim klikom odštampaš nalog za radionicu ili magacin — jasno napisano, bez grešaka. Radnik uzme papir i zna šta radi.</span>
+            <h3 style="color:var(--brand-primary-dark);font-size:0.95rem;margin-bottom:6px;"><i class="bi bi-printer-fill"></i> Radni nalozi za radnike</h3>
+            <span style="font-size:0.87rem;color:var(--text-secondary);">Jednim klikom odštampaš fizički radni nalog za radionicu ili magacin sa jasno raspisanim materijalima. Sve što radniku treba, bez telefona.</span>
           </div>
         </div>
       </div>
@@ -811,7 +851,7 @@
                   <tr>
                     <th></th>
                     <th><span class="am-role-badge admin">Admin</span></th>
-                    <th><span class="am-role-badge poslovodja" style="font-size:0.52rem;">Posl.</span></th>
+                    <th><span class="am-role-badge poslovodja" style="font-size:0.5rem;">Prod.</span></th>
                     <th><span class="am-role-badge radnik">Radnik</span></th>
                   </tr>
                 </thead>
@@ -826,7 +866,7 @@
                     <td>Kupci</td>
                     <td><i class="bi bi-check-circle-fill am-check"></i></td>
                     <td><i class="bi bi-check-circle-fill am-check"></i></td>
-                    <td><i class="bi bi-dash-circle am-dash"></i></td>
+                    <td><i class="bi bi-x-circle am-cross"></i></td>
                   </tr>
                   <tr>
                     <td>Zarada</td>
@@ -847,19 +887,20 @@
         </div>
         <div>
           <div class="feature-tag"><i class="bi bi-people"></i> 06 — Tim</div>
-          <h2 class="feature-title">Svako zna<br>svoj deo posla</h2>
-          <p class="feature-desc">Svaki radnik se prijavi sa svojim nalogom i odmah vidi šta ga čeka — ni više ni manje. A ti kao gazda uvek možeš da proveriš šta se radi, gde god da si.</p>
+          <h2 class="feature-title">Svako na svom,<br>bez uvida u tuđe</h2>
+          <p class="feature-desc">Kroz četiri nivoa pristupa svako ima svoj nalog. Spona funkcioniše kao alat za internu proizvodnju, ali i mrežu partnera — uz potpunu tajnost tvojih brojki.</p>
           <div class="card" style="margin-bottom:12px;">
             <div class="eyebrow">Ko šta vidi</div>
             <ul class="dot-list">
-              <li><strong>Ti kao gazda</strong> — vidiš i menjaš baš sve</li>
-              <li><strong>Prodavac</strong> — unosi i prati porudžbine</li>
-              <li><strong>Radnik</strong> — vidi samo što mu treba</li>
+              <li><strong>Admin (Ti)</strong> — Jedini imaš pristup zaradi, podešavanjima računa, i cenama.</li>
+              <li><strong>Prodavac</strong> — Unosi kupce i prati porudžbine, komunicira napomene ka radionici.</li>
+              <li><strong>Radnik u proizvodnji</strong> — Najbezbedniji nivo. Vidi isključivo vrstu artikla, materijale sa kojima radi i tehničke napomene. <b>Nula</b> pristupa cenama, zaradi ili bazi kupaca.</li>
+              <li><strong>Eksterni prodavac (Partner)</strong> — Unosi porudžbine u tvoj sistem umesto tebe, ali vidi <b>isključivo</b> svoje podatke. Nema uvid u to sa kim još i koliko radiš.</li>
             </ul>
           </div>
           <div class="card">
             <div class="eyebrow">Čisti računi unutar firme</div>
-            <span style="font-size:0.87rem;color:var(--text-secondary);">Svako ima svoju lozinku. Cene, kupci, zarada — to ostaje između tebe i Spone. Niko sa strane ne može da zaviri.</span>
+            <span style="font-size:0.87rem;color:var(--text-secondary);">Cene prodatih proizvoda, tvoji direktni kupci i ukupna zarada — to ostaje isključivo između tebe i Spone. Niko od radnika ne može da zaviri.</span>
           </div>
         </div>
       </div>
@@ -1025,6 +1066,7 @@
       <div class="pricing-grid stagger">
         <!-- Starter -->
         <div class="pricing-card reveal">
+          <div class="pricing-badge" style="visibility:hidden; user-select:none;" aria-hidden="true"><i class="bi bi-star-fill"></i> S</div>
           <div class="pricing-plan">Starter</div>
           <div class="pricing-price">
             <span class="pricing-value pricing-value-monthly">1.900 <sup>RSD</sup></span>
@@ -1037,7 +1079,7 @@
           <div class="pricing-meta">
             <span class="pricing-value pricing-value-yearly">Umesto <span class="pricing-old-price">22.800 RSD</span></span>
           </div>
-          <div class="pricing-desc">Savršen za frilensere i male timove koji tek počinju.</div>
+          <div class="pricing-desc" style="min-height: 44px;">Savršen za frilensere i male timove koji tek počinju.</div>
           <ul class="pricing-features">
             <li><i class="bi bi-check"></i> 1 korisnik</li>
             <li><i class="bi bi-check"></i> Kupci i porudžbine</li>
@@ -1061,19 +1103,20 @@
           <div class="pricing-meta">
             <span class="pricing-value pricing-value-yearly">Umesto <span class="pricing-old-price">58.800 RSD</span></span>
           </div>
-          <div class="pricing-desc">Za rastuće firme kojima treba više kontrole i saradnje.</div>
+          <div class="pricing-desc" style="min-height: 44px;">Za rastuće firme kojima treba više kontrole i saradnje.</div>
           <ul class="pricing-features">
             <li><i class="bi bi-check"></i> Sve iz Starter plana</li>
             <li><i class="bi bi-check"></i> Do 5 korisnika</li>
-            <li><i class="bi bi-check"></i> Korisničke uloge</li>
+            <li><i class="bi bi-check"></i> Sve interne uloge (Admin, Prodavac, Radnik)</li>
+            <li><i class="bi bi-check"></i> Aplikacija i pristup za radnike u proizvodnji</li>
             <li><i class="bi bi-check"></i> Statistika</li>
-            <li><i class="bi bi-check"></i> Grupe porudžbina</li>
             <li><i class="bi bi-check"></i> Prioritetna podrška</li>
           </ul>
           <button type="button" onclick="openLeadModal('Standard', document.getElementById('cene').dataset.billing)" class="btn btn-primary w-full">Počni besplatno</button>
         </div>
         <!-- Pro -->
         <div class="pricing-card reveal">
+          <div class="pricing-badge" style="visibility:hidden; user-select:none;" aria-hidden="true"><i class="bi bi-star-fill"></i> P</div>
           <div class="pricing-plan">Pro</div>
           <div class="pricing-price">
             <span class="pricing-value pricing-value-monthly">11.900 <sup>RSD</sup></span>
@@ -1086,17 +1129,31 @@
           <div class="pricing-meta">
             <span class="pricing-value pricing-value-yearly">Umesto <span class="pricing-old-price">142.800 RSD</span></span>
           </div>
-          <div class="pricing-desc">Za etablirane firme sa velikim timovima i punim zahtevima.</div>
+          <div class="pricing-desc" style="min-height: 44px;">Za etablirane firme sa velikim timovima i proizvodnjom.</div>
           <ul class="pricing-features">
             <li><i class="bi bi-check"></i> Sve iz Standard plana</li>
-            <li><i class="bi bi-check"></i> Neograničeni broj korisnika</li>
-            <li><i class="bi bi-check"></i> Primena u proizvodnji</li>
-            <li><i class="bi bi-check"></i> Personalizovane funkcionalnosti</li>
+            <li><i class="bi bi-check"></i> <b>Neograničen</b> broj korisnika (bez doplate)</li>
+            <li><i class="bi bi-check"></i> <b>Podrška za eksterne partnere/prodavce</b></li>
+            <li><i class="bi bi-check"></i> Prilagođeni statusi po meri tvoje proizvodnje</li>
+            <li><i class="bi bi-check"></i> Lični kontakt za podršku</li>
           </ul>
           <button type="button" onclick="openLeadModal('Pro', document.getElementById('cene').dataset.billing)" class="btn btn-outline-dark w-full">Počni besplatno</button>
         </div>
       </div>
-      <div class="pricing-custom-action reveal">
+      
+      <!-- Uskoro Stiže Teaser -->
+      <div class="upcoming-teaser reveal" style="margin: 48px auto 0; max-width: 800px; padding: 24px; border: 1px dashed rgba(2, 204, 129, 0.4); border-radius: 12px; background: rgba(2, 204, 129, 0.05); text-align: center;">
+        <div class="eyebrow" style="color: var(--brand-primary-dark); margin-bottom: 8px;">Uskoro stiže u Sponu</div>
+        <h3 style="font-size: 1.1rem; margin-bottom: 12px;">Spona redovno raste na osnovu vaših predloga</h3>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 16px;">U pripremi su sledeće opcije koje će pomoći da prodaš još više:</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
+          <span style="font-size: 0.85rem; padding: 6px 14px; background: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.05); border-radius: 20px; color: var(--text-primary);"><i class="bi bi-gift" style="color:var(--brand-primary); margin-right:4px;"></i> Poklon kartice</span>
+          <span style="font-size: 0.85rem; padding: 6px 14px; background: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.05); border-radius: 20px; color: var(--text-primary);"><i class="bi bi-envelope-check" style="color:var(--brand-primary); margin-right:4px;"></i> Mailing automatizacija</span>
+          <span style="font-size: 0.85rem; padding: 6px 14px; background: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.05); border-radius: 20px; color: var(--text-primary);"><i class="bi bi-arrow-repeat" style="color:var(--brand-primary); margin-right:4px;"></i> Ponavljajuće porudžbine</span>
+        </div>
+      </div>
+
+      <div class="pricing-custom-action reveal" style="margin-top: 32px;">
         <button type="button" onclick="openLeadModal('Custom', document.getElementById('cene').dataset.billing)" class="btn btn-outline-dark btn-lg">
           Treba ti drugačiji plan? <i class="bi bi-arrow-right"></i>
         </button>
