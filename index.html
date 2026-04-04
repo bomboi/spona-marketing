@@ -178,9 +178,29 @@
         padding-inline: 18px;
         margin-inline: -18px;
       }
+      .features-tab-nav::after {
+        content: "";
+        display: block;
+        min-width: 18px;
+        flex-shrink: 0;
+      }
       .features-tab-nav::-webkit-scrollbar { display: none; }
       .features-tab-nav .feature-tab-btn {
         flex-shrink: 0;
+      }
+
+      .pricing-toggle {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        justify-content: flex-start !important;
+        border-radius: 999px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .pricing-toggle::-webkit-scrollbar { display: none; }
+      .pricing-toggle-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
       }
     }
 
@@ -260,6 +280,13 @@
         margin-inline: -18px;
         scroll-padding-left: 18px;
         scroll-snap-type: x mandatory;
+      }
+      .features-tab-nav::after {
+        content: "";
+        display: block;
+        min-width: 18px;
+        flex-shrink: 0;
+        scroll-snap-align: none;
       }
       .features-tab-nav::-webkit-scrollbar { display: none; }
       .features-tab-nav .feature-tab-btn {
