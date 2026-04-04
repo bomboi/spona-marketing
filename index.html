@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="sr">
+
 <head>
   <!-- Consent-gated tracking loaders -->
   <script>
     // DISABLE TRACKING FOR LOCAL DEVELOPMENT
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('192.168.');
-    
+
     window.SPONA_TRACKING_IDS = {
       google: 'G-9E7SX8L2N3',
       meta: '968619672350903',
@@ -13,7 +14,7 @@
     };
 
     window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
 
     window.loadGoogleAnalytics = function () {
       if (isLocal || window.__sponaGoogleLoaded) return;
@@ -32,10 +33,10 @@
       if (isLocal || window.__sponaClarityLoaded) return;
       window.__sponaClarityLoaded = true;
 
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
       })(window, document, 'clarity', 'script', window.SPONA_TRACKING_IDS.clarity);
     };
 
@@ -43,14 +44,17 @@
       if (isLocal || window.__sponaMetaLoaded) return;
       window.__sponaMetaLoaded = true;
 
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
+      !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () {
+          n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+        n.queue = []; t = b.createElement(e); t.async = !0;
+        t.src = v; s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+      }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
 
       window.fbq('init', window.SPONA_TRACKING_IDS.meta);
       window.fbq('track', 'PageView');
@@ -61,8 +65,10 @@
 
   <!-- ── SEO ──────────────────────────────────────────────────── -->
   <title>Spona — Program za porudžbine, fakture i kupce | Za male firme u Srbiji</title>
-  <meta name="description" content="Spona je jednostavan program za male firme u Srbiji. Vodi porudžbine, pravi fakture za 30 sekundi, prati kupce i zaradu — sve na jednom mestu. Besplatno 14 dana." />
-  <meta name="keywords" content="program za porudžbine, aplikacija za fakture, software za male firme, evidencija kupaca, online fakturisanje Srbija, digitalni rokovnik, praćenje narudžbina" />
+  <meta name="description"
+    content="Spona je jednostavan program za male firme u Srbiji. Vodi porudžbine, pravi fakture za 30 sekundi, prati kupce i zaradu — sve na jednom mestu. Besplatno 14 dana." />
+  <meta name="keywords"
+    content="program za porudžbine, aplikacija za fakture, software za male firme, evidencija kupaca, online fakturisanje Srbija, digitalni rokovnik, praćenje narudžbina" />
   <link rel="canonical" href="https://spona.rs/" />
 
   <!-- ── Favicon ──────────────────────────────────────────────── -->
@@ -74,14 +80,16 @@
   <meta property="og:url" content="https://spona.rs/" />
   <meta property="og:site_name" content="Spona" />
   <meta property="og:title" content="Spona — Program za porudžbine i fakture za male firme" />
-  <meta property="og:description" content="Vodi porudžbine, pravi fakture za 30 sekundi i prati kupce — sve na jednom mestu. Napravljeno u Srbiji, za srpske firme. Besplatno 14 dana." />
+  <meta property="og:description"
+    content="Vodi porudžbine, pravi fakture za 30 sekundi i prati kupce — sve na jednom mestu. Napravljeno u Srbiji, za srpske firme. Besplatno 14 dana." />
   <meta property="og:image" content="https://spona.rs/logos/og-image.png" />
   <meta property="og:locale" content="sr_RS" />
 
   <!-- ── Twitter Card ──────────────────────────────────────────── -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Spona — Program za porudžbine i fakture za male firme" />
-  <meta name="twitter:description" content="Vodi porudžbine, pravi fakture za 30 sekundi i prati kupce — sve na jednom mestu. Besplatno 14 dana." />
+  <meta name="twitter:description"
+    content="Vodi porudžbine, pravi fakture za 30 sekundi i prati kupce — sve na jednom mestu. Besplatno 14 dana." />
   <meta name="twitter:image" content="https://spona.rs/logos/og-image.png" />
 
   <!-- ── Schema.org: SoftwareApplication ─────────────────────── -->
@@ -114,244 +122,137 @@
   <link rel="icon" type="image/png" href="logos/spona-default-logo.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <!-- ── Non-render-blocking CSS ──────────────────────────────── -->
-  <!-- Google Fonts: async load to eliminate render-blocking -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
-
-  <!-- Bootstrap Icons: async load to eliminate render-blocking -->
-  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" /></noscript>
-
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link rel="stylesheet" href="styles.css" />
 
-  <style>
-    /* Mobile horizontal scroll class to prevent shadow-clipping */
-    @media (max-width: 768px) {
-      .mobile-scroll-row {
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        overflow-y: visible !important;
-        scroll-snap-type: x mandatory;
-        padding-top: 24px;
-        padding-bottom: 56px;
-        margin-top: -24px;
-        margin-bottom: -32px;
-        scroll-padding-left: 18px;
-        margin-inline: -18px;
-        padding-inline: 18px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        gap: 20px;
-      }
-      .mobile-scroll-row::-webkit-scrollbar { display: none; }
-      .mobile-scroll-row > * {
-        flex: 0 0 85% !important;
-        scroll-snap-align: center;
-      }
-      .mobile-scroll-row.pricing-grid > * {
-        flex: 0 0 90% !important;
-      }
-      .mobile-scroll-row > *:last-child {
-        position: relative;
-      }
-      .mobile-scroll-row::after {
-        content: "";
-        display: block;
-        min-width: 48px;
-        flex-shrink: 0;
-        scroll-snap-align: none;
-      }
-      
-      /* Make sure there isn't grid stepping inside */
-      .mobile-scroll-row.three-col,
-      .mobile-scroll-row.steps-timeline,
-      .mobile-scroll-row.pricing-grid {
-          grid-template-columns: none !important;
-      }
-    }
-
-    /* Make tab nav horizontal scrollable on mobile */
-    @media (max-width: 768px) {
-      .features-tab-nav {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        justify-content: flex-start;
-        padding-inline: 18px;
-        margin-inline: -18px;
-      }
-      .features-tab-nav::after {
-        content: "";
-        display: block;
-        min-width: 18px;
-        flex-shrink: 0;
-      }
-      .features-tab-nav::-webkit-scrollbar { display: none; }
-      .features-tab-nav .feature-tab-btn {
-        flex-shrink: 0;
-      }
-
-      .pricing-toggle {
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        justify-content: flex-start !important;
-        border-radius: 999px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-      .pricing-toggle::-webkit-scrollbar { display: none; }
-      .pricing-toggle-btn {
-        flex-shrink: 0;
-        white-space: nowrap;
-      }
-    }
-
-    /* Unified Features Tabs */
-    .section-features-tabs {
-      padding: 80px 0;
-      background: var(--bg-body);
-    }
-    .features-tab-nav {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 48px;
-    }
-    .feature-tab-btn {
-      background: var(--bg-container);
-      border: 1px solid var(--border-color);
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .feature-tab-btn:hover {
-      border-color: var(--brand-primary);
-      color: var(--text-primary);
-    }
-    .feature-tab-btn.active {
-      background: var(--brand-primary-dark);
-      color: #fff;
-      border-color: var(--brand-primary-dark);
-    }
-
-    .feature-content-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-    
-    /* Layout positioning on Desktop */
-    .feature-layout-header {
-      grid-column: 1 / 2;
-      grid-row: 1 / 2;
-      align-self: end;
-    }
-    .feature-layout-details {
-      grid-column: 1 / 2;
-      grid-row: 2 / 3;
-      align-self: start;
-    }
-    .feature-layout-visual {
-      grid-column: 2 / 3;
-      grid-row: 1 / 3;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    @media (max-width: 768px) {
-      .feature-content-layout {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-      }
-      .features-tab-nav {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        justify-content: flex-start;
-        padding-inline: 18px;
-        margin-inline: -18px;
-        scroll-padding-left: 18px;
-        scroll-snap-type: x mandatory;
-      }
-      .features-tab-nav::after {
-        content: "";
-        display: block;
-        min-width: 18px;
-        flex-shrink: 0;
-        scroll-snap-align: none;
-      }
-      .features-tab-nav::-webkit-scrollbar { display: none; }
-      .features-tab-nav .feature-tab-btn {
-        flex-shrink: 0;
-        scroll-snap-align: start;
-      }
-      .feature-layout-header { order: 1; }
-      .feature-layout-visual { order: 2; }
-      .feature-layout-details { order: 3; }
-    }
-
-    /* Workflow CTA & Timeline changes */
-    @media (max-width: 768px) {
-      .steps-timeline-scrollable {
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        overflow-y: visible !important;
-        scroll-snap-type: x mandatory;
-        padding-top: 24px;
-        padding-bottom: 56px;
-        margin-top: -24px;
-        margin-bottom: -32px;
-        scroll-padding-left: 18px;
-        margin-inline: -18px;
-        padding-inline: 18px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        gap: 20px;
-        grid-template-columns: none !important;
-      }
-      .steps-timeline-scrollable::-webkit-scrollbar { display: none; }
-      .steps-timeline-scrollable > * {
-        flex: 0 0 85% !important;
-        scroll-snap-align: center;
-      }
-    }
-  </style>
 
   <script>
-    function switchFeatureTab(targetId) {
-      document.querySelectorAll('.feature-tab-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.target === targetId);
-      });
-      document.querySelectorAll('.feature-tab-content').forEach(content => {
-        if (content.id === 'tab-' + targetId) {
-          content.style.display = 'block';
-          setTimeout(() => content.style.opacity = 1, 10);
-        } else {
-          content.style.display = 'none';
-          content.style.opacity = 0;
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // ── Mockup mini-carousel (arrows visible on mobile) ──────────────
+      document.querySelectorAll('.feature-layout-visual').forEach(function (visual) {
+        var mockups = Array.from(visual.querySelectorAll('.app-mockup, .mockup-box'));
+        if (mockups.length < 2) return;
+
+        // Wrap all mockups in a fixed-height track
+        var track = document.createElement('div');
+        track.className = 'mockup-track';
+        mockups[0].parentNode.insertBefore(track, mockups[0]);
+        mockups.forEach(function (m, i) {
+          track.appendChild(m);
+          if (i === 0) m.classList.add('mockup-active');
+        });
+
+        // Build arrow nav
+        var nav = document.createElement('div');
+        nav.className = 'mockup-nav';
+
+        var prevBtn = document.createElement('button');
+        prevBtn.className = 'mockup-arrow mockup-prev';
+        prevBtn.innerHTML = '<i class="bi bi-chevron-left"></i>';
+        prevBtn.disabled = true;
+
+        var nextBtn = document.createElement('button');
+        nextBtn.className = 'mockup-arrow mockup-next';
+        nextBtn.innerHTML = '<i class="bi bi-chevron-right"></i>';
+
+        var dotsWrap = document.createElement('div');
+        dotsWrap.className = 'mockup-dots';
+        mockups.forEach(function (_, i) {
+          var dot = document.createElement('span');
+          dot.className = 'mockup-dot' + (i === 0 ? ' active' : '');
+          dotsWrap.appendChild(dot);
+        });
+
+        nav.appendChild(prevBtn);
+        nav.appendChild(dotsWrap);
+        nav.appendChild(nextBtn);
+        visual.appendChild(nav);
+
+        function goMockup(dir) {
+          var active = track.querySelector('.mockup-active');
+          var idx = mockups.indexOf(active);
+          var next = idx + dir;
+          if (next < 0 || next >= mockups.length) return;
+          mockups.forEach(function (m, i) { m.classList.toggle('mockup-active', i === next); });
+          dotsWrap.querySelectorAll('.mockup-dot').forEach(function (d, i) { d.classList.toggle('active', i === next); });
+          prevBtn.disabled = next === 0;
+          nextBtn.disabled = next === mockups.length - 1;
         }
+
+        prevBtn.addEventListener('click', function () { goMockup(-1); });
+        nextBtn.addEventListener('click', function () { goMockup(1); });
       });
-    }
+
+      // ── Feature panel carousel nav (prev/next + dots) ──────────────
+      var body = document.querySelector('.features-tabs-body');
+      if (!body) return;
+      var panels = Array.from(body.querySelectorAll('.feature-tab-content'));
+      var current = 0;
+
+      var wrapNav = document.createElement('div');
+      wrapNav.className = 'features-panel-nav';
+
+      var panelPrev = document.createElement('button');
+      panelPrev.className = 'panel-arrow panel-prev';
+      panelPrev.innerHTML = '<i class="bi bi-chevron-left"></i>';
+      panelPrev.disabled = true;
+
+      var panelNext = document.createElement('button');
+      panelNext.className = 'panel-arrow panel-next';
+      panelNext.innerHTML = '<i class="bi bi-chevron-right"></i>';
+
+      var panelDots = document.createElement('div');
+      panelDots.className = 'panel-dots';
+      panels.forEach(function (_, i) {
+        var dot = document.createElement('span');
+        dot.className = 'panel-dot' + (i === 0 ? ' active' : '');
+        panelDots.appendChild(dot);
+      });
+
+      wrapNav.appendChild(panelPrev);
+      wrapNav.appendChild(panelDots);
+      wrapNav.appendChild(panelNext);
+      body.parentNode.insertBefore(wrapNav, body.nextSibling);
+
+      function goPanel(dir) {
+        var next = Math.max(0, Math.min(panels.length - 1, current + dir));
+        if (next === current) return;
+        current = next;
+        panels[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        updatePanelNav();
+      }
+
+      function updatePanelNav() {
+        panelDots.querySelectorAll('.panel-dot').forEach(function (d, i) { d.classList.toggle('active', i === current); });
+        panelPrev.disabled = current === 0;
+        panelNext.disabled = current === panels.length - 1;
+      }
+
+      panelPrev.addEventListener('click', function () { goPanel(-1); });
+      panelNext.addEventListener('click', function () { goPanel(1); });
+
+      // Sync dots on swipe
+      body.addEventListener('scroll', function () {
+        if (!panels.length) return;
+        var panelW = panels[0].offsetWidth;
+        if (!panelW) return;
+        var idx = Math.round(body.scrollLeft / panelW);
+        idx = Math.max(0, Math.min(panels.length - 1, idx));
+        if (idx !== current) {
+          current = idx;
+          updatePanelNav();
+        }
+      }, { passive: true });
+    });
   </script>
 
+
 </head>
+
 <body>
 
   <!-- ── Nav ──────────────────────────────────────────────────── -->
@@ -367,7 +268,7 @@
       </div>
       <div class="nav-actions">
         <!-- <a href="https://moja.spona.app" class="btn nav-login-btn"><i class="bi bi-person-fill"></i> Prijava</a> -->
-        <button type="button" onclick="openLeadModal('')" class="btn btn-primary nav-cta-btn">Počni besplatno</button>
+        <button type="button" onclick="openLeadModal('')" class="btn btn-primary nav-cta-btn">Probaj besplatno</button>
       </div>
       <button class="nav-hamburger" id="nav-hamburger" aria-label="Otvori meni">
         <span></span><span></span><span></span>
@@ -380,7 +281,8 @@
       <a href="#pitanja">Pitanja</a>
       <div class="nav-mobile-cta">
         <!-- <a href="https://moja.spona.app" class="btn nav-login-btn" style="width:100%;justify-content:center;"><i class="bi bi-person-fill"></i> Prijava</a> -->
-        <button type="button" onclick="openLeadModal('')" class="btn btn-primary" style="width:100%;justify-content:center;">Počni besplatno</button>
+        <button type="button" onclick="openLeadModal('')" class="btn btn-primary"
+          style="width:100%;justify-content:center;">Probaj besplatno</button>
       </div>
     </div>
   </nav>
@@ -423,8 +325,14 @@
             </div>
             <div class="hc-divider"></div>
             <div class="hc-stats-row">
-              <div><div class="hc-stat-num">47</div><div class="hc-stat-label">porudžbina</div></div>
-              <div><div class="hc-stat-num">975.000 RSD</div><div class="hc-stat-label">ukupno</div></div>
+              <div>
+                <div class="hc-stat-num">47</div>
+                <div class="hc-stat-label">porudžbina</div>
+              </div>
+              <div>
+                <div class="hc-stat-num">975.000 RSD</div>
+                <div class="hc-stat-label">ukupno</div>
+              </div>
             </div>
           </div>
         </div>
@@ -436,9 +344,9 @@
           <p class="hero-sub">Program za porudžbine, fakture i kupce — sve na jednom mestu, za male firme u Srbiji.</p>
           <div class="hero-cta">
             <button type="button" onclick="openLeadModal('')" class="btn btn-primary btn-lg">
-              Počni besplatno <i class="bi bi-arrow-right"></i>
+              Probaj besplatno <i class="bi bi-arrow-right"></i>
             </button>
-            <a href="#kako-poceti" class="btn btn-outline-white btn-lg">Kako funkcioniše</a>
+            <a href="#radni-dan" class="btn btn-outline-white btn-lg">Kako funkcioniše</a>
           </div>
           <div class="hero-scroll-hint">
             <i class="bi bi-mouse2"></i>
@@ -503,7 +411,8 @@
       <div class="header reveal">
         <div class="eyebrow">Problem koji poznaješ</div>
         <h2 class="section-title">Da vam posao ne oduzima<br><em>sav mir</em></h2>
-        <p class="section-sub">Posao je porastao — i to je dobra stvar. Ali kad ima više posla, teže je sve držati u glavi. Papiri znaju da naprave pometnju.</p>
+        <p class="section-sub">Posao je porastao — i to je dobra stvar. Ali kad ima više posla, teže je sve držati u
+          glavi. Papiri znaju da naprave pometnju.</p>
       </div>
       <div class="three-col mobile-scroll-row">
         <div class="problem-card">
@@ -532,85 +441,18 @@
   </section>
 
   <!-- ── Solution intro ────────────────────────────────────────── -->
-  <section class="section-solution">
-    <div class="container">
-      <div class="two-col two-col--center">
-        <div class="reveal from-left">
-          <div class="eyebrow">Rešenje</div>
-          <h2 class="section-title">Digitalni rokovnik koji <br><em>sam računa</em></h2>
-          <p class="section-sub" style="margin-bottom:28px;">Spona je rokovnik koji se ne može izgubiti — sam sabira i oduzima, pamti svakog kupca i svaki dogovor, i drži sve na jednom mestu od prvog dana.</p>
-          <ul class="check-list">
-            <li>Svaki kupac i dogovor — zapisan i na mestu</li>
-            <li>Svaka porudžbina praćena od upisa do isporuke</li>
-            <li>Faktura gotova za pola minute, bez grešaka</li>
-            <li>Na kraju dana vidiš crno na belo kako stojiš</li>
-            <li>Svaki radnik vidi samo šta njemu pripada</li>
-            <li>Radi na telefonu, tabletu i računaru</li>
-          </ul>
-          <br />
-          <button type="button" onclick="openLeadModal('')" class="btn btn-primary">Isprobaj Sponu <i class="bi bi-arrow-right"></i></button>
-        </div>
-        <div class="reveal from-right">
-          <div class="app-mockup">
-            <div class="am-body">
-              <div class="am-stats-row">
-                <div class="am-stat-block">
-                  <div class="am-stat-val">1,5M</div>
-                  <div class="am-stat-lbl">Zarada<br>ovaj mesec</div>
-                  <div class="am-stat-up"><i class="bi bi-arrow-up"></i> +14%</div>
-                </div>
-                <div class="am-stat-block">
-                  <div class="am-stat-val">42</div>
-                  <div class="am-stat-lbl">Porudžbina</div>
-                </div>
-                <div class="am-stat-block">
-                  <div class="am-stat-val">8</div>
-                  <div class="am-stat-lbl">Kupaca</div>
-                </div>
-              </div>
-              <div class="am-chart">
-                <div class="am-chart-label">Zarada — poslednjih 6 meseci</div>
-                <div class="am-chart-bars">
-                  <div class="am-bar-wrap"><div class="am-bar-fill" style="--h:55%"></div><span>Jan</span></div>
-                  <div class="am-bar-wrap"><div class="am-bar-fill" style="--h:42%"></div><span>Feb</span></div>
-                  <div class="am-bar-wrap"><div class="am-bar-fill" style="--h:68%"></div><span>Mar</span></div>
-                  <div class="am-bar-wrap"><div class="am-bar-fill" style="--h:50%"></div><span>Apr</span></div>
-                  <div class="am-bar-wrap"><div class="am-bar-fill" style="--h:75%"></div><span>Maj</span></div>
-                  <div class="am-bar-wrap"><div class="am-bar-fill active" style="--h:100%"></div><span>Jun</span></div>
-                </div>
-              </div>
-              <div class="am-section-label">Poslednje porudžbine</div>
-              <div class="am-order-row">
-                <span class="am-order-status novo">Novo</span>
-                <span class="am-order-name">Popović Gradnja</span>
-                <span class="am-order-amt">375.000</span>
-              </div>
-              <div class="am-order-row">
-                <span class="am-order-status uradu">U izradi</span>
-                <span class="am-order-name">Janković Trgovina</span>
-                <span class="am-order-amt">88.000</span>
-              </div>
-              <div class="am-order-row">
-                <span class="am-order-status gotovo">Gotovo</span>
-                <span class="am-order-name">Luka Andrić</span>
-                <span class="am-order-amt">120.000</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ── Workflow (Mental Model) ───────────────────────────────── -->
-  <section class="section-workflow" style="padding: 80px 0; background: rgba(2, 204, 129, 0.05); border-top: 1px solid rgba(2, 204, 129, 0.1); border-bottom: 1px solid rgba(2, 204, 129, 0.1);">
+  <section class="section-workflow" id="radni-dan"
+    style="padding: 80px 0; background: rgba(2, 204, 129, 0.05); border-top: 1px solid rgba(2, 204, 129, 0.1); border-bottom: 1px solid rgba(2, 204, 129, 0.1);">
     <div class="container">
       <div class="section-header-center reveal" style="margin-bottom: 48px;">
         <div class="eyebrow" style="color: var(--brand-primary-dark);">Kako Spona menja radni dan</div>
         <h2 class="section-title">Od upisa do naplate — <br>pravo iz džepa</h2>
-        <p class="section-sub">Zaboravi na prepisivanje iz sveske u svesku. Ovako izgleda tok posla kada firma pređe na Sponu.</p>
+        <p class="section-sub">Zaboravi na prepisivanje iz sveske u svesku. Ovako izgleda tok posla kada firma pređe na
+          Sponu.</p>
       </div>
-      <div class="steps-timeline-scrollable steps-timeline" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+      <div class="steps-timeline-scrollable steps-timeline"
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
         <div class="step-node reveal">
           <div class="step-node-icon"><i class="bi bi-phone-vibrate"></i></div>
           <div class="step-num-badge">01</div>
@@ -621,13 +463,15 @@
           <div class="step-node-icon"><i class="bi bi-tools"></i></div>
           <div class="step-num-badge">02</div>
           <h3>Proizvodnja</h3>
-          <p>Radnik na svom ekranu vidi <b>samo</b> šta treba da napravi i od kog materijala. Ne vidi cene ni podatke kupca.</p>
+          <p>Radnik na svom ekranu vidi <b>samo</b> šta treba da napravi i od kog materijala. Ne vidi cene ni podatke
+            kupca.</p>
         </div>
         <div class="step-node reveal">
           <div class="step-node-icon"><i class="bi bi-check2-all"></i></div>
           <div class="step-num-badge">03</div>
           <h3>Izrada</h3>
-          <p>Kada završi posao, radnik jednim klikom menja status iz "U izradi" u "Spremno". Status se odmah ažurira.</p>
+          <p>Kada završi posao, radnik jednim klikom menja status iz "U izradi" u "Spremno". Status se odmah ažurira.
+          </p>
         </div>
         <div class="step-node reveal">
           <div class="step-node-icon active"><i class="bi bi-receipt"></i></div>
@@ -636,9 +480,11 @@
           <p>Jednim klikom odštampaš radni nalog ili pošalješ PDF fakturu na email. Čisto, brzo i profesionalno.</p>
         </div>
       </div>
-    
+
       <div style="text-align: center; margin-top: 48px;">
-        <a href="#kako-poceti" class="btn btn-primary" style="background:var(--brand-primary-dark); color:#fff; padding: 12px 32px; border-radius: 30px; font-weight:600; text-decoration:none;">Vidi kako da počneš &rarr;</a>
+        <a href="#kako-poceti" class="btn btn-primary"
+          style="background:var(--brand-primary-dark); color:#fff; padding: 12px 32px; border-radius: 30px; font-weight:600; text-decoration:none;">Vidi
+          kako da počneš &rarr;</a>
       </div>
     </div>
   </section>
@@ -675,449 +521,498 @@
         <div class="eyebrow">Sve što tvojoj firmi treba</div>
         <h2 class="section-title">Nema više "gde mi je onaj papir?"</h2>
       </div>
-      
-      <div class="features-tab-nav">
-        <button class="feature-tab-btn active" onclick="switchFeatureTab('kupci')" data-target="kupci">Kupci</button><button class="feature-tab-btn " onclick="switchFeatureTab('porudzbine')" data-target="porudzbine">Porudžbine</button><button class="feature-tab-btn " onclick="switchFeatureTab('fakture')" data-target="fakture">Fakture</button><button class="feature-tab-btn " onclick="switchFeatureTab('cenovnik')" data-target="cenovnik">Cenovnik</button><button class="feature-tab-btn " onclick="switchFeatureTab('zarada')" data-target="zarada">Zarada</button><button class="feature-tab-btn " onclick="switchFeatureTab('tim')" data-target="tim">Tim</button>
-      </div>
 
       <div class="features-tabs-body">
 
-      <div class="feature-tab-content active" id="tab-kupci" style="display: flex;">
-        <div class="feature-content-layout">
-<div class="feature-layout-header"><div class="feature-tag"><i class="bi bi-people"></i> 01 — Kupci</div><h2 class="feature-title">Nikad više izgubljen<br/>kontakt ni dogovor</h2><p class="feature-desc">Upišeš kupca jednom — i sve što si s njim radio ostane u Sponi zauvek. Ime, telefon, istorija porudžbina, šta ste se dogovorili. Nema više: "Kako mu beše broj?"</p></div>
-<div class="feature-layout-visual">
-<div class="app-mockup">
-<div class="am-body">
-<div class="am-cust-row active">
-<div class="am-cust-av">MP</div>
-<div class="am-cust-info">
-<div class="am-cust-name">Marko Popović</div>
-<div class="am-cust-sub">47 porudžbina</div>
-</div>
-<i class="bi bi-chevron-right" style="color:var(--brand-primary);font-size:0.72rem;"></i>
-</div>
-<div class="am-cust-row">
-<div class="am-cust-av" style="--av:linear-gradient(135deg,#667eea,#764ba2)">JT</div>
-<div class="am-cust-info">
-<div class="am-cust-name">Janković Trgovina</div>
-<div class="am-cust-sub">31 porudžbina</div>
-</div>
-<i class="bi bi-chevron-right" style="color:var(--text-tertiary);font-size:0.72rem;"></i>
-</div>
-<div class="am-cust-row">
-<div class="am-cust-av" style="--av:linear-gradient(135deg,#f093fb,#f5576c)">MM</div>
-<div class="am-cust-info">
-<div class="am-cust-name">Mila Marković</div>
-<div class="am-cust-sub">12 porudžbina</div>
-</div>
-<i class="bi bi-chevron-right" style="color:var(--text-tertiary);font-size:0.72rem;"></i>
-</div>
-</div>
-</div>
-<div class="app-mockup">
-<div class="am-body">
-<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-<div class="am-cust-av" style="width:40px;height:40px;font-size:0.78rem;">MP</div>
-<div>
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-primary);">Marko Popović</div>
-<div style="font-size:0.65rem;color:var(--text-tertiary);">Popović Gradnja · Veleprodaja</div>
-</div>
-<div style="margin-left:auto;font-size:0.65rem;font-weight:700;color:var(--brand-primary);"><i class="bi bi-circle-fill" style="font-size:0.5rem;"></i> Aktivan</div>
-</div>
-<div class="am-stats-row" style="margin-bottom:8px;">
-<div class="am-stat-block" style="text-align:center;">
-<div class="am-stat-val">47</div>
-<div class="am-stat-lbl">Porudžbina</div>
-</div>
-<div class="am-stat-block" style="text-align:center;">
-<div class="am-stat-val" style="font-size:0.85rem;">975.000</div>
-<div class="am-stat-lbl">Ukupno RSD</div>
-</div>
-</div>
-<div class="am-section-label">Istorija porudžbina</div>
-<div class="am-order-row">
-<span class="am-order-status gotovo">Isporučeno</span>
-<span class="am-order-name">#0041 — Prozori ALU</span>
-<span class="am-order-amt">280.000</span>
-</div>
-<div class="am-order-row">
-<span class="am-order-status novo">Novo</span>
-<span class="am-order-name">#0042 — Montaža i isporuka</span>
-<span class="am-order-amt">375.000</span>
-</div>
-</div>
-</div>
-</div>
-<div class="feature-layout-details"><ul class="dot-list" style="margin-bottom:24px;">
-<li><strong>Ime, telefon, adresa</strong> — sve na jednom mestu</li>
-<li><strong>Cela istorija porudžbina</strong> po svakom kupcu</li>
-<li><strong>Nađeš bilo koga za sekundu</strong> — samo ukucaš ime</li>
-<li><strong>Beleške uz profil</strong> — zapiši šta god treba upamtiti</li>
-<li><strong>Grupe porudžbina</strong> — veleprodaja odvojeno od maloprodaje</li>
-</ul><div class="card">
-<div class="eyebrow">Mirna glava</div>
-<span style="font-size:0.9rem;color:var(--text-secondary);">Čisti računi s kupcima — znaš ko ti šta duguje i šta ste se dogovorili, čak i kad si na odmoru.</span>
-</div></div>
-        </div>
-      </div>
-
-      <div class="feature-tab-content" id="tab-porudzbine" style="display: none;">
-        <div class="feature-content-layout">
-<div class="feature-layout-header"><div class="feature-tag"><i class="bi bi-box-seam"></i> 02 — Porudžbine</div><h2 class="feature-title">Svaka porudžbina —<br/>zapisana i praćena</h2><p class="feature-desc">Kupac naruči — ti upišeš u Sponu za minut. Od tog trenutka svaki radnik zna šta treba da uradi, bez telefoniranja i petljanja.</p></div>
-<div class="feature-layout-visual">
-<div class="app-mockup">
-<div class="am-body">
-<div class="am-tabs">
-<span class="am-tab active">Sve (18)</span>
-<span class="am-tab">Novo (5)</span>
-<span class="am-tab">U izradi (8)</span>
-<span class="am-tab">Isporučeno (5)</span>
-</div>
-<div class="am-order-row">
-<span class="am-order-status novo">Novo</span>
-<div style="flex:1;min-width:0;">
-<div class="am-order-name">#0042 — Popović Gradnja</div>
-<div style="font-size:0.6rem;color:var(--text-tertiary);">3× Prozori ALU + Montaža</div>
-</div>
-<span class="am-order-amt">375.000</span>
-</div>
-<div class="am-order-row">
-<span class="am-order-status uradu">U izradi</span>
-<div style="flex:1;min-width:0;">
-<div class="am-order-name">#0041 — Janković Trgovina</div>
-<div style="font-size:0.6rem;color:var(--text-tertiary);">5× Roletne PVC</div>
-</div>
-<span class="am-order-amt">88.000</span>
-</div>
-<div class="am-order-row">
-<span class="am-order-status gotovo">Isporučeno</span>
-<div style="flex:1;min-width:0;">
-<div class="am-order-name">#0040 — Luka Andrić</div>
-<div style="font-size:0.6rem;color:var(--text-tertiary);">2× Vrata ALU</div>
-</div>
-<span class="am-order-amt">120.000</span>
-</div>
-</div>
-</div>
-<div class="app-mockup">
-<div class="am-body">
-<div class="am-form-field">
-<div class="am-field-label">Kupac</div>
-<div class="am-field-val am-field-selected">
-<div class="am-cust-av" style="width:22px;height:22px;font-size:0.55rem;">MP</div>
-                  Marko Popović
+        <div class="feature-tab-content" id="tab-kupci">
+          <div class="feature-content-layout">
+            <div class="feature-layout-header">
+              <div class="feature-tag"><i class="bi bi-people"></i> 01 — Kupci</div>
+              <h2 class="feature-title">Nikad više izgubljen<br />kontakt ni dogovor</h2>
+              <p class="feature-desc">Upišeš kupca jednom — i sve što si s njim radio ostane u Sponi zauvek. Ime,
+                telefon, istorija porudžbina, šta ste se dogovorili. Nema više: "Kako mu beše broj?"</p>
+            </div>
+            <div class="feature-layout-visual">
+              <div class="app-mockup">
+                <div class="am-body">
+                  <div class="am-cust-row active">
+                    <div class="am-cust-av">MP</div>
+                    <div class="am-cust-info">
+                      <div class="am-cust-name">Marko Popović</div>
+                      <div class="am-cust-sub">47 porudžbina</div>
+                    </div>
+                    <i class="bi bi-chevron-right" style="color:var(--brand-primary);font-size:0.72rem;"></i>
+                  </div>
+                  <div class="am-cust-row">
+                    <div class="am-cust-av" style="--av:linear-gradient(135deg,#667eea,#764ba2)">JT</div>
+                    <div class="am-cust-info">
+                      <div class="am-cust-name">Janković Trgovina</div>
+                      <div class="am-cust-sub">31 porudžbina</div>
+                    </div>
+                    <i class="bi bi-chevron-right" style="color:var(--text-tertiary);font-size:0.72rem;"></i>
+                  </div>
+                  <div class="am-cust-row">
+                    <div class="am-cust-av" style="--av:linear-gradient(135deg,#f093fb,#f5576c)">MM</div>
+                    <div class="am-cust-info">
+                      <div class="am-cust-name">Mila Marković</div>
+                      <div class="am-cust-sub">12 porudžbina</div>
+                    </div>
+                    <i class="bi bi-chevron-right" style="color:var(--text-tertiary);font-size:0.72rem;"></i>
+                  </div>
                 </div>
-</div>
-<div class="am-section-label">Artikli</div>
-<div class="am-item-row">
-<div class="am-item-info">
-<div style="font-size:0.72rem;font-weight:600;color:var(--text-primary);">Prozor ALU</div>
-<div style="font-size:0.6rem;color:var(--text-tertiary);">56.000 din/kom</div>
-</div>
-<div class="am-item-qty">× 3</div>
-<div style="font-size:0.78rem;font-weight:700;color:var(--text-primary);">168.000</div>
-</div>
-<div class="am-item-row">
-<div class="am-item-info">
-<div style="font-size:0.72rem;font-weight:600;color:var(--text-primary);">Montaža</div>
-<div style="font-size:0.6rem;color:var(--text-tertiary);">35.000 din/kom</div>
-</div>
-<div class="am-item-qty">× 2</div>
-<div style="font-size:0.78rem;font-weight:700;color:var(--text-primary);">70.000</div>
-</div>
-<div class="am-divider-line"></div>
-<div style="display:flex;justify-content:space-between;align-items:center;">
-<span style="font-size:0.7rem;color:var(--text-secondary);">Ukupno</span>
-<span style="font-size:0.92rem;font-weight:800;color:var(--text-primary);">238.000 RSD</span>
-</div>
-</div>
-</div>
-</div>
-<div class="feature-layout-details"><ul class="dot-list" style="margin-bottom:24px;">
-<li><strong>Odabereš kupca</strong> iz svoje baze jednim klikom</li>
-<li><strong>Dodaš šta je naručeno i materijale</strong> — cene se same upišu</li>
-<li><strong>Podela na grupe porudžbina</strong> — odvoji veleprodaju, maloprodaju ili Instagram prodaju</li>
-<li><strong>Gotovinsko, na fakturu, karticom</strong> — piše odmah</li>
-<li><strong>Pratiš gde je porudžbina</strong> — u radu, gotovo, isporučeno</li>
-</ul><div class="card" style="background:var(--brand-primary-light);">
-<h3 style="color:var(--brand-primary-dark);font-size:0.95rem;margin-bottom:6px;"><i class="bi bi-printer-fill"></i> Radni nalozi za radnike</h3>
-<span style="font-size:0.87rem;color:var(--text-secondary);">Jednim klikom odštampaš fizički radni nalog za radionicu ili magacin sa jasno raspisanim materijalima. Sve što radniku treba, bez telefona.</span>
-</div></div>
+              </div>
+              <div class="app-mockup">
+                <div class="am-body">
+                  <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                    <div class="am-cust-av" style="width:40px;height:40px;font-size:0.78rem;">MP</div>
+                    <div>
+                      <div style="font-weight:700;font-size:0.85rem;color:var(--text-primary);">Marko Popović</div>
+                      <div style="font-size:0.65rem;color:var(--text-tertiary);">Popović Gradnja · Veleprodaja</div>
+                    </div>
+                    <div style="margin-left:auto;font-size:0.65rem;font-weight:700;color:var(--brand-primary);"><i
+                        class="bi bi-circle-fill" style="font-size:0.5rem;"></i> Aktivan</div>
+                  </div>
+                  <div class="am-stats-row" style="margin-bottom:8px;">
+                    <div class="am-stat-block" style="text-align:center;">
+                      <div class="am-stat-val">47</div>
+                      <div class="am-stat-lbl">Porudžbina</div>
+                    </div>
+                    <div class="am-stat-block" style="text-align:center;">
+                      <div class="am-stat-val" style="font-size:0.85rem;">975.000</div>
+                      <div class="am-stat-lbl">Ukupno RSD</div>
+                    </div>
+                  </div>
+                  <div class="am-section-label">Istorija porudžbina</div>
+                  <div class="am-order-row">
+                    <span class="am-order-status gotovo">Isporučeno</span>
+                    <span class="am-order-name">#0041 — Prozori ALU</span>
+                    <span class="am-order-amt">280.000</span>
+                  </div>
+                  <div class="am-order-row">
+                    <span class="am-order-status novo">Novo</span>
+                    <span class="am-order-name">#0042 — Montaža i isporuka</span>
+                    <span class="am-order-amt">375.000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-layout-details">
+              <ul class="dot-list" style="margin-bottom:24px;">
+                <li><strong>Ime, telefon i istorija</strong> — sve na jednom mestu</li>
+                <li><strong>Nađeš bilo koga za sekundu</strong> — samo ukucaš ime</li>
+                <li><strong>Beleške i dogovori</strong> uz svaki profil kupca</li>
+              </ul>
+              <div class="card">
+                <div class="eyebrow">Mirna glava</div>
+                <span style="font-size:0.9rem;color:var(--text-secondary);">Znaš ko ti šta duguje — čak i kad si na odmoru.</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="feature-tab-content" id="tab-fakture" style="display: none;">
-        <div class="feature-content-layout">
-<div class="feature-layout-header"><div class="feature-tag"><i class="bi bi-receipt"></i> 03 — Fakture</div><h2 class="feature-title">Faktura za pola minute,<br/>bez greške</h2><p class="feature-desc">Nema više ručnog pisanja. Spona napravi fakturu sama iz porudžbine — uredno, ispravno, s tvojim logom — za pola minute. Odštampaš ili pošalješ mejlom, gotovo.</p></div>
-<div class="feature-layout-visual">
-<div class="mockup-box" style="min-height:200px;">
-<img alt="Gotova faktura" src="LandingPage/invoice.jpg"/>
-<span class="m-label">
-<strong>Gotova faktura</strong>
-              Uredno odštampana faktura s tvojim logom — profesionalno, bez muke
-            </span>
-</div>
-</div>
-<div class="feature-layout-details"><ul class="dot-list" style="margin-bottom:24px;">
-<li><strong>Sve se samo popuni</strong> iz porudžbine — nema ponovnog kucanja</li>
-<li><strong>Odštampaj ili pošalji mejlom</strong> za dva klika</li>
-<li><strong>Brojevi faktura idu sami po redu</strong> — ne moraš da pamtiš</li>
-<li><strong>Jasno vidiš ko je platio, a ko nije</strong></li>
-<li><strong>Tvoj logo i firma</strong> na svakoj fakturi</li>
-</ul><div class="quote">
-            "Faktura je gotova pre nego što kupac izađe iz radnje."
-          </div></div>
+        <div class="feature-tab-content" id="tab-porudzbine">
+          <div class="feature-content-layout">
+            <div class="feature-layout-header">
+              <div class="feature-tag"><i class="bi bi-box-seam"></i> 02 — Porudžbine</div>
+              <h2 class="feature-title">Svaka porudžbina —<br />zapisana i praćena</h2>
+              <p class="feature-desc">Kupac naruči — ti upišeš u Sponu za minut. Od tog trenutka svaki radnik zna šta
+                treba da uradi, bez telefoniranja i petljanja.</p>
+            </div>
+            <div class="feature-layout-visual">
+              <div class="app-mockup">
+                <div class="am-body">
+                  <div class="am-tabs">
+                    <span class="am-tab active">Sve (18)</span>
+                    <span class="am-tab">Novo (5)</span>
+                    <span class="am-tab">U izradi (8)</span>
+                    <span class="am-tab">Isporučeno (5)</span>
+                  </div>
+                  <div class="am-order-row">
+                    <span class="am-order-status novo">Novo</span>
+                    <div style="flex:1;min-width:0;">
+                      <div class="am-order-name">#0042 — Popović Gradnja</div>
+                      <div style="font-size:0.6rem;color:var(--text-tertiary);">3× Prozori ALU + Montaža</div>
+                    </div>
+                    <span class="am-order-amt">375.000</span>
+                  </div>
+                  <div class="am-order-row">
+                    <span class="am-order-status uradu">U izradi</span>
+                    <div style="flex:1;min-width:0;">
+                      <div class="am-order-name">#0041 — Janković Trgovina</div>
+                      <div style="font-size:0.6rem;color:var(--text-tertiary);">5× Roletne PVC</div>
+                    </div>
+                    <span class="am-order-amt">88.000</span>
+                  </div>
+                  <div class="am-order-row">
+                    <span class="am-order-status gotovo">Isporučeno</span>
+                    <div style="flex:1;min-width:0;">
+                      <div class="am-order-name">#0040 — Luka Andrić</div>
+                      <div style="font-size:0.6rem;color:var(--text-tertiary);">2× Vrata ALU</div>
+                    </div>
+                    <span class="am-order-amt">120.000</span>
+                  </div>
+                </div>
+              </div>
+              <div class="app-mockup">
+                <div class="am-body">
+                  <div class="am-form-field">
+                    <div class="am-field-label">Kupac</div>
+                    <div class="am-field-val am-field-selected">
+                      <div class="am-cust-av" style="width:22px;height:22px;font-size:0.55rem;">MP</div>
+                      Marko Popović
+                    </div>
+                  </div>
+                  <div class="am-section-label">Artikli</div>
+                  <div class="am-item-row">
+                    <div class="am-item-info">
+                      <div style="font-size:0.72rem;font-weight:600;color:var(--text-primary);">Prozor ALU</div>
+                      <div style="font-size:0.6rem;color:var(--text-tertiary);">56.000 din/kom</div>
+                    </div>
+                    <div class="am-item-qty">× 3</div>
+                    <div style="font-size:0.78rem;font-weight:700;color:var(--text-primary);">168.000</div>
+                  </div>
+                  <div class="am-item-row">
+                    <div class="am-item-info">
+                      <div style="font-size:0.72rem;font-weight:600;color:var(--text-primary);">Montaža</div>
+                      <div style="font-size:0.6rem;color:var(--text-tertiary);">35.000 din/kom</div>
+                    </div>
+                    <div class="am-item-qty">× 2</div>
+                    <div style="font-size:0.78rem;font-weight:700;color:var(--text-primary);">70.000</div>
+                  </div>
+                  <div class="am-divider-line"></div>
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span style="font-size:0.7rem;color:var(--text-secondary);">Ukupno</span>
+                    <span style="font-size:0.92rem;font-weight:800;color:var(--text-primary);">238.000 RSD</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-layout-details">
+              <ul class="dot-list" style="margin-bottom:24px;">
+                <li><strong>Odabereš kupca</strong> jednim klikom</li>
+                <li><strong>Dodaš artikle</strong> — cene se same upišu</li>
+                <li><strong>Gotovinsko, faktura ili kartica</strong> — sve beleži</li>
+                <li><strong>Pratiš status</strong> — u radu, gotovo, isporučeno</li>
+              </ul>
+              <div class="card" style="background:var(--brand-primary-light);">
+                <h3 style="color:var(--brand-primary-dark);font-size:0.95rem;margin-bottom:6px;"><i
+                    class="bi bi-printer-fill"></i> Radni nalozi za radnike</h3>
+                <span style="font-size:0.87rem;color:var(--text-secondary);">Odštampaš nalog za radionicu jednim klikom — sve jasno ispisano, bez telefona.</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="feature-tab-content" id="tab-cenovnik" style="display: none;">
-        <div class="feature-content-layout">
-<div class="feature-layout-header"><div class="feature-tag"><i class="bi bi-tag"></i> 04 — Cenovnik</div><h2 class="feature-title">Cene se ne zaboravljaju —<br/>i uvek su ispravne</h2><p class="feature-desc">Upišeš sve proizvode jednom — i Spona ti to sama nudi svaki put kad praviš porudžbinu. Nema više računanja na papiru ili grešaka u ceni.</p></div>
-<div class="feature-layout-visual">
-<div class="app-mockup">
-<div class="am-body">
-<div class="am-tabs">
-<span class="am-tab active">Svi (24)</span>
-<span class="am-tab">Prozori</span>
-<span class="am-tab">Vrata</span>
-<span class="am-tab">Usluge</span>
-</div>
-<div class="am-product-row">
-<div class="am-product-icon">🪟</div>
-<div class="am-product-info">
-<div class="am-product-name">Prozor ALU</div>
-</div>
-<div class="am-product-price">56.000 din</div>
-</div>
-<div class="am-product-row">
-<div class="am-product-icon">🚪</div>
-<div class="am-product-info">
-<div class="am-product-name">Vrata ALU</div>
-</div>
-<div class="am-product-price">85.000 din</div>
-</div>
-<div class="am-product-row">
-<div class="am-product-icon" style="font-size:0.9rem;">🔧</div>
-<div class="am-product-info">
-<div class="am-product-name">Montaža</div>
-</div>
-<div class="am-product-price">35.000 din</div>
-</div>
-</div>
-</div>
-<div class="app-mockup">
-<div class="am-body">
-<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-<div class="am-product-icon" style="width:44px;height:44px;font-size:1.5rem;border-radius:12px;">🪟</div>
-<div>
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-primary);">Prozor ALU</div>
-<div style="font-size:0.65rem;color:var(--text-tertiary);">Kategorija: Prozori</div>
-</div>
-</div>
-<div class="am-stats-row" style="margin-bottom:10px;">
-<div class="am-stat-block" style="text-align:center;">
-<div class="am-stat-val" style="font-size:0.88rem;">56.000 RSD</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="feature-layout-details"><ul class="dot-list" style="margin-bottom:24px;">
-<li><strong>Naziv i cena</strong> za svaki artikal ili uslugu</li>
-<li><strong>Varijante</strong> — veličina, boja, tip — sve jasno razdvojeno</li>
-<li><strong>Kategorije</strong> za lakše snalaženje u velikim cenovnicima</li>
-</ul><div class="card">
-<div class="eyebrow">Kako to izgleda u praksi</div>
-<span style="font-size:0.87rem;color:var(--text-secondary);">Pri unosu porudžbine samo ukucaš par slova — Spona iskoči s artiklom i cenom. Odabereš količinu, gotovo. Nema greške, nema računanja.</span>
-</div></div>
+        <div class="feature-tab-content" id="tab-fakture">
+          <div class="feature-content-layout">
+            <div class="feature-layout-header">
+              <div class="feature-tag"><i class="bi bi-receipt"></i> 03 — Fakture</div>
+              <h2 class="feature-title">Faktura za pola minute,<br />bez greške</h2>
+              <p class="feature-desc">Nema više ručnog pisanja. Spona napravi fakturu sama iz porudžbine — uredno,
+                ispravno, s tvojim logom — za pola minute. Odštampaš ili pošalješ mejlom, gotovo.</p>
+            </div>
+            <div class="feature-layout-visual">
+              <div class="mockup-box" style="min-height:200px;">
+                <img alt="Gotova faktura" src="LandingPage/invoice.jpg" />
+                <span class="m-label">
+                  <strong>Gotova faktura</strong>
+                  Uredno odštampana faktura s tvojim logom — profesionalno, bez muke
+                </span>
+              </div>
+            </div>
+            <div class="feature-layout-details">
+              <ul class="dot-list" style="margin-bottom:24px;">
+                <li><strong>Sve se samo popuni</strong> iz porudžbine</li>
+                <li><strong>Odštampaj ili pošalji mejlom</strong> — dva klika</li>
+                <li><strong>Tvoj logo i naziv firme</strong> na svakoj fakturi</li>
+                <li><strong>Vidiš ko je platio, a ko nije</strong></li>
+              </ul>
+              <div class="quote">
+                "Faktura je gotova pre nego što kupac izađe iz radnje."
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="feature-tab-content" id="tab-zarada" style="display: none;">
-        <div class="feature-content-layout">
-<div class="feature-layout-header"><div class="feature-tag"><i class="bi bi-graph-up-arrow"></i> 05 — Zarada</div><h2 class="feature-title">Crno na belo —<br/>bez digitrona</h2><p class="feature-desc">Nema više sabiranja do ponoći. Otvoriš Sponu — i odmah vidiš čiste račune: ko je platio, koliko si zaradio, šta se dobro prodaje.</p></div>
-<div class="feature-layout-visual">
-<div class="app-mockup">
-<div class="am-body">
-<div class="am-stats-row">
-<div class="am-stat-block">
-<div class="am-stat-val">142.500</div>
-<div class="am-stat-lbl">Zarada<br/>ovaj mesec</div>
-<div class="am-stat-up"><i class="bi bi-arrow-up"></i> +18%</div>
-</div>
-<div class="am-stat-block">
-<div class="am-stat-val">37</div>
-<div class="am-stat-lbl">Porudžbine<br/>ovaj mesec</div>
-<div class="am-stat-up"><i class="bi bi-arrow-up"></i> +5</div>
-</div>
-<div class="am-stat-block">
-<div class="am-stat-val">Nikolić d.o.o.</div>
-<div class="am-stat-lbl">Top kupac<br/>ovaj mesec</div>
-</div>
-</div>
-<div class="am-chart">
-<div class="am-chart-label">Zarada — poslednjih 6 meseci (RSD)</div>
-<div class="am-chart-bars">
-<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:45%"></div><span>Jan</span></div>
-<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:58%"></div><span>Feb</span></div>
-<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:50%"></div><span>Mar</span></div>
-<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:70%"></div><span>Apr</span></div>
-<div class="am-bar-wrap"><div class="am-bar-fill" style="--h:82%"></div><span>Maj</span></div>
-<div class="am-bar-wrap"><div class="am-bar-fill active" style="--h:100%"></div><span>Jun</span></div>
-</div>
-</div>
-</div>
-</div>
-<div class="app-mockup">
-<div class="am-body">
-<div class="am-section-label">Najprodavaniji artikli</div>
-<div class="am-order-row">
-<div class="am-order-name">Prozor ALU 120×140</div>
-<div class="am-order-amt">41.200 RSD</div>
-</div>
-<div class="am-order-row">
-<div class="am-order-name">Vrata PVC 90×210</div>
-<div class="am-order-amt">28.500 RSD</div>
-</div>
-<div class="am-order-row">
-<div class="am-order-name">Montaža i ugradnja</div>
-<div class="am-order-amt">18.000 RSD</div>
-</div>
-</div>
-</div>
-</div>
-<div class="feature-layout-details"><div class="three-col" style="gap:12px;margin-bottom:20px;">
-<div class="card" style="text-align:center;padding:16px 12px;">
-<div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-graph-up-arrow"></i></div>
-<div style="font-size:0.76rem;color:var(--text-secondary);margin-top:6px;font-weight:500;">Koliko si zaradio</div>
-</div>
-<div class="card" style="text-align:center;padding:16px 12px;">
-<div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-star-fill"></i></div>
-<div style="font-size:0.76rem;color:var(--text-secondary);margin-top:6px;font-weight:500;">Ko ti nosi najviše</div>
-</div>
-<div class="card" style="text-align:center;padding:16px 12px;">
-<div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-box-seam"></i></div>
-<div style="font-size:0.76rem;color:var(--text-secondary);margin-top:6px;font-weight:500;">Šta ide, šta stoji</div>
-</div>
-</div><ul class="dot-list">
-<li><strong>Zarada po danu, mesecu ili godini</strong> — bez jednog sabiranja</li>
-<li><strong>Ko ti donosi najviše para</strong> — da znaš na koga da računaš</li>
-<li><strong>Šta se dobro prodaje, a šta skuplja prašinu</strong></li>
-<li><strong>Ko od radnika šta uradi</strong> — bez ispitivanja</li>
-</ul></div>
+        <div class="feature-tab-content" id="tab-cenovnik">
+          <div class="feature-content-layout">
+            <div class="feature-layout-header">
+              <div class="feature-tag"><i class="bi bi-tag"></i> 04 — Cenovnik</div>
+              <h2 class="feature-title">Cene se ne zaboravljaju —<br />i uvek su ispravne</h2>
+              <p class="feature-desc">Upišeš sve proizvode jednom — i Spona ti to sama nudi svaki put kad praviš
+                porudžbinu. Nema više računanja na papiru ili grešaka u ceni.</p>
+            </div>
+            <div class="feature-layout-visual">
+              <div class="app-mockup">
+                <div class="am-body">
+                  <div class="am-tabs">
+                    <span class="am-tab active">Svi (24)</span>
+                    <span class="am-tab">Prozori</span>
+                    <span class="am-tab">Vrata</span>
+                    <span class="am-tab">Usluge</span>
+                  </div>
+                  <div class="am-product-row">
+                    <div class="am-product-icon">🪟</div>
+                    <div class="am-product-info">
+                      <div class="am-product-name">Prozor ALU</div>
+                    </div>
+                    <div class="am-product-price">56.000 din</div>
+                  </div>
+                  <div class="am-product-row">
+                    <div class="am-product-icon">🚪</div>
+                    <div class="am-product-info">
+                      <div class="am-product-name">Vrata ALU</div>
+                    </div>
+                    <div class="am-product-price">85.000 din</div>
+                  </div>
+                  <div class="am-product-row">
+                    <div class="am-product-icon" style="font-size:0.9rem;">🔧</div>
+                    <div class="am-product-info">
+                      <div class="am-product-name">Montaža</div>
+                    </div>
+                    <div class="am-product-price">35.000 din</div>
+                  </div>
+                </div>
+              </div>
+              <div class="app-mockup">
+                <div class="am-body">
+                  <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                    <div class="am-product-icon" style="width:44px;height:44px;font-size:1.5rem;border-radius:12px;">🪟
+                    </div>
+                    <div>
+                      <div style="font-weight:700;font-size:0.85rem;color:var(--text-primary);">Prozor ALU</div>
+                      <div style="font-size:0.65rem;color:var(--text-tertiary);">Kategorija: Prozori</div>
+                    </div>
+                  </div>
+                  <div class="am-stats-row" style="margin-bottom:10px;">
+                    <div class="am-stat-block" style="text-align:center;">
+                      <div class="am-stat-val" style="font-size:0.88rem;">56.000 RSD</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-layout-details">
+              <ul class="dot-list" style="margin-bottom:24px;">
+                <li><strong>Naziv i cena</strong> za svaki artikal ili uslugu</li>
+                <li><strong>Varijante</strong> — veličina, boja, tip</li>
+                <li><strong>Kategorije</strong> za lakši pregled</li>
+              </ul>
+              <div class="card">
+                <div class="eyebrow">Kako to izgleda</div>
+                <span style="font-size:0.87rem;color:var(--text-secondary);">Ukucaš par slova — Spona iskoči s artiklom i cenom. Odabereš količinu, gotovo.</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="feature-tab-content" id="tab-tim" style="display: none;">
-        <div class="feature-content-layout">
-<div class="feature-layout-header"><div class="feature-tag"><i class="bi bi-people"></i> 06 — Tim</div><h2 class="feature-title">Svako na svom,<br/>bez uvida u tuđe</h2><p class="feature-desc">Kroz četiri nivoa pristupa svako ima svoj nalog. Spona funkcioniše kao alat za internu proizvodnju, ali i mrežu partnera — uz potpunu tajnost tvojih brojki.</p></div>
-<div class="feature-layout-visual">
-<div class="app-mockup">
-<div class="am-body">
-<div class="am-team-row">
-<div class="am-cust-av" style="width:34px;height:34px;font-size:0.7rem;">MM</div>
-<div class="am-cust-info" style="flex:1;">
-<div class="am-cust-name">Milan Matić</div>
-<div class="am-cust-sub">Admin</div>
-</div>
-<span class="am-role-badge admin">Admin</span>
-</div>
-<div class="am-team-row">
-<div class="am-cust-av" style="width:34px;height:34px;font-size:0.7rem;--av:linear-gradient(135deg,#4facfe,#00f2fe);">NK</div>
-<div class="am-cust-info" style="flex:1;">
-<div class="am-cust-name">Nina Kovač</div>
-<div class="am-cust-sub">Prodavac</div>
-</div>
-<span class="am-role-badge radnik">Prodavac</span>
-</div>
-<div class="am-team-row">
-<div class="am-cust-av" style="width:34px;height:34px;font-size:0.7rem;--av:linear-gradient(135deg,#f093fb,#f5576c);">DV</div>
-<div class="am-cust-info" style="flex:1;">
-<div class="am-cust-name">Dragan Vukić</div>
-<div class="am-cust-sub">Radnik</div>
-</div>
-<span class="am-role-badge radnik">Radnik</span>
-</div>
-</div>
-</div>
-<div class="app-mockup">
-<div class="am-body">
-<table class="am-perm-table">
-<thead>
-<tr>
-<th></th>
-<th><span class="am-role-badge admin">Admin</span></th>
-<th><span class="am-role-badge poslovodja" style="font-size:0.5rem;">Prod.</span></th>
-<th><span class="am-role-badge radnik">Radnik</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Porudžbine</td>
-<td><i class="bi bi-check-circle-fill am-check"></i></td>
-<td><i class="bi bi-check-circle-fill am-check"></i></td>
-<td><i class="bi bi-check-circle-fill am-check"></i></td>
-</tr>
-<tr>
-<td>Kupci</td>
-<td><i class="bi bi-check-circle-fill am-check"></i></td>
-<td><i class="bi bi-check-circle-fill am-check"></i></td>
-<td><i class="bi bi-x-circle am-cross"></i></td>
-</tr>
-<tr>
-<td>Zarada</td>
-<td><i class="bi bi-check-circle-fill am-check"></i></td>
-<td><i class="bi bi-dash-circle am-dash"></i></td>
-<td><i class="bi bi-x-circle am-cross"></i></td>
-</tr>
-<tr>
-<td>Podešavanja</td>
-<td><i class="bi bi-check-circle-fill am-check"></i></td>
-<td><i class="bi bi-x-circle am-cross"></i></td>
-<td><i class="bi bi-x-circle am-cross"></i></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="feature-layout-details"><div class="card" style="margin-bottom:12px;">
-<div class="eyebrow">Ko šta vidi</div>
-<ul class="dot-list">
-<li><strong>Admin (Ti)</strong> — Jedini imaš pristup zaradi, podešavanjima računa, i cenama.</li>
-<li><strong>Prodavac</strong> — Unosi kupce i prati porudžbine, komunicira napomene ka radionici.</li>
-<li><strong>Radnik u proizvodnji</strong> — Najbezbedniji nivo. Vidi isključivo vrstu artikla, materijale sa kojima radi i tehničke napomene. <b>Nula</b> pristupa cenama, zaradi ili bazi kupaca.</li>
-<li><strong>Eksterni prodavac (Partner)</strong> — Unosi porudžbine u tvoj sistem umesto tebe, ali vidi <b>isključivo</b> svoje podatke. Nema uvid u to sa kim još i koliko radiš.</li>
-</ul>
-</div><div class="card">
-<div class="eyebrow">Čisti računi unutar firme</div>
-<span style="font-size:0.87rem;color:var(--text-secondary);">Cene prodatih proizvoda, tvoji direktni kupci i ukupna zarada — to ostaje isključivo između tebe i Spone. Niko od radnika ne može da zaviri.</span>
-</div></div>
+        <div class="feature-tab-content" id="tab-zarada">
+          <div class="feature-content-layout">
+            <div class="feature-layout-header">
+              <div class="feature-tag"><i class="bi bi-graph-up-arrow"></i> 05 — Zarada</div>
+              <h2 class="feature-title">Crno na belo —<br />bez digitrona</h2>
+              <p class="feature-desc">Nema više sabiranja do ponoći. Otvoriš Sponu — i odmah vidiš čiste račune: ko je
+                platio, koliko si zaradio, šta se dobro prodaje.</p>
+            </div>
+            <div class="feature-layout-visual">
+              <div class="app-mockup">
+                <div class="am-body">
+                  <div class="am-stats-row">
+                    <div class="am-stat-block">
+                      <div class="am-stat-val">142.500</div>
+                      <div class="am-stat-lbl">Zarada<br />ovaj mesec</div>
+                      <div class="am-stat-up"><i class="bi bi-arrow-up"></i> +18%</div>
+                    </div>
+                    <div class="am-stat-block">
+                      <div class="am-stat-val">37</div>
+                      <div class="am-stat-lbl">Porudžbine<br />ovaj mesec</div>
+                      <div class="am-stat-up"><i class="bi bi-arrow-up"></i> +5</div>
+                    </div>
+                    <div class="am-stat-block">
+                      <div class="am-stat-val">Nikolić d.o.o.</div>
+                      <div class="am-stat-lbl">Top kupac<br />ovaj mesec</div>
+                    </div>
+                  </div>
+                  <div class="am-chart">
+                    <div class="am-chart-label">Zarada — poslednjih 6 meseci (RSD)</div>
+                    <div class="am-chart-bars">
+                      <div class="am-bar-wrap">
+                        <div class="am-bar-fill" style="--h:45%"></div><span>Jan</span>
+                      </div>
+                      <div class="am-bar-wrap">
+                        <div class="am-bar-fill" style="--h:58%"></div><span>Feb</span>
+                      </div>
+                      <div class="am-bar-wrap">
+                        <div class="am-bar-fill" style="--h:50%"></div><span>Mar</span>
+                      </div>
+                      <div class="am-bar-wrap">
+                        <div class="am-bar-fill" style="--h:70%"></div><span>Apr</span>
+                      </div>
+                      <div class="am-bar-wrap">
+                        <div class="am-bar-fill" style="--h:82%"></div><span>Maj</span>
+                      </div>
+                      <div class="am-bar-wrap">
+                        <div class="am-bar-fill active" style="--h:100%"></div><span>Jun</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="app-mockup">
+                <div class="am-body">
+                  <div class="am-section-label">Najprodavaniji artikli</div>
+                  <div class="am-order-row">
+                    <div class="am-order-name">Prozor ALU 120×140</div>
+                    <div class="am-order-amt">41.200 RSD</div>
+                  </div>
+                  <div class="am-order-row">
+                    <div class="am-order-name">Vrata PVC 90×210</div>
+                    <div class="am-order-amt">28.500 RSD</div>
+                  </div>
+                  <div class="am-order-row">
+                    <div class="am-order-name">Montaža i ugradnja</div>
+                    <div class="am-order-amt">18.000 RSD</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-layout-details">
+              <ul class="dot-list">
+                <li><strong>Zarada po danu, mesecu ili godini</strong> — bez sabiranja</li>
+                <li><strong>Ko ti donosi najviše para</strong></li>
+                <li><strong>Šta se dobro prodaje, a šta stoji</strong></li>
+                <li><strong>Ko od radnika šta uradi</strong> — bez ispitivanja</li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
+
+        <div class="feature-tab-content" id="tab-tim">
+          <div class="feature-content-layout">
+            <div class="feature-layout-header">
+              <div class="feature-tag"><i class="bi bi-people"></i> 06 — Tim</div>
+              <h2 class="feature-title">Svako na svom,<br />bez uvida u tuđe</h2>
+              <p class="feature-desc">Kroz četiri nivoa pristupa svako ima svoj nalog. Spona funkcioniše kao alat za
+                internu proizvodnju, ali i mrežu partnera — uz potpunu tajnost tvojih brojki.</p>
+            </div>
+            <div class="feature-layout-visual">
+              <div class="app-mockup">
+                <div class="am-body">
+                  <div class="am-team-row">
+                    <div class="am-cust-av" style="width:34px;height:34px;font-size:0.7rem;">MM</div>
+                    <div class="am-cust-info" style="flex:1;">
+                      <div class="am-cust-name">Milan Matić</div>
+                      <div class="am-cust-sub">Admin</div>
+                    </div>
+                    <span class="am-role-badge admin">Admin</span>
+                  </div>
+                  <div class="am-team-row">
+                    <div class="am-cust-av"
+                      style="width:34px;height:34px;font-size:0.7rem;--av:linear-gradient(135deg,#4facfe,#00f2fe);">NK
+                    </div>
+                    <div class="am-cust-info" style="flex:1;">
+                      <div class="am-cust-name">Nina Kovač</div>
+                      <div class="am-cust-sub">Prodavac</div>
+                    </div>
+                    <span class="am-role-badge radnik">Prodavac</span>
+                  </div>
+                  <div class="am-team-row">
+                    <div class="am-cust-av"
+                      style="width:34px;height:34px;font-size:0.7rem;--av:linear-gradient(135deg,#f093fb,#f5576c);">DV
+                    </div>
+                    <div class="am-cust-info" style="flex:1;">
+                      <div class="am-cust-name">Dragan Vukić</div>
+                      <div class="am-cust-sub">Radnik</div>
+                    </div>
+                    <span class="am-role-badge radnik">Radnik</span>
+                  </div>
+                </div>
+              </div>
+              <div class="app-mockup">
+                <div class="am-body">
+                  <table class="am-perm-table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th><span class="am-role-badge admin">Admin</span></th>
+                        <th><span class="am-role-badge poslovodja" style="font-size:0.5rem;">Prod.</span></th>
+                        <th><span class="am-role-badge radnik">Radnik</span></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Porudžbine</td>
+                        <td><i class="bi bi-check-circle-fill am-check"></i></td>
+                        <td><i class="bi bi-check-circle-fill am-check"></i></td>
+                        <td><i class="bi bi-check-circle-fill am-check"></i></td>
+                      </tr>
+                      <tr>
+                        <td>Kupci</td>
+                        <td><i class="bi bi-check-circle-fill am-check"></i></td>
+                        <td><i class="bi bi-check-circle-fill am-check"></i></td>
+                        <td><i class="bi bi-x-circle am-cross"></i></td>
+                      </tr>
+                      <tr>
+                        <td>Zarada</td>
+                        <td><i class="bi bi-check-circle-fill am-check"></i></td>
+                        <td><i class="bi bi-dash-circle am-dash"></i></td>
+                        <td><i class="bi bi-x-circle am-cross"></i></td>
+                      </tr>
+                      <tr>
+                        <td>Podešavanja</td>
+                        <td><i class="bi bi-check-circle-fill am-check"></i></td>
+                        <td><i class="bi bi-x-circle am-cross"></i></td>
+                        <td><i class="bi bi-x-circle am-cross"></i></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="feature-layout-details">
+              <div class="card" style="margin-bottom:12px;">
+                <div class="eyebrow">Ko šta vidi</div>
+                <ul class="dot-list">
+                  <li><strong>Admin (Ti)</strong> — zarada, cene i sva podešavanja</li>
+                  <li><strong>Prodavac</strong> — kupci i porudžbine, bez zarade</li>
+                  <li><strong>Radnik</strong> — samo artikli i materijali. Nula pristupa cenama.</li>
+                  <li><strong>Partner</strong> — unosi porudžbine, vidi isključivo svoje</li>
+                </ul>
+                <p style="font-size:0.78rem;color:var(--text-tertiary);margin-top:10px;">Tvoja zarada i baza kupaca ostaju isključivo između tebe i Spone.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-<!-- ── Devices ────────────────────────────────────────────────── -->
+  <!-- ── Devices ────────────────────────────────────────────────── -->
   <section class="section-devices" id="uredjaji">
     <div class="container">
       <div class="section-header-center" style="margin-bottom:48px;">
         <div class="eyebrow" style="color:rgba(2,204,129,0.8);">Jednostavno kao daljinski od TV-a</div>
         <h2 class="section-title" style="color:#fff;margin:0 auto 12px;">Radi na telefonu,<br>tabletu i računaru</h2>
-        <p class="section-sub" style="color:rgba(255,255,255,0.5);margin:0 auto;">Nema komplikovane obuke — ako umeš da koristiš telefon, umeš da koristiš Sponu.</p>
+        <p class="section-sub" style="color:rgba(255,255,255,0.5);margin:0 auto;">Nema komplikovane obuke — ako umeš da
+          koristiš telefon, umeš da koristiš Sponu.</p>
       </div>
       <div class="three-col mobile-scroll-row" style="margin-bottom:28px;">
         <div class="device-card">
           <div class="d-frame d-frame-desktop">
             <div class="d-monitor">
               <div class="d-screen">
-                <div class="ds-bar"><div class="ds-dot"></div><div class="ds-dot"></div><div class="ds-dot"></div></div>
+                <div class="ds-bar">
+                  <div class="ds-dot"></div>
+                  <div class="ds-dot"></div>
+                  <div class="ds-dot"></div>
+                </div>
                 <div class="ds-content">
                   <div class="ds-row hi"></div>
                   <div style="display:flex;gap:4px;">
-                    <div class="ds-row full" style="height:28px;background:rgba(0,0,0,0.05);border-radius:4px;flex:1;"></div>
-                    <div class="ds-row full" style="height:28px;background:rgba(2,204,129,0.12);border-radius:4px;width:38%;"></div>
+                    <div class="ds-row full" style="height:28px;background:rgba(0,0,0,0.05);border-radius:4px;flex:1;">
+                    </div>
+                    <div class="ds-row full"
+                      style="height:28px;background:rgba(2,204,129,0.12);border-radius:4px;width:38%;"></div>
                   </div>
                   <div class="ds-row med"></div>
                   <div class="ds-row sml"></div>
@@ -1157,7 +1052,10 @@
           <div class="d-frame d-frame-tablet">
             <div class="d-tablet-body">
               <div class="d-screen">
-                <div class="ds-bar"><div class="ds-dot"></div><div class="ds-dot"></div></div>
+                <div class="ds-bar">
+                  <div class="ds-dot"></div>
+                  <div class="ds-dot"></div>
+                </div>
                 <div class="ds-content">
                   <div class="ds-grid">
                     <div class="ds-grid-item accent"></div>
@@ -1179,7 +1077,8 @@
       </div>
       <div class="no-install-strip">
         <div class="eyebrow" style="color:rgba(2,204,129,0.8);">Nema instalacije, nema komplikacija</div>
-        <strong>Spona radi u pretraživaču — otvoriš kao stranicu, kao Facebook ili YouTube. Ništa posebno ne treba instalirati.</strong>
+        <strong>Spona radi u pretraživaču — otvoriš kao stranicu, kao Facebook ili YouTube. Ništa posebno ne treba
+          instalirati.</strong>
       </div>
     </div>
   </section>
@@ -1217,7 +1116,8 @@
       </div>
       <div class="support-strip">
         <div class="eyebrow">Nisi sam</div>
-        <strong>Obučavamo tebe i tvoje radnike, odgovoramo na sva pitanja i dostupni smo kad zatreba. Nisi prepušten sam sebi.</strong>
+        <strong>Obučavamo tebe i tvoje radnike, odgovoramo na sva pitanja i dostupni smo kad zatreba. Nisi prepušten sam
+          sebi.</strong>
       </div>
     </div>
   </section>
@@ -1227,10 +1127,12 @@
     <div class="container">
       <div class="testimonial-card reveal">
         <div class="testimonial-stars">
-          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
         </div>
         <blockquote class="testimonial-quote">
-          "Pre Spone sam sve vodila u rokovniku — uvek nešto nedostaje, a kraj meseca je bio noćna mora. Sad otvoriš i sve stoji tamo gde si ostavio. Faktura se napravi sama, radnici znaju šta rade."
+          "Pre Spone sam sve vodila u rokovniku — uvek nešto nedostaje, a kraj meseca je bio noćna mora. Sad otvoriš i
+          sve stoji tamo gde si ostavio. Faktura se napravi sama, radnici znaju šta rade."
         </blockquote>
         <div class="testimonial-author">
           <div class="testimonial-avatar"><i class="bi bi-person-fill"></i></div>
@@ -1249,16 +1151,20 @@
       <div class="section-header-center reveal">
         <div class="eyebrow">Cene</div>
         <h2 class="section-title">Jasne cene, <em>bez iznenađenja</em></h2>
-        <p class="section-sub">Odaberi plan koji odgovara tvojoj firmi. Besplatan period od 14 dana — bez kreditne kartice.</p>
+        <p class="section-sub">Odaberi plan koji odgovara tvojoj firmi. Besplatan period od 14 dana — bez kreditne
+          kartice.</p>
       </div>
       <div class="pricing-toggle reveal" role="tablist" aria-label="Način naplate">
-        <button type="button" class="pricing-toggle-btn active" data-billing="monthly" aria-pressed="true">Mesečno</button>
-        <button type="button" class="pricing-toggle-btn" data-billing="yearly" aria-pressed="false">Godišnje <span>2 meseca gratis</span></button>
+        <button type="button" class="pricing-toggle-btn active" data-billing="monthly"
+          aria-pressed="true">Mesečno</button>
+        <button type="button" class="pricing-toggle-btn" data-billing="yearly" aria-pressed="false">Godišnje <span>2
+            meseca gratis</span></button>
       </div>
       <div class="pricing-grid stagger mobile-scroll-row">
         <!-- Starter -->
         <div class="pricing-card reveal">
-          <div class="pricing-badge" style="visibility:hidden; user-select:none;" aria-hidden="true"><i class="bi bi-star-fill"></i> S</div>
+          <div class="pricing-badge" style="visibility:hidden; user-select:none;" aria-hidden="true"><i
+              class="bi bi-star-fill"></i> S</div>
           <div class="pricing-plan">Starter</div>
           <div class="pricing-price">
             <span class="pricing-value pricing-value-monthly">1.900 <sup>RSD</sup></span>
@@ -1269,16 +1175,19 @@
             <span class="pricing-value pricing-value-yearly">godišnje</span>
           </div>
           <div class="pricing-meta">
-            <span class="pricing-value pricing-value-yearly">Umesto <span class="pricing-old-price">22.800 RSD</span></span>
+            <span class="pricing-value pricing-value-yearly">Umesto <span class="pricing-old-price">22.800
+                RSD</span></span>
           </div>
-          <div class="pricing-desc" style="min-height: 44px;">Savršen za frilensere i male timove koji tek počinju.</div>
+          <div class="pricing-desc" style="min-height: 44px;">Savršen za frilensere i male timove koji tek počinju.
+          </div>
           <ul class="pricing-features">
             <li><i class="bi bi-check"></i> 1 korisnik</li>
             <li><i class="bi bi-check"></i> Kupci i porudžbine</li>
             <li><i class="bi bi-check"></i> Predračuni (PDF)</li>
             <li><i class="bi bi-check"></i> Email podrška</li>
           </ul>
-          <button type="button" onclick="openLeadModal('Starter', document.getElementById('cene').dataset.billing)" class="btn btn-outline-dark w-full">Počni besplatno</button>
+          <button type="button" onclick="openLeadModal('Starter', document.getElementById('cene').dataset.billing)"
+            class="btn btn-outline-dark w-full">Probaj besplatno</button>
         </div>
         <!-- Standard (popular) -->
         <div class="pricing-card popular reveal">
@@ -1293,9 +1202,11 @@
             <span class="pricing-value pricing-value-yearly">godišnje</span>
           </div>
           <div class="pricing-meta">
-            <span class="pricing-value pricing-value-yearly">Umesto <span class="pricing-old-price">58.800 RSD</span></span>
+            <span class="pricing-value pricing-value-yearly">Umesto <span class="pricing-old-price">58.800
+                RSD</span></span>
           </div>
-          <div class="pricing-desc" style="min-height: 44px;">Za rastuće firme kojima treba više kontrole i saradnje.</div>
+          <div class="pricing-desc" style="min-height: 44px;">Za rastuće firme kojima treba više kontrole i saradnje.
+          </div>
           <ul class="pricing-features">
             <li><i class="bi bi-check"></i> Sve iz Starter plana</li>
             <li><i class="bi bi-check"></i> Do 5 korisnika</li>
@@ -1304,11 +1215,13 @@
             <li><i class="bi bi-check"></i> Statistika</li>
             <li><i class="bi bi-check"></i> Prioritetna podrška</li>
           </ul>
-          <button type="button" onclick="openLeadModal('Standard', document.getElementById('cene').dataset.billing)" class="btn btn-primary w-full">Počni besplatno</button>
+          <button type="button" onclick="openLeadModal('Standard', document.getElementById('cene').dataset.billing)"
+            class="btn btn-primary w-full">Probaj besplatno</button>
         </div>
         <!-- Pro -->
         <div class="pricing-card reveal">
-          <div class="pricing-badge" style="visibility:hidden; user-select:none;" aria-hidden="true"><i class="bi bi-star-fill"></i> P</div>
+          <div class="pricing-badge" style="visibility:hidden; user-select:none;" aria-hidden="true"><i
+              class="bi bi-star-fill"></i> P</div>
           <div class="pricing-plan">Pro</div>
           <div class="pricing-price">
             <span class="pricing-value pricing-value-monthly">11.900 <sup>RSD</sup></span>
@@ -1319,9 +1232,11 @@
             <span class="pricing-value pricing-value-yearly">godišnje po dogovoru</span>
           </div>
           <div class="pricing-meta">
-            <span class="pricing-value pricing-value-yearly">Umesto <span class="pricing-old-price">142.800 RSD</span></span>
+            <span class="pricing-value pricing-value-yearly">Umesto <span class="pricing-old-price">142.800
+                RSD</span></span>
           </div>
-          <div class="pricing-desc" style="min-height: 44px;">Za etablirane firme sa velikim timovima i proizvodnjom.</div>
+          <div class="pricing-desc" style="min-height: 44px;">Za etablirane firme sa velikim timovima i proizvodnjom.
+          </div>
           <ul class="pricing-features">
             <li><i class="bi bi-check"></i> Sve iz Standard plana</li>
             <li><i class="bi bi-check"></i> <b>Neograničen</b> broj korisnika (bez doplate)</li>
@@ -1329,28 +1244,41 @@
             <li><i class="bi bi-check"></i> Prilagođeni statusi po meri tvoje proizvodnje</li>
             <li><i class="bi bi-check"></i> Lični kontakt za podršku</li>
           </ul>
-          <button type="button" onclick="openLeadModal('Pro', document.getElementById('cene').dataset.billing)" class="btn btn-outline-dark w-full">Počni besplatno</button>
+          <button type="button" onclick="openLeadModal('Pro', document.getElementById('cene').dataset.billing)"
+            class="btn btn-outline-dark w-full">Probaj besplatno</button>
         </div>
       </div>
-      
+
       <!-- Uskoro Stiže Teaser -->
-      <div class="upcoming-teaser reveal" style="margin: 48px auto 0; max-width: 800px; padding: 24px; border: 1px dashed rgba(2, 204, 129, 0.4); border-radius: 12px; background: rgba(2, 204, 129, 0.05); text-align: center;">
+      <div class="upcoming-teaser reveal"
+        style="margin: 48px auto 0; max-width: 800px; padding: 24px; border: 1px dashed rgba(2, 204, 129, 0.4); border-radius: 12px; background: rgba(2, 204, 129, 0.05); text-align: center;">
         <div class="eyebrow" style="color: var(--brand-primary-dark); margin-bottom: 8px;">Uskoro stiže u Sponu</div>
         <h3 style="font-size: 1.1rem; margin-bottom: 12px;">Spona redovno raste na osnovu vaših predloga</h3>
-        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 16px;">U pripremi su sledeće opcije koje će pomoći da prodaš još više:</p>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 16px;">U pripremi su sledeće opcije
+          koje će pomoći da prodaš još više:</p>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
-          <span style="font-size: 0.85rem; padding: 6px 14px; background: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.05); border-radius: 20px; color: var(--text-primary);"><i class="bi bi-gift" style="color:var(--brand-primary); margin-right:4px;"></i> Poklon kartice</span>
-          <span style="font-size: 0.85rem; padding: 6px 14px; background: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.05); border-radius: 20px; color: var(--text-primary);"><i class="bi bi-envelope-check" style="color:var(--brand-primary); margin-right:4px;"></i> Mailing automatizacija</span>
-          <span style="font-size: 0.85rem; padding: 6px 14px; background: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.05); border-radius: 20px; color: var(--text-primary);"><i class="bi bi-arrow-repeat" style="color:var(--brand-primary); margin-right:4px;"></i> Ponavljajuće porudžbine</span>
+          <span
+            style="font-size: 0.85rem; padding: 6px 14px; background: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.05); border-radius: 20px; color: var(--text-primary);"><i
+              class="bi bi-gift" style="color:var(--brand-primary); margin-right:4px;"></i> Poklon kartice</span>
+          <span
+            style="font-size: 0.85rem; padding: 6px 14px; background: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.05); border-radius: 20px; color: var(--text-primary);"><i
+              class="bi bi-envelope-check" style="color:var(--brand-primary); margin-right:4px;"></i> Mailing
+            automatizacija</span>
+          <span
+            style="font-size: 0.85rem; padding: 6px 14px; background: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.05); border-radius: 20px; color: var(--text-primary);"><i
+              class="bi bi-arrow-repeat" style="color:var(--brand-primary); margin-right:4px;"></i> Ponavljajuće
+            porudžbine</span>
         </div>
       </div>
 
       <div class="pricing-custom-action reveal" style="margin-top: 32px;">
-        <button type="button" onclick="openLeadModal('Custom', document.getElementById('cene').dataset.billing)" class="btn btn-outline-dark btn-lg">
+        <button type="button" onclick="openLeadModal('Custom', document.getElementById('cene').dataset.billing)"
+          class="btn btn-outline-dark btn-lg">
           Treba ti drugačiji plan? <i class="bi bi-arrow-right"></i>
         </button>
       </div>
-      <p class="pricing-note reveal">Nisi siguran koji plan? <a href="#kontakt">Javi nam se</a> i pomoći ćemo ti da odabereš pravi.</p>
+      <p class="pricing-note reveal">Nisi siguran koji plan? <a href="#kontakt">Javi nam se</a> i pomoći ćemo ti da
+        odabereš pravi.</p>
     </div>
   </section>
 
@@ -1363,28 +1291,50 @@
       </div>
       <div class="faq-list">
         <div class="faq-item reveal">
-          <button class="faq-q">Da li postoji besplatni probni period?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
-          <div class="faq-a"><p>Da! Svaki plan dolazi sa 14 dana besplatnog korišćenja — bez kreditne kartice. Možeš testirati sve funkcije pre nego što se odlučiš.</p></div>
+          <button class="faq-q">Da li postoji besplatni probni period?<span class="faq-icon"><i
+                class="bi bi-plus"></i></span></button>
+          <div class="faq-a">
+            <p>Da! Svaki plan dolazi sa 14 dana besplatnog korišćenja — bez kreditne kartice. Možeš testirati sve
+              funkcije pre nego što se odlučiš.</p>
+          </div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-q">Da li moram da instaliram nešto?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
-          <div class="faq-a"><p>Ne. Spona je internet aplikacija koju koristiš direktno iz browsera. Nema instalacije, nema ažuriranja — uvek si na najnovijoj verziji.</p></div>
+          <button class="faq-q">Da li moram da instaliram nešto?<span class="faq-icon"><i
+                class="bi bi-plus"></i></span></button>
+          <div class="faq-a">
+            <p>Ne. Spona je internet aplikacija koju koristiš direktno iz browsera. Nema instalacije, nema ažuriranja —
+              uvek si na najnovijoj verziji.</p>
+          </div>
         </div>
         <div class="faq-item reveal">
           <button class="faq-q">Kako počinjem?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
-          <div class="faq-a"><p>Registruj se, unesite podatke o firmi i spreman si za rad. Vodićemo te kroz svaki korak procesa.</p></div>
+          <div class="faq-a">
+            <p>Registruj se, unesite podatke o firmi i spreman si za rad. Vodićemo te kroz svaki korak procesa.</p>
+          </div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-q">Da li su moji podaci bezbedni?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
-          <div class="faq-a"><p>Apsolutno. Svi podaci su šifrovani SSL/TLS protokolom, a serveri se nalaze u EU datacentrima koji zadovoljavaju GDPR standarde.</p></div>
+          <button class="faq-q">Da li su moji podaci bezbedni?<span class="faq-icon"><i
+                class="bi bi-plus"></i></span></button>
+          <div class="faq-a">
+            <p>Apsolutno. Svi podaci su šifrovani SSL/TLS protokolom, a serveri se nalaze u EU datacentrima koji
+              zadovoljavaju GDPR standarde.</p>
+          </div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-q">Kakva podrška je dostupna?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
-          <div class="faq-a"><p>Dostupan je email i telefon. Starter plan ima standardnu email podršku, dok Standard i Pro planovi imaju prioritetni pristup sa kraćim vremenom odgovora.</p></div>
+          <button class="faq-q">Kakva podrška je dostupna?<span class="faq-icon"><i
+                class="bi bi-plus"></i></span></button>
+          <div class="faq-a">
+            <p>Dostupan je email i telefon. Starter plan ima standardnu email podršku, dok Standard i Pro planovi imaju
+              prioritetni pristup sa kraćim vremenom odgovora.</p>
+          </div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-q">Mogu li da otkažem pretplatu u bilo kom trenutku?<span class="faq-icon"><i class="bi bi-plus"></i></span></button>
-          <div class="faq-a"><p>Da, bez ikakvih penala. Možeš otkazati pretplatu direktno iz podešavanja naloga. Pristup ostaje aktivan do kraja plaćenog perioda.</p></div>
+          <button class="faq-q">Mogu li da otkažem pretplatu u bilo kom trenutku?<span class="faq-icon"><i
+                class="bi bi-plus"></i></span></button>
+          <div class="faq-a">
+            <p>Da, bez ikakvih penala. Možeš otkazati pretplatu direktno iz podešavanja naloga. Pristup ostaje aktivan
+              do kraja plaćenog perioda.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1423,7 +1373,8 @@
     <div class="consent-banner-inner">
       <div class="consent-copy">
         <strong>Koristimo analitičke i marketinške kolačiće samo uz tvoju dozvolu.</strong>
-        <p>Ovi alati nam pomažu da merimo posete, razumemo kampanje i pratimo upite. Možeš prihvatiti sve, odbiti sve ili izabrati koje kategorije dozvoljavaš.</p>
+        <p>Ovi alati nam pomažu da merimo posete, razumemo kampanje i pratimo upite. Možeš prihvatiti sve, odbiti sve
+          ili izabrati koje kategorije dozvoljavaš.</p>
       </div>
       <div class="consent-actions">
         <div class="consent-secondary-actions">
@@ -1688,7 +1639,7 @@
 
       // ── Hamburger menu ────────────────────────────────────────────
       const hamburger = document.getElementById('nav-hamburger');
-      const navLinks  = document.getElementById('nav-links');
+      const navLinks = document.getElementById('nav-links');
       hamburger.addEventListener('click', () => {
         const open = navLinks.classList.toggle('open');
         hamburger.classList.toggle('open', open);
@@ -1705,8 +1656,8 @@
 
       // ── Lead Modal ─────────────────────────────────────────────────
       // ↓ Paste your Google Apps Script deployment URL here
-      const SHEETS_URL  = 'https://script.google.com/macros/s/AKfycbxcjy9KxPUp8TDqbRG7Ni0-MTJU_bD29VredsN1rHPtgr9xkfw_Tj2AwjRqJxMgZ8D3GQ/exec';
-      const FORM_TOKEN   = 'spona-2026-mkt';
+      const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxcjy9KxPUp8TDqbRG7Ni0-MTJU_bD29VredsN1rHPtgr9xkfw_Tj2AwjRqJxMgZ8D3GQ/exec';
+      const FORM_TOKEN = 'spona-2026-mkt';
 
       const PLAN_PRICING = {
         Starter: {
@@ -1751,24 +1702,24 @@
       }
 
       window.openLeadModal = function (plan, billing) {
-        const modal        = document.getElementById('lead-modal');
-        const leadForm     = document.getElementById('lead-form');
-        const leadPlanEl   = document.getElementById('lead-plan-select');
+        const modal = document.getElementById('lead-modal');
+        const leadForm = document.getElementById('lead-form');
+        const leadPlanEl = document.getElementById('lead-plan-select');
         const leadBillingEl = document.getElementById('lead-billing-select');
-        const leadTitle    = document.getElementById('lead-modal-title');
-        const formState    = document.getElementById('lead-form-state');
+        const leadTitle = document.getElementById('lead-modal-title');
+        const formState = document.getElementById('lead-form-state');
         const successState = document.getElementById('lead-success-state');
-        const leadError    = document.getElementById('lead-error');
+        const leadError = document.getElementById('lead-error');
         const selectedBilling = getLeadBillingDefault(billing);
 
         leadForm.reset();
-        leadBillingEl.value   = selectedBilling;
+        leadBillingEl.value = selectedBilling;
         syncLeadPlanOptions(selectedBilling);
-        leadPlanEl.value      = plan || '';
+        leadPlanEl.value = plan || '';
         leadTitle.textContent = getLeadPlanTitle(plan);
-        formState.hidden      = false;
-        successState.hidden   = true;
-        leadError.hidden      = true;
+        formState.hidden = false;
+        successState.hidden = true;
+        leadError.hidden = true;
         modal.classList.add('active');
         document.body.classList.add('modal-open');
         modal._openedAt = Date.now();
@@ -1792,7 +1743,7 @@
 
           leadForm.addEventListener('submit', e => {
             e.preventDefault();
-            const name  = document.getElementById('lead-name').value.trim();
+            const name = document.getElementById('lead-name').value.trim();
             const email = document.getElementById('lead-email').value.trim();
             const selectedPlan = document.getElementById('lead-plan-select').value;
             const selectedBilling = document.getElementById('lead-billing-select').value;
@@ -1806,23 +1757,23 @@
             document.getElementById('lead-error').hidden = true;
 
             // Bot guards: honeypot filled or form submitted too fast → fake success, don't send
-            const honeypot  = document.getElementById('lead-honeypot').value;
-            const elapsed   = Date.now() - (modal._openedAt || 0);
-            const isBot     = honeypot !== '' || elapsed < 3000;
+            const honeypot = document.getElementById('lead-honeypot').value;
+            const elapsed = Date.now() - (modal._openedAt || 0);
+            const isBot = honeypot !== '' || elapsed < 3000;
 
             if (!isBot && SHEETS_URL !== 'YOUR_APPS_SCRIPT_URL') {
               const params = new URLSearchParams({
-                token:   FORM_TOKEN,
-                name:    name,
-                email:   email,
-                phone:   document.getElementById('lead-phone').value.trim(),
+                token: FORM_TOKEN,
+                name: name,
+                email: email,
+                phone: document.getElementById('lead-phone').value.trim(),
                 company: document.getElementById('lead-company').value.trim(),
-                plan:    selectedPlanDisplay,
+                plan: selectedPlanDisplay,
                 planName: selectedPlan,
                 billing: selectedBilling,
                 billingLabel: selectedBillingLabel,
                 planDisplay: selectedPlanDisplay,
-                price:   selectedPrice,
+                price: selectedPrice,
                 priceValue: selectedPriceValue,
               });
               fetch(SHEETS_URL, { method: 'POST', body: params, mode: 'no-cors' })
@@ -1838,7 +1789,7 @@
                 });
             }
 
-            document.getElementById('lead-form-state').hidden    = true;
+            document.getElementById('lead-form-state').hidden = true;
             document.getElementById('lead-success-state').hidden = false;
             setTimeout(closeLeadModal, 2500);
           });
@@ -1893,7 +1844,8 @@
 
       <!-- Form state -->
       <div id="lead-form-state">
-        <div class="eyebrow" style="color:var(--brand-primary);margin-bottom:6px;">Besplatan probni period — 14 dana</div>
+        <div class="eyebrow" style="color:var(--brand-primary);margin-bottom:6px;">Besplatan probni period — 14 dana
+        </div>
         <h2 id="lead-modal-title" class="lead-modal-heading">Počni sa Sponom</h2>
         <p class="lead-modal-sub">Popuni podatke i javićemo ti se u najkraćem roku.</p>
         <form id="lead-form" novalidate>
@@ -1913,7 +1865,8 @@
           </div>
           <div class="lead-field">
             <label for="lead-company">Naziv firme</label>
-            <input type="text" id="lead-company" name="company" placeholder="Moja Firma d.o.o." autocomplete="organization">
+            <input type="text" id="lead-company" name="company" placeholder="Moja Firma d.o.o."
+              autocomplete="organization">
           </div>
           <div class="lead-field">
             <label for="lead-plan-select">Plan</label>
@@ -1949,4 +1902,5 @@
   </div>
 
 </body>
+
 </html>
