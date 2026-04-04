@@ -117,6 +117,63 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Mobile horizontal scroll class to prevent shadow-clipping */
+    @media (max-width: 768px) {
+      .mobile-scroll-row {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        overflow-y: visible !important;
+        scroll-snap-type: x mandatory;
+        padding-top: 24px;
+        padding-bottom: 56px;
+        margin-top: -24px;
+        margin-bottom: -32px;
+        scroll-padding-left: 18px;
+        margin-inline: -18px;
+        padding-inline: 18px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 20px;
+      }
+      .mobile-scroll-row::-webkit-scrollbar { display: none; }
+      .mobile-scroll-row > * {
+        flex: 0 0 85% !important;
+        scroll-snap-align: center;
+      }
+      .mobile-scroll-row.pricing-grid > * {
+        flex: 0 0 90% !important;
+      }
+      
+      /* Make sure there isn't grid stepping inside */
+      .mobile-scroll-row.three-col,
+      .mobile-scroll-row.steps-timeline,
+      .mobile-scroll-row.pricing-grid {
+          grid-template-columns: none !important;
+      }
+    }
+  </style>
+
+    /* Make tab nav horizontal scrollable on mobile */
+    @media (max-width: 768px) {
+      .features-tab-nav {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        justify-content: flex-start;
+        padding-inline: 18px;
+        margin-inline: -18px;
+      }
+      .features-tab-nav::-webkit-scrollbar { display: none; }
+      .features-tab-nav .feature-tab-btn {
+        flex-shrink: 0;
+      }
+    }
 </head>
 <body>
 
@@ -277,7 +334,7 @@
         <h2 class="section-title">Da vam posao ne oduzima<br><em>sav mir</em></h2>
         <p class="section-sub">Posao je porastao — i to je dobra stvar. Ali kad ima više posla, teže je sve držati u glavi. Papiri znaju da naprave pometnju.</p>
       </div>
-      <div class="three-col">
+      <div class="three-col mobile-scroll-row">
         <div class="problem-card">
           <div class="p-icon"><i class="bi bi-journal-x"></i></div>
           <h3>Rokovnik se izgubi baš kad treba</h3>
@@ -915,7 +972,7 @@
         <h2 class="section-title" style="color:#fff;margin:0 auto 12px;">Radi na telefonu,<br>tabletu i računaru</h2>
         <p class="section-sub" style="color:rgba(255,255,255,0.5);margin:0 auto;">Nema komplikovane obuke — ako umeš da koristiš telefon, umeš da koristiš Sponu.</p>
       </div>
-      <div class="three-col" style="margin-bottom:28px;">
+      <div class="three-col mobile-scroll-row" style="margin-bottom:28px;">
         <div class="device-card">
           <div class="d-frame d-frame-desktop">
             <div class="d-monitor">
@@ -1000,7 +1057,7 @@
         <h2 class="section-title">Kreneš u tri koraka —<br><span class="accent">mi smo uz tebe</span></h2>
         <p class="section-sub">Mi smo tu za tebe — od prvog dana.</p>
       </div>
-      <div class="steps-timeline">
+      <div class="steps-timeline mobile-scroll-row">
         <div class="step-node reveal">
           <div class="step-node-icon"><i class="bi bi-telephone-fill"></i></div>
           <div class="step-num-badge">01</div>
@@ -1063,7 +1120,7 @@
         <button type="button" class="pricing-toggle-btn active" data-billing="monthly" aria-pressed="true">Mesečno</button>
         <button type="button" class="pricing-toggle-btn" data-billing="yearly" aria-pressed="false">Godišnje <span>2 meseca gratis</span></button>
       </div>
-      <div class="pricing-grid stagger">
+      <div class="pricing-grid stagger mobile-scroll-row">
         <!-- Starter -->
         <div class="pricing-card reveal">
           <div class="pricing-badge" style="visibility:hidden; user-select:none;" aria-hidden="true"><i class="bi bi-star-fill"></i> S</div>
