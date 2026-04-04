@@ -146,11 +146,15 @@
       .mobile-scroll-row.pricing-grid > * {
         flex: 0 0 90% !important;
       }
+      .mobile-scroll-row > *:last-child {
+        position: relative;
+      }
       .mobile-scroll-row::after {
         content: "";
-        flex: 0 0 1px;
-        padding-right: 18px;
-        box-sizing: content-box;
+        display: block;
+        min-width: 48px;
+        flex-shrink: 0;
+        scroll-snap-align: none;
       }
       
       /* Make sure there isn't grid stepping inside */
@@ -160,7 +164,6 @@
           grid-template-columns: none !important;
       }
     }
-  </style>
 
     /* Make tab nav horizontal scrollable on mobile */
     @media (max-width: 768px) {
@@ -181,7 +184,6 @@
       }
     }
 
-  <style>
     /* Unified Features Tabs */
     .section-features-tabs {
       padding: 80px 0;
@@ -235,6 +237,9 @@
     .feature-layout-visual {
       grid-column: 2 / 3;
       grid-row: 1 / 3;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
 
     @media (max-width: 768px) {
