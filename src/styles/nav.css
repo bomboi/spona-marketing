@@ -1,0 +1,130 @@
+/* ─── Nav ────────────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 14px 20px;
+  animation: navSlideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+  pointer-events: none; /* let clicks pass through padding area */
+}
+.nav-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 54px;
+  background: rgba(20,20,20,0.70);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 100px;
+  padding: 0 8px 0 22px;
+  box-shadow: 0 4px 28px rgba(0,0,0,0.22), 0 1px 0 rgba(255,255,255,0.04) inset;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  pointer-events: all;
+}
+.nav.scrolled .nav-inner {
+  background: rgba(14,14,14,0.94);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.38), 0 1px 0 rgba(255,255,255,0.04) inset;
+  border-color: rgba(255,255,255,0.12);
+}
+.nav-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.nav-logo img {
+  height: 30px;
+  width: auto;
+  transition: opacity var(--transition-base);
+}
+.nav-logo:hover img { opacity: 0.75; }
+.nav-links-desktop {
+  display: flex;
+  flex: 1;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.nav-links-desktop > a {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.52);
+  transition: color var(--transition-base);
+  padding: 6px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.nav-links-desktop > a:hover {
+  color: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.06);
+}
+.nav-links-desktop > a::after { display: none; }
+/* Mobile dropdown — hidden on desktop */
+.nav-links {
+  display: none;
+}
+/* Mobile-only CTA block — hidden on desktop */
+.nav-mobile-cta {
+  display: none;
+}
+/* Right-side action buttons */
+.nav-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+}
+.nav-cta-btn {
+  padding: 9px 20px !important;
+  font-size: 0.82rem !important;
+  border-radius: 100px !important;
+}
+
+/* Hamburger button — hidden on desktop */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: rgba(255,255,255,0.8);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+
+/* ─── Nav Login Button ───────────────────────────────────────── */
+.nav-login-btn {
+  background: rgba(255,255,255,0.07) !important;
+  border: 1.5px solid rgba(255,255,255,0.16) !important;
+  color: rgba(255,255,255,0.80) !important;
+  padding: 8px 16px !important;
+  font-size: 0.82rem !important;
+  border-radius: 100px !important;
+  transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base);
+}
+.nav-login-btn:hover {
+  background: rgba(255,255,255,0.12) !important;
+  border-color: rgba(255,255,255,0.35) !important;
+  color: #fff !important;
+}
+

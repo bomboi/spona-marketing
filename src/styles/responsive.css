@@ -1,0 +1,184 @@
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hide-on-mobile { display: none !important; }
+  /* ── Nav ── */
+  .nav { padding: 12px 14px; }
+  .nav-inner { border-radius: 16px; padding: 0 12px; }
+  .nav-hamburger { display: flex; margin-left: auto; }
+  .nav-actions { display: none; }
+  .nav-links-desktop { display: none; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    position: fixed;
+    top: 78px;
+    left: 14px;
+    right: 14px;
+    background: var(--bg-overlay);
+    padding: 16px 20px 24px;
+    z-index: 101;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.08);
+    pointer-events: all;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links > a {
+    font-size: 1rem;
+    padding: 13px 8px;
+    width: 100%;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: none !important;
+    color: rgba(255,255,255,0.7);
+  }
+  .nav-links > a:hover { color: #fff; }
+  /* Mobile CTA block inside dropdown */
+  .nav-mobile-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  body.nav-open { overflow: hidden; }
+
+  /* ── Layout ── */
+  .two-col,
+  .two-col--center,
+  .three-col,
+  .feature-grid { grid-template-columns: 1fr; gap: 28px; }
+
+  /* Reorder flipped grids so text comes first on mobile */
+  .feature-grid--flipped > *:nth-child(1) { order: 2; }
+  .feature-grid--flipped > *:nth-child(2) { order: 1; }
+
+  /* ── Hero ── */
+  .hero { padding: 100px 0 0; min-height: auto; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero-sub { font-size: 1rem; max-width: 100%; }
+  .hero-cta { flex-direction: column; align-items: stretch; }
+  .hero-cta .btn { width: 100%; justify-content: center; }
+  .hero-scroll-hint { margin-top: 0; }
+  /* Mobile: text full-width on top, then cards side-by-side below */
+  .hero-inner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-bottom: 60px;
+  }
+  .hero-text {
+    order: -1;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 28px;
+  }
+  .hero-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    min-width: 140px;
+    align-items: stretch;
+  }
+  .hero-card { width: auto; }
+  /* Smaller tilt on mobile */
+  .hero-cards--left .hero-card:nth-child(1) { animation: hcFloat1Mob 6s   ease-in-out       infinite backwards; }
+  .hero-cards--left .hero-card:nth-child(2) { animation: hcFloat2Mob 7.5s ease-in-out 1.2s  infinite backwards; }
+  .hero-cards--right .hero-card:nth-child(1) { animation: hcFloat3Mob 8s   ease-in-out 0.6s  infinite backwards; }
+  .hero-cards--right .hero-card:nth-child(2) { animation: hcFloat4Mob 6.5s ease-in-out 2s    infinite backwards; }
+
+  /* ── Sections padding ── */
+  .section,
+  .section-sm,
+  .section-problems,
+  .section-steps,
+  .section-devices,
+  .section-faq,
+  .section-pricing { padding: 44px 0; }
+  .section-features-tabs { padding: 44px 0; }
+  .feature-section { padding: 44px 0; }
+  .section-header-center { margin-bottom: 28px; }
+
+  /* ── Stats ── */
+  .stats-strip { padding: 32px 0; }
+  .stats-inner { gap: 40px; justify-content: center; }
+  .stat-big { font-size: 2.4rem; }
+  .stat-item { min-width: 120px; }
+
+  /* ── Features ── */
+  .mockup-box { min-height: 200px !important; }
+
+  /* ── Devices ── */
+  .no-install-strip { padding: 20px; }
+  .no-install-strip strong { font-size: 0.92rem; }
+
+  /* ── Steps ── */
+  .support-strip { padding: 20px; }
+
+
+
+  /* ── CTA ── */
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .cta-buttons .btn { width: 100%; max-width: 320px; justify-content: center; }
+
+  /* ── Footer ── */
+  .footer-inner { flex-direction: column-reverse; align-items: center; text-align: center; gap: 12px; }
+
+  /* ── Workflow section inline padding override ── */
+  .section-workflow { padding: 44px 0 !important; }
+
+  /* ── Reveal bypass for horizontally scrollable carousels ────── */
+  /* Cards off-screen never trigger IntersectionObserver, so skip animation */
+  .mobile-scroll-row .reveal,
+  .steps-timeline-scrollable .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .container { padding: 0 18px; }
+  .hero h1 { font-size: 1.9rem; }
+  .section-title { font-size: 1.55rem; }
+  .feature-title { font-size: 1.3rem; }
+  .btn-lg { padding: 13px 24px; font-size: 0.93rem; }
+  .stat-big { font-size: 2rem; }
+  .pricing-grid { max-width: 100%; }
+  .faq-q { font-size: 0.93rem; }
+
+  /* Compact cards at narrow widths */
+  .hero-card { padding: 12px 12px; border-radius: 12px; }
+  .hc-amount { font-size: 1rem; }
+  .hc-stat-num { font-size: 0.75rem; }
+  .hc-name { font-size: 0.75rem; }
+  .hc-price { font-size: 0.95rem; margin-bottom: 6px; }
+  .hc-order-num { font-size: 0.95rem; }
+  .hc-eyebrow { font-size: 0.6rem; }
+}
+
+/* Stack hero cards to single column on very small screens */
+@media (max-width: 380px) {
+  .hero-cards {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ─── Medium screen: compact hero preview ────────────────────── */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .hero { padding: 130px 0 100px; }
+  .hero-inner { grid-template-columns: 170px 1fr 170px; gap: 24px; }
+  .hero-card { width: 100%; }
+  .hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); }
+}
+
+/* ─── CTA Button Glow ────────────────────────────────────────── */
+.btn-primary.btn-glow {
+  animation: glowPulse 2.4s ease-in-out infinite;
+}
+
