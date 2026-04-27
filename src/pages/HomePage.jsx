@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useModal } from '../context/ModalContext'
+import { scrollTo } from '../utils/scrollTo'
 
 const APP_URL = 'https://moja.spona.app'
 import FeatureTabs from '../components/FeatureTabs'
@@ -91,7 +92,7 @@ export default function HomePage() {
                 <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
                   Probaj besplatno <i className="bi bi-arrow-right" />
                 </a>
-                <a href="#radni-dan" className="btn btn-outline-white btn-lg">Kako funkcioniše</a>
+                <a href="#" className="btn btn-outline-white btn-lg" onClick={(e) => { e.preventDefault(); scrollTo('radni-dan') }}>Kako funkcioniše</a>
               </div>
               <div className="hero-scroll-hint">
                 <i className="bi bi-mouse2" />
@@ -237,7 +238,8 @@ export default function HomePage() {
           </div>
           <div style={{ textAlign: 'center', marginTop: '48px' }}>
             <a
-              href="#kako-poceti"
+              href="#"
+              onClick={(e) => { e.preventDefault(); scrollTo('kako-poceti') }}
               className="btn btn-primary"
               style={{
                 background: 'var(--brand-primary-dark)',

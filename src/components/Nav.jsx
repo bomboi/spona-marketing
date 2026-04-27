@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { scrollTo } from '../utils/scrollTo'
 
 const APP_URL = 'https://moja.spona.app'
 
@@ -35,9 +36,9 @@ export default function Nav() {
           <img src="/logos/iOS App icon - 1 - horizontal.png" alt="Spona" />
         </a>
         <div className="nav-links-desktop">
-          <a href="#prednosti" onClick={closeMenu}>Prednosti</a>
-          <a href="#cene" onClick={closeMenu}>Cene</a>
-          <a href="#pitanja" onClick={closeMenu}>Pitanja</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); scrollTo('prednosti') }}>Prednosti</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); scrollTo('cene') }}>Cene</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); scrollTo('pitanja') }}>Pitanja</a>
         </div>
         <div className="nav-actions">
           <a
@@ -69,9 +70,9 @@ export default function Nav() {
 
       {/* Mobile dropdown — lives outside nav-inner to avoid backdrop-filter containing block */}
       <div className="nav-links" ref={linksRef}>
-        <a href="#prednosti" onClick={closeMenu}>Prednosti</a>
-        <a href="#cene" onClick={closeMenu}>Cene</a>
-        <a href="#pitanja" onClick={closeMenu}>Pitanja</a>
+        <a href="#" onClick={(e) => { e.preventDefault(); scrollTo('prednosti'); closeMenu() }}>Prednosti</a>
+        <a href="#" onClick={(e) => { e.preventDefault(); scrollTo('cene'); closeMenu() }}>Cene</a>
+        <a href="#" onClick={(e) => { e.preventDefault(); scrollTo('pitanja'); closeMenu() }}>Pitanja</a>
         <div className="nav-mobile-cta">
           <a
             href={APP_URL}

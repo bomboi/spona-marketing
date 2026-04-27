@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useModal } from '../context/ModalContext'
+import { scrollTo } from '../utils/scrollTo'
 
 export default function PricingSection() {
   const [billing, setBilling] = useState('monthly')
@@ -168,7 +169,7 @@ export default function PricingSection() {
         </div>
         <p className="pricing-note reveal">
           Nisi siguran koji plan?{' '}
-          <a href="#kontakt">Javi nam se</a> i pomoći ćemo ti da odabereš pravi.
+          <a href="#" onClick={(e) => { e.preventDefault(); scrollTo('kontakt') }}>Javi nam se</a> i pomoći ćemo ti da odabereš pravi.
         </p>
       </div>
     </section>
