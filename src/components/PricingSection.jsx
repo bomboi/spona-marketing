@@ -48,8 +48,8 @@ export default function PricingSection() {
             </div>
             <div className="pricing-plan">Starter</div>
             <div className="pricing-price">
-              <span className="pricing-value pricing-value-monthly">1.900 <sup>RSD</sup></span>
-              <span className="pricing-value pricing-value-yearly">19.000 <sup>RSD</sup></span>
+              <span className="pricing-value pricing-value-monthly">2.200 <sup>RSD</sup></span>
+              <span className="pricing-value pricing-value-yearly">22.000 <sup>RSD</sup></span>
             </div>
             <div className="pricing-per">
               <span className="pricing-value pricing-value-monthly">mesečno</span>
@@ -57,14 +57,14 @@ export default function PricingSection() {
             </div>
             <div className="pricing-meta">
               <span className="pricing-value pricing-value-yearly">
-                Umesto <span className="pricing-old-price">22.800 RSD</span>
+                Umesto <span className="pricing-old-price">26.400 RSD</span>
               </span>
             </div>
             <div className="pricing-desc" style={{ minHeight: '44px' }}>
               Savršen za frilensere i male timove koji tek počinju.
             </div>
             <ul className="pricing-features">
-              <li><i className="bi bi-check" /> 1 korisnik</li>
+              <li><i className="bi bi-check" /> Do 3 korisnika</li>
               <li><i className="bi bi-check" /> Kupci i porudžbine</li>
               <li><i className="bi bi-check" /> Predračuni (PDF)</li>
               <li><i className="bi bi-check" /> Email podrška</li>
@@ -101,7 +101,7 @@ export default function PricingSection() {
             </div>
             <ul className="pricing-features">
               <li><i className="bi bi-check" /> Sve iz Starter plana</li>
-              <li><i className="bi bi-check" /> Do 5 korisnika</li>
+              <li><i className="bi bi-check" /> Do 7 korisnika</li>
               <li><i className="bi bi-check" /> Sve interne uloge (Admin, Prodavac, Radnik)</li>
               <li><i className="bi bi-check" /> Aplikacija i pristup za radnike u proizvodnji</li>
               <li><i className="bi bi-check" /> Statistika</li>
