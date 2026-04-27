@@ -81,12 +81,12 @@ export default function HomePage() {
             {/* Center: hero text */}
             <div className="hero-text">
               <p className="hero-eyebrow">Tvoj biznis, pod kontrolom.</p>
-              <h1>Porudžbine, radnici i fakture —<br /><em>sve na jednom mestu</em></h1>
+              <h1>Porudžbine, radnici i predračuni —<br /><em>sve na jednom mestu</em></h1>
               <p className="hero-sub">
-                Program za porudžbine, fakture i kupce — sve na jednom mestu, za male firme u Srbiji.
+                Program za porudžbine, predračune i kupce — sve na jednom mestu, za male firme u Srbiji.
               </p>
               <p className="hero-sub" style={{ marginTop: '8px' }}>
-                Napravljeno za firme koje rade po narudžbini — stolarije, nameštaj, prozore, roletne i slično.
+                Napravljeno za firme koje rade po narudžbini — stolarije, nameštaj, prozore, roletne, keramiku, tapacirnice i slično.
               </p>
               <div className="hero-cta">
                 <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
@@ -171,8 +171,8 @@ export default function HomePage() {
             </div>
             <div className="problem-card reveal">
               <div className="p-icon"><i className="bi bi-file-earmark-x" /></div>
-              <h3>Fakture i papiri gutaju vreme</h3>
-              <p>Kraj meseca dođe brzo. A onda kreće sabiranje, traženje papira i pisanje faktura ručno.</p>
+              <h3>Predračuni i papiri gutaju vreme</h3>
+              <p>Kraj meseca dođe brzo. A onda kreće sabiranje, traženje papira i pisanje predračuna ručno.</p>
               <p className="pquote">"Ne znam ko mi duguje, a ko je platio."</p>
             </div>
             <div className="problem-card reveal">
@@ -221,7 +221,7 @@ export default function HomePage() {
               <div className="step-node-icon"><i className="bi bi-tools" /></div>
               <div className="step-num-badge">02</div>
               <h3>Proizvodnja</h3>
-              <p>Radnik na svom ekranu vidi <b>samo</b> šta treba da napravi i od kog materijala. Ne vidi cene ni podatke kupca.</p>
+              <p>Radnik na svom ekranu vidi <b>samo</b> šta treba da napravi, mere i materijal. Ne vidi cene ni podatke kupca.</p>
             </div>
             <div className="step-node reveal">
               <div className="step-node-icon"><i className="bi bi-check2-all" /></div>
@@ -233,7 +233,7 @@ export default function HomePage() {
               <div className="step-node-icon active"><i className="bi bi-receipt" /></div>
               <div className="step-num-badge active">04</div>
               <h3>Naplata</h3>
-              <p>Jednim klikom odštampaš radni nalog ili pošalješ PDF fakturu na email. Čisto, brzo i profesionalno.</p>
+              <p>Jednim klikom odštampaš radni nalog ili pošalješ PDF predračun na email. Čisto, brzo i profesionalno.</p>
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: '48px' }}>
@@ -262,7 +262,7 @@ export default function HomePage() {
           <div className="stats-inner stagger">
             <div className="stat-item reveal scale">
               <div className="stat-big">30<span className="stat-unit">sek</span></div>
-              <div className="stat-meta"><i className="bi bi-receipt" /> Faktura od porudžbine do PDF-a</div>
+              <div className="stat-meta"><i className="bi bi-receipt" /> Predračun od porudžbine do PDF-a</div>
             </div>
             <div className="stat-item reveal scale">
               <div className="stat-big">14<span className="stat-unit">dana</span></div>
@@ -423,7 +423,7 @@ export default function HomePage() {
             </div>
             <blockquote className="testimonial-quote">
               "Pre Spone sam sve vodila u rokovniku — uvek nešto nedostaje, a kraj meseca je bio noćna mora.
-              Sad otvoriš i sve stoji tamo gde si ostavio. Faktura se napravi sama, radnici znaju šta rade."
+              Sad otvoriš i sve stoji tamo gde si ostavio. Predračun se napravi sam, radnici znaju šta rade."
             </blockquote>
             <div className="testimonial-author">
               <div className="testimonial-avatar"><i className="bi bi-person-fill" /></div>
@@ -465,7 +465,7 @@ export default function HomePage() {
           <div className="cta-inner">
             <h2 className="reveal">Tvoj biznis,<br /><em>pod kontrolom.</em></h2>
             <p className="reveal">
-              Kupci. Porudžbine. Fakture. Zarada.<br />Sve na jednom mestu — i mirna glava na kraju dana.
+              Kupci. Porudžbine. Predračuni. Zarada.<br />Sve na jednom mestu — i mirna glava na kraju dana.
             </p>
             <div className="cta-buttons reveal">
               <button type="button" className="btn btn-primary btn-lg" onClick={() => openLeadModal('')}>

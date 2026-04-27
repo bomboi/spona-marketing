@@ -185,10 +185,10 @@
   margin-bottom: 12px;
 }
 .feature-title em {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 .feature-desc {
   font-size: 0.9rem;
@@ -513,7 +513,7 @@
   margin-bottom: 24px;
 }
 .testimonial-quote {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-style: italic;
   font-size: 1.18rem;
   line-height: 1.75;
@@ -588,10 +588,10 @@
   line-height: 1.1;
 }
 .cta-inner h2 em {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 .cta-inner h2 .accent { color: var(--brand-primary); }
 .cta-inner p {

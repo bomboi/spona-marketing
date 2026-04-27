@@ -259,7 +259,7 @@ export default function FeatureTabs() {
                 <ul className="dot-list" style={{ marginBottom: '24px' }}>
                   <li><strong>Odabereš kupca</strong> jednim klikom</li>
                   <li><strong>Dodaš artikle</strong> — cene se same upišu</li>
-                  <li><strong>Gotovinsko, faktura ili kartica</strong> — sve beleži</li>
+                  <li><strong>Gotovinsko, predračun ili kartica</strong> — sve beleži</li>
                   <li><strong>Pratiš status</strong> — u radu, gotovo, isporučeno</li>
                 </ul>
                 <div className="card" style={{ background: 'var(--brand-primary-light)' }}>
@@ -274,24 +274,24 @@ export default function FeatureTabs() {
             </div>
           </div>
 
-          {/* ── 03 Fakture ────────────────────────────────────────── */}
-          <div className="feature-tab-content" id="tab-fakture">
+          {/* ── 03 Predračuni ─────────────────────────────────────── */}
+          <div className="feature-tab-content" id="tab-predracuni">
             <div className="feature-content-layout">
               <div className="feature-layout-header">
-                <div className="feature-tag"><i className="bi bi-receipt" /> 03 — Fakture</div>
-                <h2 className="feature-title">Faktura za pola minute,<br />bez greške</h2>
+                <div className="feature-tag"><i className="bi bi-receipt" /> 03 — Predračuni</div>
+                <h2 className="feature-title">Predračun za pola minute,<br />bez greške</h2>
                 <p className="feature-desc">
-                  Nema više ručnog pisanja. Spona napravi fakturu sama iz porudžbine — uredno,
-                  ispravno, s tvojim logom — za pola minute. Odštampaš ili pošalješ mejlom, gotovo.
+                  Nema više ručnog pisanja. Spona napravi predračun sam iz porudžbine — uredno,
+                  ispravan, s tvojim logom — za pola minute. Odštampaš ili pošalješ mejlom, gotovo.
                 </p>
               </div>
               <div className="feature-layout-visual">
                 <MockupCarousel>
                   <div className="mockup-box" style={{ minHeight: '200px' }}>
-                    <img alt="Gotova faktura" src={invoiceImg} />
+                    <img alt="Gotov predračun" src={invoiceImg} />
                     <span className="m-label">
-                      <strong>Gotova faktura</strong>
-                      Uredno odštampana faktura s tvojim logom — profesionalno, bez muke
+                      <strong>Gotov predračun</strong>
+                      Uredno odštampan predračun s tvojim logom — profesionalno, bez muke
                     </span>
                   </div>
                 </MockupCarousel>
@@ -300,11 +300,11 @@ export default function FeatureTabs() {
                 <ul className="dot-list" style={{ marginBottom: '24px' }}>
                   <li><strong>Sve se samo popuni</strong> iz porudžbine</li>
                   <li><strong>Odštampaj ili pošalji mejlom</strong> — dva klika</li>
-                  <li><strong>Tvoj logo i naziv firme</strong> na svakoj fakturi</li>
+                  <li><strong>Tvoj logo i naziv firme</strong> na svakom predračunu</li>
                   <li><strong>Vidiš ko je platio, a ko nije</strong></li>
                 </ul>
                 <div className="quote">
-                  "Faktura je gotova pre nego što kupac izađe iz radnje."
+                  "Predračun je gotov pre nego što kupac izađe iz radnje."
                 </div>
               </div>
             </div>
@@ -375,13 +375,14 @@ export default function FeatureTabs() {
               <div className="feature-layout-details">
                 <ul className="dot-list" style={{ marginBottom: '24px' }}>
                   <li><strong>Naziv i cena</strong> za svaki artikal ili uslugu</li>
-                  <li><strong>Varijante</strong> — veličina, boja, tip</li>
+                  <li><strong>Varijante po meri</strong> — dimenzija, boja, tip, materijal</li>
                   <li><strong>Kategorije</strong> za lakši pregled</li>
+                  <li><strong>Cena se sama upiše</strong> kad dodaješ artikal u porudžbinu</li>
                 </ul>
                 <div className="card">
                   <div className="eyebrow">Kako to izgleda</div>
                   <span style={{ fontSize: '0.87rem', color: 'var(--text-secondary)' }}>
-                    Ukucaš par slova — Spona iskoči s artiklom i cenom. Odabereš količinu, gotovo.
+                    Ukucaš par slova — Spona odmah ponudi artikl i cenu. Odabereš količinu, gotovo.
                   </span>
                 </div>
               </div>

@@ -17,10 +17,10 @@
   margin-bottom: 12px;
 }
 .section-title em {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 .section-title .accent { color: var(--brand-primary); }
 .section-sub {

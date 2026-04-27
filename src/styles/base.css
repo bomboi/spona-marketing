@@ -10,7 +10,7 @@
   --brand-primary-light: #c9f6e1;
   --bg-base:      #ffffff;
   --bg-container: #f8f9fa;
-  --bg-overlay:   #1c1c1c;
+  --bg-overlay:   #161c26;
   --text-primary:   #343a40;
   --text-secondary: #6c757d;
   --text-tertiary:  #adb5bd;
@@ -24,7 +24,6 @@
   --transition-base: 0.2s ease;
   --transition-slow: 0.55s cubic-bezier(0.4, 0, 0.2, 1);
   --font-sans: 'Bricolage Grotesque', 'Inter', sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
 }
 
 /* ─── Reset ──────────────────────────────────────────────────── */
