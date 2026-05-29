@@ -3,7 +3,7 @@ import { useState } from 'react'
 const FAQS = [
   {
     q: 'Da li postoji besplatni probni period?',
-    a: 'Da! Svaki plan dolazi sa 14 dana besplatnog korišćenja — bez kreditne kartice. Možeš testirati sve funkcije pre nego što se odlučiš.',
+    a: 'Da! Svaki plan dolazi sa 30 dana besplatnog korišćenja — bez kreditne kartice. Možeš testirati sve funkcije pre nego što se odlučiš.',
   },
   {
     q: 'Da li moram da instaliram nešto?',
@@ -24,6 +24,14 @@ const FAQS = [
   {
     q: 'Mogu li da otkažem pretplatu u bilo kom trenutku?',
     a: 'Da, bez ikakvih penala. Možeš otkazati pretplatu direktno iz podešavanja naloga. Pristup ostaje aktivan do kraja plaćenog perioda.',
+  },
+  {
+    q: 'Šta ako nikad nisam koristio ovakav program?',
+    a: 'Nema veze — Spona nije napravljena za programere. Postavljamo sistem zajedno za oko 30 minuta: unesemo tvoje kupce, artikle i cene, i sve je odmah spremno za rad. Ako umeš da koristiš telefon, umeš da koristiš Sponu.',
+  },
+  {
+    q: 'Šta se dešava sa mojim podacima?',
+    a: 'Tvoji podaci su tvoji — nikad ih nećemo deliti ni prodavati. Svi su šifrovani i čuvaju se na serverima u Evropi koji zadovoljavaju GDPR standarde. Kada god hoćeš, možeš izvesti sve podatke.',
   },
 ]
 

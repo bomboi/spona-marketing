@@ -14,7 +14,7 @@ export default function PricingSection() {
           <div className="eyebrow">Cene</div>
           <h2 className="section-title">Jasne cene, <em>bez iznenađenja</em></h2>
           <p className="section-sub">
-            Odaberi plan koji odgovara tvojoj firmi. Besplatan period od 14 dana — bez kreditne kartice.
+            Odaberi plan koji odgovara tvojoj firmi. Besplatan period od 30 dana — bez kreditne kartice.
           </p>
         </div>
 

@@ -259,8 +259,8 @@ export default function FeatureTabs() {
                 <ul className="dot-list" style={{ marginBottom: '24px' }}>
                   <li><strong>Odabereš kupca</strong> jednim klikom</li>
                   <li><strong>Dodaš artikle</strong> — cene se same upišu</li>
-                  <li><strong>Gotovinsko, predračun ili kartica</strong> — sve beleži</li>
-                  <li><strong>Pratiš status</strong> — u radu, gotovo, isporučeno</li>
+                  <li><strong>Gotovina, kartica ili faktura</strong> — sve beleži, vidiš ko je platio</li>
+                  <li><strong>Radnik menja status</strong> — jednim klikom, ti vidiš odmah</li>
                 </ul>
                 <div className="card" style={{ background: 'var(--brand-primary-light)' }}>
                   <h3 style={{ color: 'var(--brand-primary-dark)', fontSize: '0.95rem', marginBottom: '6px' }}>

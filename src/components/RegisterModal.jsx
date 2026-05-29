@@ -123,7 +123,7 @@ export default function RegisterModal({ onClose, onSwitchToContact }) {
         {!success ? (
           <div>
             <div className="eyebrow" style={{ color: 'var(--brand-primary)', marginBottom: '6px' }}>
-              Besplatan probni period — 14 dana, bez kartice
+              Besplatan probni period — 30 dana, bez kartice
             </div>
             <h2 id="register-modal-title" className="lead-modal-heading">
               Kreni odmah

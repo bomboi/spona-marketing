@@ -6,6 +6,7 @@ const APP_URL = 'https://moja.spona.app'
 import FeatureTabs from '../components/FeatureTabs'
 import PricingSection from '../components/PricingSection'
 import FaqSection from '../components/FaqSection'
+import VideoDemo from '../components/VideoDemo.jsx'
 
 export default function HomePage() {
   const { openLeadModal } = useModal()
@@ -80,13 +81,10 @@ export default function HomePage() {
 
             {/* Center: hero text */}
             <div className="hero-text">
-              <p className="hero-eyebrow">Tvoj biznis, pod kontrolom.</p>
+              <p className="hero-eyebrow">Rokovnik u fioku. Tvoj biznis pod kontrolom.</p>
               <h1>Porudžbine, radnici i predračuni —<br /><em>sve na jednom mestu</em></h1>
               <p className="hero-sub">
-                Program za porudžbine, predračune i kupce — sve na jednom mestu, za male firme u Srbiji.
-              </p>
-              <p className="hero-sub" style={{ marginTop: '8px' }}>
-                Napravljeno za firme koje rade po narudžbini — stolarije, nameštaj, prozore, roletne, keramiku, tapacirnice i slično.
+                Zameni svesku i rokovnik — sve porudžbine, predračuni i kupci na jednom mestu, dostupni sa svakog uređaja.
               </p>
               <div className="hero-cta">
                 <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
@@ -135,7 +133,7 @@ export default function HomePage() {
           <div className="trust-bar-inner">
             <div className="trust-item">
               <i className="bi bi-gift" />
-              <span>14 dana besplatno — bez kartice</span>
+              <span>30 dana besplatno — bez kartice</span>
             </div>
             <div className="trust-divider" />
             <div className="trust-item">
@@ -150,6 +148,9 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
+      {/* ── Video Demo ─────────────────────────────────────────────── */}
+      <VideoDemo />
 
       {/* ── Problems ───────────────────────────────────────────────── */}
       <section className="section-problems" id="problemi">
@@ -265,7 +266,7 @@ export default function HomePage() {
               <div className="stat-meta"><i className="bi bi-receipt" /> Predračun od porudžbine do PDF-a</div>
             </div>
             <div className="stat-item reveal scale">
-              <div className="stat-big">14<span className="stat-unit">dana</span></div>
+              <div className="stat-big">30<span className="stat-unit">dana</span></div>
               <div className="stat-meta"><i className="bi bi-gift" /> Besplatno — bez kartice</div>
             </div>
             <div className="stat-item reveal scale">
@@ -282,6 +283,64 @@ export default function HomePage() {
 
       {/* ── Feature Tabs ───────────────────────────────────────────── */}
       <FeatureTabs />
+
+      {/* ── Comparison ─────────────────────────────────────────────── */}
+      <section className="section-compare">
+        <div className="container">
+          <div className="section-header-center reveal">
+            <div className="eyebrow">Zašto baš Spona?</div>
+            <h2 className="section-title">Bolji od rokovnika i Excela —<br /><em>bez komplikacija</em></h2>
+            <p className="section-sub">
+              Svaka firma počne s rokovnikom ili tabelicom. Ali kad posao poraste, papiri postaju prepreka.
+            </p>
+          </div>
+          <div className="compare-grid mobile-scroll-row">
+
+            {/* Column 1: Notebook */}
+            <div className="compare-col compare-col--old reveal">
+              <div className="compare-col-header">
+                <div className="compare-col-icon"><i className="bi bi-journal-text" /></div>
+                <div className="compare-col-title">Rokovnik i papiri</div>
+              </div>
+              <div className="compare-row"><i className="bi bi-x-circle-fill cmp-icon cmp-no" /><span>Izgubi se u šupi ili ostane kod kuće</span></div>
+              <div className="compare-row"><i className="bi bi-x-circle-fill cmp-icon cmp-no" /><span>Nema pretrage — liskaš stranicu po stranicu</span></div>
+              <div className="compare-row"><i className="bi bi-x-circle-fill cmp-icon cmp-no" /><span>Radnici moraju da te zovu za svaku informaciju</span></div>
+              <div className="compare-row"><i className="bi bi-x-circle-fill cmp-icon cmp-no" /><span>Predračun pišeš ručno — svaki put iznova</span></div>
+              <div className="compare-row"><i className="bi bi-x-circle-fill cmp-icon cmp-no" /><span>Ko je platio, a ko nije? Moraš da liskaš unazad.</span></div>
+              <div className="compare-row"><i className="bi bi-x-circle-fill cmp-icon cmp-no" /><span>Na odmoru nisi dostupan — ili nisi na odmoru</span></div>
+            </div>
+
+            {/* Column 2: Excel */}
+            <div className="compare-col compare-col--mid reveal">
+              <div className="compare-col-header">
+                <div className="compare-col-icon"><i className="bi bi-table" /></div>
+                <div className="compare-col-title">Excel / Google tabele</div>
+              </div>
+              <div className="compare-row"><i className="bi bi-dash-circle-fill cmp-icon cmp-mid" /><span>Dostupno na računaru, ali nije uvek pri ruci</span></div>
+              <div className="compare-row"><i className="bi bi-dash-circle-fill cmp-icon cmp-mid" /><span>Pretraga postoji, ali nije pregledna</span></div>
+              <div className="compare-row"><i className="bi bi-x-circle-fill cmp-icon cmp-no" /><span>Nema pristupa za radnike — previše komplikovano</span></div>
+              <div className="compare-row"><i className="bi bi-dash-circle-fill cmp-icon cmp-mid" /><span>Predračun iz šablona — lako se pogreši u ceni</span></div>
+              <div className="compare-row"><i className="bi bi-dash-circle-fill cmp-icon cmp-mid" /><span>Plaćanja u posebnoj koloni — može da se zaluta</span></div>
+              <div className="compare-row"><i className="bi bi-x-circle-fill cmp-icon cmp-no" /><span>Na telefonu je nepraktično za koristiti</span></div>
+            </div>
+
+            {/* Column 3: Spona */}
+            <div className="compare-col compare-col--spona reveal">
+              <div className="compare-col-header">
+                <div className="compare-col-icon"><i className="bi bi-lightning-charge-fill" /></div>
+                <div className="compare-col-title">Spona</div>
+              </div>
+              <div className="compare-row"><i className="bi bi-check-circle-fill cmp-icon cmp-yes" /><span>Uvek dostupna sa telefona, tableta i računara</span></div>
+              <div className="compare-row"><i className="bi bi-check-circle-fill cmp-icon cmp-yes" /><span>Pronađeš kupca ili porudžbinu za 2 sekunde</span></div>
+              <div className="compare-row"><i className="bi bi-check-circle-fill cmp-icon cmp-yes" /><span>Svaki radnik vidi šta treba da radi</span></div>
+              <div className="compare-row"><i className="bi bi-check-circle-fill cmp-icon cmp-yes" /><span>Predračun za manje od 30 sekundi — direktno iz porudžbine</span></div>
+              <div className="compare-row"><i className="bi bi-check-circle-fill cmp-icon cmp-yes" /><span>Jednim klikom vidiš ko je platio, a ko duguje</span></div>
+              <div className="compare-row"><i className="bi bi-check-circle-fill cmp-icon cmp-yes" /><span>Na odmoru otvoriš na telefonu — minut, sve jasno</span></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* ── Devices ────────────────────────────────────────────────── */}
       <section className="section-devices" id="uredjaji">
@@ -433,23 +492,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="reveal" style={{ textAlign: 'center', marginTop: '24px' }}>
-            <span style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              background: 'rgba(2,204,129,0.1)',
-              border: '1px solid rgba(2,204,129,0.25)',
-              borderRadius: '24px',
-              padding: '8px 20px',
-              fontSize: '0.95rem',
-              fontWeight: 600,
-              color: 'var(--brand-primary-dark)',
-            }}>
-              <i className="bi bi-people-fill" />
-              80+ firmi u Srbiji već koristi Sponu
-            </span>
-          </div>
+
         </div>
       </section>
 
