@@ -5,7 +5,7 @@ export default function Footer() {
   }
 
   return (
-    <footer>
+    <footer className="spona-inverse">
       <div className="container">
         <div className="footer-inner">
           <img src="/logos/iOS App icon - 1 - horizontal.png" alt="Spona — program za male firme u Srbiji" />

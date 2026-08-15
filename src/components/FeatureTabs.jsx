@@ -100,45 +100,45 @@ export default function FeatureTabs() {
                           <div className="am-cust-name">Marko Popović</div>
                           <div className="am-cust-sub">47 porudžbina</div>
                         </div>
-                        <i className="bi bi-chevron-right" style={{ color: 'var(--brand-primary)', fontSize: '0.72rem' }} />
+                        <i className="bi bi-chevron-right am-chevron am-chevron--active" />
                       </div>
                       <div className="am-cust-row">
-                        <div className="am-cust-av" style={{ '--av': 'linear-gradient(135deg,#667eea,#764ba2)' }}>JT</div>
+                        <div className="am-cust-av">JT</div>
                         <div className="am-cust-info">
                           <div className="am-cust-name">Janković Trgovina</div>
                           <div className="am-cust-sub">31 porudžbina</div>
                         </div>
-                        <i className="bi bi-chevron-right" style={{ color: 'var(--text-tertiary)', fontSize: '0.72rem' }} />
+                        <i className="bi bi-chevron-right am-chevron" />
                       </div>
                       <div className="am-cust-row">
-                        <div className="am-cust-av" style={{ '--av': 'linear-gradient(135deg,#f093fb,#f5576c)' }}>MM</div>
+                        <div className="am-cust-av">MM</div>
                         <div className="am-cust-info">
                           <div className="am-cust-name">Mila Marković</div>
                           <div className="am-cust-sub">12 porudžbina</div>
                         </div>
-                        <i className="bi bi-chevron-right" style={{ color: 'var(--text-tertiary)', fontSize: '0.72rem' }} />
+                        <i className="bi bi-chevron-right am-chevron" />
                       </div>
                     </div>
                   </div>
                   <div className="app-mockup">
                     <div className="am-body">
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                        <div className="am-cust-av" style={{ width: '40px', height: '40px', fontSize: '0.78rem' }}>MP</div>
+                      <div className="am-head-row">
+                        <div className="am-cust-av am-cust-av--lg">MP</div>
                         <div>
-                          <div style={{ fontWeight: 700, fontSize: '0.85rem', color: 'var(--text-primary)' }}>Marko Popović</div>
-                          <div style={{ fontSize: '0.65rem', color: 'var(--text-tertiary)' }}>Popović Gradnja · Veleprodaja</div>
+                          <div className="am-strong">Marko Popović</div>
+                          <div className="am-meta">Popović Gradnja · Veleprodaja</div>
                         </div>
-                        <div style={{ marginLeft: 'auto', fontSize: '0.65rem', fontWeight: 700, color: 'var(--brand-primary)' }}>
-                          <i className="bi bi-circle-fill" style={{ fontSize: '0.5rem' }} /> Aktivan
+                        <div className="am-status-live">
+                          <i className="bi bi-circle-fill" /> Aktivan
                         </div>
                       </div>
-                      <div className="am-stats-row" style={{ marginBottom: '8px' }}>
-                        <div className="am-stat-block" style={{ textAlign: 'center' }}>
+                      <div className="am-stats-row">
+                        <div className="am-stat-block am-stat-block--center">
                           <div className="am-stat-val">47</div>
                           <div className="am-stat-lbl">Porudžbina</div>
                         </div>
-                        <div className="am-stat-block" style={{ textAlign: 'center' }}>
-                          <div className="am-stat-val" style={{ fontSize: '0.85rem' }}>975.000</div>
+                        <div className="am-stat-block am-stat-block--center">
+                          <div className="am-stat-val">975.000</div>
                           <div className="am-stat-lbl">Ukupno RSD</div>
                         </div>
                       </div>
@@ -158,14 +158,14 @@ export default function FeatureTabs() {
                 </MockupCarousel>
               </div>
               <div className="feature-layout-details">
-                <ul className="dot-list" style={{ marginBottom: '24px' }}>
+                <ul className="dot-list">
                   <li><strong>Ime, telefon i istorija</strong> — sve na jednom mestu</li>
                   <li><strong>Nađeš bilo koga za sekundu</strong> — samo ukucaš ime</li>
                   <li><strong>Beleške i dogovori</strong> uz svaki profil kupca</li>
                 </ul>
                 <div className="card">
                   <div className="eyebrow">Mirna glava</div>
-                  <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                  <span className="feature-note">
                     Znaš ko ti šta duguje — čak i kad si na odmoru.
                   </span>
                 </div>
@@ -196,25 +196,25 @@ export default function FeatureTabs() {
                       </div>
                       <div className="am-order-row">
                         <span className="am-order-status novo">Novo</span>
-                        <div style={{ flex: 1, minWidth: 0 }}>
+                        <div className="am-flex-1">
                           <div className="am-order-name">#0042 — Popović Gradnja</div>
-                          <div style={{ fontSize: '0.6rem', color: 'var(--text-tertiary)' }}>3× Prozori ALU + Montaža</div>
+                          <div className="am-meta">3× Prozori ALU + Montaža</div>
                         </div>
                         <span className="am-order-amt">375.000</span>
                       </div>
                       <div className="am-order-row">
                         <span className="am-order-status uradu">U izradi</span>
-                        <div style={{ flex: 1, minWidth: 0 }}>
+                        <div className="am-flex-1">
                           <div className="am-order-name">#0041 — Janković Trgovina</div>
-                          <div style={{ fontSize: '0.6rem', color: 'var(--text-tertiary)' }}>5× Roletne PVC</div>
+                          <div className="am-meta">5× Roletne PVC</div>
                         </div>
                         <span className="am-order-amt">88.000</span>
                       </div>
                       <div className="am-order-row">
                         <span className="am-order-status gotovo">Isporučeno</span>
-                        <div style={{ flex: 1, minWidth: 0 }}>
+                        <div className="am-flex-1">
                           <div className="am-order-name">#0040 — Luka Andrić</div>
-                          <div style={{ fontSize: '0.6rem', color: 'var(--text-tertiary)' }}>2× Vrata ALU</div>
+                          <div className="am-meta">2× Vrata ALU</div>
                         </div>
                         <span className="am-order-amt">120.000</span>
                       </div>
@@ -225,48 +225,48 @@ export default function FeatureTabs() {
                       <div className="am-form-field">
                         <div className="am-field-label">Kupac</div>
                         <div className="am-field-val am-field-selected">
-                          <div className="am-cust-av" style={{ width: '22px', height: '22px', fontSize: '0.55rem' }}>MP</div>
+                          <div className="am-cust-av am-cust-av--sm">MP</div>
                           Marko Popović
                         </div>
                       </div>
                       <div className="am-section-label">Artikli</div>
                       <div className="am-item-row">
                         <div className="am-item-info">
-                          <div style={{ fontSize: '0.72rem', fontWeight: 600, color: 'var(--text-primary)' }}>Prozor ALU</div>
-                          <div style={{ fontSize: '0.6rem', color: 'var(--text-tertiary)' }}>56.000 din/kom</div>
+                          <div className="am-line">Prozor ALU</div>
+                          <div className="am-meta">56.000 din/kom</div>
                         </div>
                         <div className="am-item-qty">× 3</div>
-                        <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-primary)' }}>168.000</div>
+                        <div className="am-strong">168.000</div>
                       </div>
                       <div className="am-item-row">
                         <div className="am-item-info">
-                          <div style={{ fontSize: '0.72rem', fontWeight: 600, color: 'var(--text-primary)' }}>Montaža</div>
-                          <div style={{ fontSize: '0.6rem', color: 'var(--text-tertiary)' }}>35.000 din/kom</div>
+                          <div className="am-line">Montaža</div>
+                          <div className="am-meta">35.000 din/kom</div>
                         </div>
                         <div className="am-item-qty">× 2</div>
-                        <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-primary)' }}>70.000</div>
+                        <div className="am-strong">70.000</div>
                       </div>
                       <div className="am-divider-line" />
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>Ukupno</span>
-                        <span style={{ fontSize: '0.92rem', fontWeight: 800, color: 'var(--text-primary)' }}>238.000 RSD</span>
+                      <div className="am-total-row">
+                        <span className="am-sub-line">Ukupno</span>
+                        <span className="am-strong">238.000 RSD</span>
                       </div>
                     </div>
                   </div>
                 </MockupCarousel>
               </div>
               <div className="feature-layout-details">
-                <ul className="dot-list" style={{ marginBottom: '24px' }}>
+                <ul className="dot-list">
                   <li><strong>Odabereš kupca</strong> jednim klikom</li>
                   <li><strong>Dodaš artikle</strong> — cene se same upišu</li>
                   <li><strong>Gotovina, kartica ili faktura</strong> — sve beleži, vidiš ko je platio</li>
                   <li><strong>Radnik menja status</strong> — jednim klikom, ti vidiš odmah</li>
                 </ul>
-                <div className="card" style={{ background: 'var(--brand-primary-light)' }}>
-                  <h3 style={{ color: 'var(--brand-primary-dark)', fontSize: '0.95rem', marginBottom: '6px' }}>
+                <div className="card card--tint">
+                  <h3 className="feature-callout-title">
                     <i className="bi bi-printer-fill" /> Radni nalozi za radnike
                   </h3>
-                  <span style={{ fontSize: '0.87rem', color: 'var(--text-secondary)' }}>
+                  <span className="feature-note">
                     Odštampaš nalog za radionicu jednim klikom — sve jasno ispisano, bez telefona.
                   </span>
                 </div>
@@ -287,7 +287,7 @@ export default function FeatureTabs() {
               </div>
               <div className="feature-layout-visual">
                 <MockupCarousel>
-                  <div className="mockup-box" style={{ minHeight: '200px' }}>
+                  <div className="mockup-box">
                     <img alt="Gotov predračun" src={invoiceImg} />
                     <span className="m-label">
                       <strong>Gotov predračun</strong>
@@ -297,7 +297,7 @@ export default function FeatureTabs() {
                 </MockupCarousel>
               </div>
               <div className="feature-layout-details">
-                <ul className="dot-list" style={{ marginBottom: '24px' }}>
+                <ul className="dot-list">
                   <li><strong>Sve se samo popuni</strong> iz porudžbine</li>
                   <li><strong>Odštampaj ili pošalji mejlom</strong> — dva klika</li>
                   <li><strong>Tvoj logo i naziv firme</strong> na svakom predračunu</li>
@@ -346,7 +346,7 @@ export default function FeatureTabs() {
                         <div className="am-product-price">85.000 din</div>
                       </div>
                       <div className="am-product-row">
-                        <div className="am-product-icon" style={{ fontSize: '0.9rem' }}>🔧</div>
+                        <div className="am-product-icon">🔧</div>
                         <div className="am-product-info">
                           <div className="am-product-name">Montaža</div>
                         </div>
@@ -356,16 +356,16 @@ export default function FeatureTabs() {
                   </div>
                   <div className="app-mockup">
                     <div className="am-body">
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                        <div className="am-product-icon" style={{ width: '44px', height: '44px', fontSize: '1.5rem', borderRadius: '12px' }}>🪟</div>
+                      <div className="am-head-row">
+                        <div className="am-product-icon am-product-icon--lg">🪟</div>
                         <div>
-                          <div style={{ fontWeight: 700, fontSize: '0.85rem', color: 'var(--text-primary)' }}>Prozor ALU</div>
-                          <div style={{ fontSize: '0.65rem', color: 'var(--text-tertiary)' }}>Kategorija: Prozori</div>
+                          <div className="am-strong">Prozor ALU</div>
+                          <div className="am-meta">Kategorija: Prozori</div>
                         </div>
                       </div>
-                      <div className="am-stats-row" style={{ marginBottom: '10px' }}>
-                        <div className="am-stat-block" style={{ textAlign: 'center' }}>
-                          <div className="am-stat-val" style={{ fontSize: '0.88rem' }}>56.000 RSD</div>
+                      <div className="am-stats-row">
+                        <div className="am-stat-block am-stat-block--center">
+                          <div className="am-stat-val">56.000 RSD</div>
                         </div>
                       </div>
                     </div>
@@ -373,7 +373,7 @@ export default function FeatureTabs() {
                 </MockupCarousel>
               </div>
               <div className="feature-layout-details">
-                <ul className="dot-list" style={{ marginBottom: '24px' }}>
+                <ul className="dot-list">
                   <li><strong>Naziv i cena</strong> za svaki artikal ili uslugu</li>
                   <li><strong>Varijante po meri</strong> — dimenzija, boja, tip, materijal</li>
                   <li><strong>Kategorije</strong> za lakši pregled</li>
@@ -381,7 +381,7 @@ export default function FeatureTabs() {
                 </ul>
                 <div className="card">
                   <div className="eyebrow">Kako to izgleda</div>
-                  <span style={{ fontSize: '0.87rem', color: 'var(--text-secondary)' }}>
+                  <span className="feature-note">
                     Ukucaš par slova — Spona odmah ponudi artikl i cenu. Odabereš količinu, gotovo.
                   </span>
                 </div>
@@ -479,24 +479,24 @@ export default function FeatureTabs() {
                   <div className="app-mockup">
                     <div className="am-body">
                       <div className="am-team-row">
-                        <div className="am-cust-av" style={{ width: '34px', height: '34px', fontSize: '0.7rem' }}>MM</div>
-                        <div className="am-cust-info" style={{ flex: 1 }}>
+                        <div className="am-cust-av am-cust-av--md">MM</div>
+                        <div className="am-cust-info">
                           <div className="am-cust-name">Milan Matić</div>
                           <div className="am-cust-sub">Admin</div>
                         </div>
                         <span className="am-role-badge admin">Admin</span>
                       </div>
                       <div className="am-team-row">
-                        <div className="am-cust-av" style={{ width: '34px', height: '34px', fontSize: '0.7rem', '--av': 'linear-gradient(135deg,#4facfe,#00f2fe)' }}>NK</div>
-                        <div className="am-cust-info" style={{ flex: 1 }}>
+                        <div className="am-cust-av am-cust-av--md">NK</div>
+                        <div className="am-cust-info">
                           <div className="am-cust-name">Nina Kovač</div>
                           <div className="am-cust-sub">Prodavac</div>
                         </div>
                         <span className="am-role-badge radnik">Prodavac</span>
                       </div>
                       <div className="am-team-row">
-                        <div className="am-cust-av" style={{ width: '34px', height: '34px', fontSize: '0.7rem', '--av': 'linear-gradient(135deg,#f093fb,#f5576c)' }}>DV</div>
-                        <div className="am-cust-info" style={{ flex: 1 }}>
+                        <div className="am-cust-av am-cust-av--md">DV</div>
+                        <div className="am-cust-info">
                           <div className="am-cust-name">Dragan Vukić</div>
                           <div className="am-cust-sub">Radnik</div>
                         </div>
@@ -511,7 +511,7 @@ export default function FeatureTabs() {
                           <tr>
                             <th></th>
                             <th><span className="am-role-badge admin">Admin</span></th>
-                            <th><span className="am-role-badge poslovodja" style={{ fontSize: '0.5rem' }}>Prod.</span></th>
+                            <th><span className="am-role-badge poslovodja am-role-badge--th">Prod.</span></th>
                             <th><span className="am-role-badge radnik">Radnik</span></th>
                           </tr>
                         </thead>
@@ -547,7 +547,7 @@ export default function FeatureTabs() {
                 </MockupCarousel>
               </div>
               <div className="feature-layout-details">
-                <div className="card" style={{ marginBottom: '12px' }}>
+                <div className="card">
                   <div className="eyebrow">Ko šta vidi</div>
                   <ul className="dot-list">
                     <li><strong>Admin (Ti)</strong> — zarada, cene i sva podešavanja</li>
@@ -555,7 +555,7 @@ export default function FeatureTabs() {
                     <li><strong>Radnik</strong> — samo artikli i materijali. Nula pristupa cenama.</li>
                     <li><strong>Partner</strong> — unosi porudžbine, vidi isključivo svoje</li>
                   </ul>
-                  <p style={{ fontSize: '0.78rem', color: 'var(--text-tertiary)', marginTop: '10px' }}>
+                  <p className="feature-fineprint">
                     Tvoja zarada i baza kupaca ostaju isključivo između tebe i Spone.
                   </p>
                 </div>

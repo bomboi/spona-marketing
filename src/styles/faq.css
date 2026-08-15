@@ -1,69 +1,91 @@
-/* ─── FAQ Section ────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════
+   FAQ
+   The list used to be held together by hairline rules. It is now a
+   stack of sunken rows on a card ground — separated by surface and
+   spacing (§4.3, R3).
+   ═══════════════════════════════════════════════════════════════ */
+
 .section-faq {
-  background: var(--bg-base);
-  padding: 96px 0;
+  background: var(--spona-surface-card);
+  padding: var(--spona-section-padding) 0;
 }
 
 .faq-list {
   max-width: 760px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spona-space-2);
 }
 
 .faq-item {
-  border-bottom: 1px solid #e9ecef;
+  background: var(--spona-surface-sunken);
+  border-radius: var(--spona-radius-lg);
   overflow: hidden;
+  transition: background var(--spona-duration-base) var(--spona-ease-standard);
 }
-.faq-item:first-child { border-top: 1px solid #e9ecef; }
+.faq-item.open { background: var(--spona-color-primary-tint); }
 
 .faq-q {
   width: 100%;
   background: none;
   border: none;
-  padding: 22px 16px 22px 0;
+  min-height: var(--spona-touch-comfortable);
+  padding: var(--spona-space-5) var(--spona-space-5);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--spona-space-4);
   cursor: pointer;
   text-align: left;
   font-family: inherit;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.4;
-  transition: color var(--transition-base);
+  font-size: var(--spona-font-size-body);
+  font-weight: var(--spona-font-weight-semibold);
+  color: var(--spona-color-text-primary);
+  line-height: var(--spona-line-height);
+  transition: color var(--spona-duration-base) var(--spona-ease-standard);
 }
-.faq-q:hover { color: var(--brand-primary); }
+
 .faq-q .faq-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--bg-container);
+  width: var(--spona-space-8);
+  height: var(--spona-space-8);
+  border-radius: var(--spona-radius-pill);
+  background: var(--spona-surface-muted);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
-  color: var(--brand-primary);
+  font-size: var(--spona-font-size-xl);
+  color: var(--spona-color-primary-text);
   flex-shrink: 0;
-  transition: background var(--transition-base), transform var(--transition-slow);
+  transition: background var(--spona-duration-base) var(--spona-ease-standard),
+              color var(--spona-duration-base) var(--spona-ease-standard),
+              transform var(--spona-duration-base) var(--spona-ease-standard);
 }
-.faq-item.open .faq-q { color: var(--brand-primary); }
+.faq-item.open .faq-q { color: var(--spona-color-primary-text); }
 .faq-item.open .faq-icon {
-  background: var(--brand-primary);
-  color: #fff;
+  background: var(--spona-color-primary);
+  color: var(--spona-color-text-on-primary);
   transform: rotate(45deg);
 }
 
 .faq-a {
   display: none;
-  padding: 0 64px 24px 0;
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
+  padding: 0 var(--spona-space-16) var(--spona-space-5) var(--spona-space-5);
+  font-size: var(--spona-font-size-body-sm);
+  color: var(--spona-color-text-secondary);
+  line-height: var(--spona-line-height-prose);
 }
 .faq-a.open {
   display: block;
-  animation: faqSlideOpen 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation: faqSlideOpen var(--spona-duration-base) var(--spona-ease-standard) both;
 }
-.faq-a strong { color: var(--text-primary); }
+.faq-a strong { color: var(--spona-color-text-primary); }
 
+@media (hover: hover) {
+  .faq-q:hover { color: var(--spona-color-primary-text); }
+}
+
+@media (max-width: 540px) {
+  .faq-q { font-size: var(--spona-font-size-body-sm); padding: var(--spona-space-4); }
+  .faq-a { padding: 0 var(--spona-space-4) var(--spona-space-4); }
+}

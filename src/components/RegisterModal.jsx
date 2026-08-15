@@ -122,7 +122,7 @@ export default function RegisterModal({ onClose, onSwitchToContact }) {
 
         {!success ? (
           <div>
-            <div className="eyebrow" style={{ color: 'var(--brand-primary)', marginBottom: '6px' }}>
+            <div className="eyebrow">
               Besplatan probni period — 30 dana, bez kartice
             </div>
             <h2 id="register-modal-title" className="lead-modal-heading">
@@ -199,11 +199,11 @@ export default function RegisterModal({ onClose, onSwitchToContact }) {
               </button>
             </form>
 
-            <p style={{ marginTop: '16px', fontSize: '0.85rem', color: 'var(--text-secondary)', textAlign: 'center' }}>
+            <p className="lead-modal-switch">
               Radiš li pre nego što probaš?{' '}
               <button
                 type="button"
-                style={{ background: 'none', border: 'none', color: 'var(--brand-primary-dark)', fontWeight: 600, cursor: 'pointer', padding: 0, font: 'inherit', fontSize: '0.85rem' }}
+                className="lead-modal-switch-btn"
                 onClick={() => { handleClose(); setTimeout(onSwitchToContact, 310) }}
               >
                 Razgovaraj sa nama →

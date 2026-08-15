@@ -4,6 +4,8 @@ import { HashRouter } from 'react-router-dom'
 import App from './App'
 
 // ── Styles ────────────────────────────────────────────────────
+// tokens.css first: everything below resolves against it.
+import './styles/tokens.css'
 import './styles/base.css'
 import './styles/components.css'
 import './styles/nav.css'
@@ -19,7 +21,10 @@ import './styles/mockup.css'
 // ── External fonts / icons ────────────────────────────────────
 const fontLink = document.createElement('link')
 fontLink.rel = 'stylesheet'
-fontLink.href = 'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@400;500;600;700;800&display=swap'
+// Bricolage Grotesque is the display face for headings; UI text renders in the
+// platform system stack, the same as the product app. Inter is kept as the
+// cross-platform fallback inside --spona-font-sans.
+fontLink.href = 'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,ital,wght@12..96,0,400;12..96,0,600;12..96,0,700;12..96,1,400;12..96,1,600&family=Inter:wght@400;500;600;700&display=swap'
 document.head.appendChild(fontLink)
 
 const iconsLink = document.createElement('link')

@@ -43,7 +43,7 @@ export default function PricingSection() {
 
           {/* Starter */}
           <div className="pricing-card reveal">
-            <div className="pricing-badge" style={{ visibility: 'hidden', userSelect: 'none' }} aria-hidden="true">
+            <div className="pricing-badge pricing-badge--spacer" aria-hidden="true">
               <i className="bi bi-star-fill" /> S
             </div>
             <div className="pricing-plan">Starter</div>
@@ -60,7 +60,7 @@ export default function PricingSection() {
                 Umesto <span className="pricing-old-price">26.400 RSD</span>
               </span>
             </div>
-            <div className="pricing-desc" style={{ minHeight: '44px' }}>
+            <div className="pricing-desc">
               Savršen za frilensere i male timove koji tek počinju.
             </div>
             <ul className="pricing-features">
@@ -73,7 +73,7 @@ export default function PricingSection() {
               href={APP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-outline-dark w-full"
+              className="btn btn-secondary w-full"
             >
               Probaj besplatno
             </a>
@@ -96,7 +96,7 @@ export default function PricingSection() {
                 Umesto <span className="pricing-old-price">58.800 RSD</span>
               </span>
             </div>
-            <div className="pricing-desc" style={{ minHeight: '44px' }}>
+            <div className="pricing-desc">
               Za rastuće firme kojima treba više kontrole i saradnje.
             </div>
             <ul className="pricing-features">
@@ -119,7 +119,7 @@ export default function PricingSection() {
 
           {/* Pro */}
           <div className="pricing-card reveal">
-            <div className="pricing-badge" style={{ visibility: 'hidden', userSelect: 'none' }} aria-hidden="true">
+            <div className="pricing-badge pricing-badge--spacer" aria-hidden="true">
               <i className="bi bi-star-fill" /> P
             </div>
             <div className="pricing-plan">Pro</div>
@@ -136,7 +136,7 @@ export default function PricingSection() {
                 Umesto <span className="pricing-old-price">142.800 RSD</span>
               </span>
             </div>
-            <div className="pricing-desc" style={{ minHeight: '44px' }}>
+            <div className="pricing-desc">
               Za etablirane firme sa velikim timovima i proizvodnjom.
             </div>
             <ul className="pricing-features">
@@ -150,7 +150,7 @@ export default function PricingSection() {
               href={APP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-outline-dark w-full"
+              className="btn btn-secondary w-full"
             >
               Probaj besplatno
             </a>
@@ -158,10 +158,10 @@ export default function PricingSection() {
 
         </div>
 
-        <div className="pricing-custom-action reveal" style={{ marginTop: '32px' }}>
+        <div className="pricing-custom-action reveal">
           <button
             type="button"
-            className="btn btn-outline-dark btn-lg"
+            className="btn btn-secondary btn-lg"
             onClick={() => openLeadModal('Custom', billing)}
           >
             Treba ti drugačiji plan? <i className="bi bi-arrow-right" />

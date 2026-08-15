@@ -30,7 +30,9 @@ export default function Nav() {
   }
 
   return (
-    <nav className="nav" ref={navRef}>
+    // The bar overlays the dark hero and stays dark once scrolled, so it
+    // carries the inverse token scope for its whole subtree.
+    <nav className="nav spona-inverse" ref={navRef}>
       <div className="nav-inner">
         <a href="#" className="nav-logo">
           <img src="/logos/iOS App icon - 1 - horizontal.png" alt="Spona" />
@@ -78,8 +80,7 @@ export default function Nav() {
             href={APP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-primary"
-            style={{ width: '100%', justifyContent: 'center' }}
+            className="btn btn-primary w-full"
             onClick={closeMenu}
           >
             Probaj besplatno
@@ -88,8 +89,7 @@ export default function Nav() {
             href={APP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-outline-dark"
-            style={{ width: '100%', justifyContent: 'center', marginTop: '8px' }}
+            className="btn btn-secondary w-full"
             onClick={closeMenu}
           >
             Prijavi se

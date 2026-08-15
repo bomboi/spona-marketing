@@ -1,138 +1,131 @@
-/* ─── Responsive ─────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════
+   Responsive overrides
+   ═══════════════════════════════════════════════════════════════ */
+
 @media (max-width: 768px) {
   .hide-on-mobile { display: none !important; }
+
   /* ── Nav ── */
-  .nav { padding: 12px 14px; }
-  .nav-inner { border-radius: 16px; padding: 0 12px; }
+  .nav-inner { height: var(--spona-space-16); }
   .nav-hamburger { display: flex; margin-left: auto; }
-  .nav-actions { display: none; }
+  .nav-actions,
   .nav-links-desktop { display: none; }
+
+  /* The dropdown is a card on the bar's own surface — no border, no shadow. */
   .nav-links {
     display: none;
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: var(--spona-space-1);
     position: fixed;
-    top: 78px;
-    left: 14px;
-    right: 14px;
-    background: var(--bg-overlay);
-    padding: 16px 20px 24px;
-    z-index: 101;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,0.08);
-    pointer-events: all;
+    top: var(--spona-space-16);
+    left: var(--spona-space-4);
+    right: var(--spona-space-4);
+    background: var(--spona-surface-card);
+    padding: var(--spona-space-4) var(--spona-space-5) var(--spona-space-6);
+    z-index: var(--spona-z-dropdown);
+    border-radius: var(--spona-radius-lg);
   }
   .nav-links.open { display: flex; }
   .nav-links > a {
-    font-size: 1rem;
-    padding: 13px 8px;
+    font-size: var(--spona-font-size-body);
+    min-height: var(--spona-touch-min);
+    display: flex;
+    align-items: center;
+    padding: var(--spona-space-3) var(--spona-space-2);
     width: 100%;
-    border-radius: 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    background: none !important;
-    color: rgba(255,255,255,0.7);
+    color: var(--spona-color-text-secondary);
   }
-  .nav-links > a:hover { color: #fff; }
-  /* Mobile CTA block inside dropdown */
   .nav-mobile-cta {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--spona-space-3);
     width: 100%;
-    margin-top: 20px;
+    margin-top: var(--spona-space-5);
   }
   body.nav-open { overflow: hidden; }
 
   /* ── Layout ── */
-  .two-col,
-  .two-col--center,
   .three-col,
-  .feature-grid { grid-template-columns: 1fr; gap: 28px; }
-
-  /* Reorder flipped grids so text comes first on mobile */
-  .feature-grid--flipped > *:nth-child(1) { order: 2; }
-  .feature-grid--flipped > *:nth-child(2) { order: 1; }
+  .feature-grid { grid-template-columns: 1fr; gap: var(--spona-space-8); }
 
   /* ── Hero ── */
-  .hero { padding: 100px 0 0; min-height: auto; }
-  .hero h1 { font-size: 2.2rem; }
-  .hero-sub { font-size: 1rem; max-width: 100%; }
+  .hero { padding: var(--spona-space-20) 0 0; min-height: auto; }
+  .hero h1 { font-size: var(--spona-font-size-4xl); }
+  .hero-sub { max-width: 100%; }
   .hero-cta { flex-direction: column; align-items: stretch; }
-  .hero-cta .btn { width: 100%; justify-content: center; }
+  .hero-cta .btn { width: 100%; }
   .hero-scroll-hint { margin-top: 0; }
-  /* Mobile: text full-width on top, then cards side-by-side below */
+
+  /* Text full-width on top, cards side-by-side below */
   .hero-inner {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 12px;
-    padding-bottom: 60px;
+    gap: var(--spona-space-3);
+    padding-bottom: var(--spona-space-16);
   }
   .hero-text {
     order: -1;
     width: 100%;
     text-align: center;
     align-items: center;
-    padding-bottom: 28px;
+    padding-bottom: var(--spona-space-8);
   }
   .hero-cards {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--spona-space-3);
     flex: 1;
     min-width: 140px;
     align-items: stretch;
   }
   .hero-card { width: auto; }
-  /* Smaller tilt on mobile */
-  .hero-cards--left .hero-card:nth-child(1) { animation: hcFloat1Mob 6s   ease-in-out       infinite backwards; }
-  .hero-cards--left .hero-card:nth-child(2) { animation: hcFloat2Mob 7.5s ease-in-out 1.2s  infinite backwards; }
-  .hero-cards--right .hero-card:nth-child(1) { animation: hcFloat3Mob 8s   ease-in-out 0.6s  infinite backwards; }
-  .hero-cards--right .hero-card:nth-child(2) { animation: hcFloat4Mob 6.5s ease-in-out 2s    infinite backwards; }
 
-  /* ── Sections padding ── */
+  /* ── Section padding ── */
   .section,
-  .section-sm,
   .section-problems,
+  .section-workflow,
   .section-steps,
   .section-devices,
+  .section-compare,
+  .section-testimonial,
+  .section-video-demo,
   .section-faq,
-  .section-pricing { padding: 44px 0; }
-  .section-features-tabs { padding: 44px 0; }
-  .feature-section { padding: 44px 0; }
-  .section-header-center { margin-bottom: 28px; }
+  .section-pricing,
+  .section-features-tabs,
+  .feature-section,
+  .stats-strip,
+  .section-cta { padding: var(--spona-space-12) 0; }
+  .section-header-center { margin-bottom: var(--spona-space-8); }
 
   /* ── Stats ── */
-  .stats-strip { padding: 32px 0; }
-  .stats-inner { gap: 40px; justify-content: center; }
-  .stat-big { font-size: 2.4rem; }
+  .stats-inner { gap: var(--spona-space-10); justify-content: center; }
+  .stat-big { font-size: var(--spona-font-size-4xl); }
   .stat-item { min-width: 120px; }
 
   /* ── Features ── */
   .mockup-box { min-height: 200px !important; }
 
-  /* ── Devices ── */
-  .no-install-strip { padding: 20px; }
-  .no-install-strip strong { font-size: 0.92rem; }
-
-  /* ── Steps ── */
-  .support-strip { padding: 20px; }
-
-
+  /* ── Strips ── */
+  .no-install-strip,
+  .support-strip,
+  .solve-strip { padding: var(--spona-space-5); }
 
   /* ── CTA ── */
   .cta-buttons { flex-direction: column; align-items: center; }
-  .cta-buttons .btn { width: 100%; max-width: 320px; justify-content: center; }
+  .cta-buttons .btn { width: 100%; max-width: 320px; }
 
   /* ── Footer ── */
-  .footer-inner { flex-direction: column-reverse; align-items: center; text-align: center; gap: 12px; }
+  .footer-inner {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: var(--spona-space-3);
+  }
 
-  /* ── Workflow section inline padding override ── */
-  .section-workflow { padding: 44px 0 !important; }
-
-  /* ── Reveal bypass for horizontally scrollable carousels ────── */
-  /* Cards off-screen never trigger IntersectionObserver, so skip animation */
+  /* Cards inside a horizontal carousel never enter the viewport observer,
+     so they skip the reveal animation entirely. */
   .mobile-scroll-row .reveal,
   .steps-timeline-scrollable .reveal {
     opacity: 1 !important;
@@ -142,43 +135,30 @@
 }
 
 @media (max-width: 540px) {
-  .container { padding: 0 18px; }
-  .hero h1 { font-size: 1.9rem; }
-  .section-title { font-size: 1.55rem; }
-  .feature-title { font-size: 1.3rem; }
-  .btn-lg { padding: 13px 24px; font-size: 0.93rem; }
-  .stat-big { font-size: 2rem; }
-  .pricing-grid { max-width: 100%; }
-  .faq-q { font-size: 0.93rem; }
+  .container { padding: 0 var(--spona-space-5); }
+  .hero h1 { font-size: var(--spona-font-size-3xl); }
+  .section-title { font-size: var(--spona-font-size-2xl); }
+  .feature-title { font-size: var(--spona-font-size-2xl); }
+  .cta-inner h2 { font-size: var(--spona-font-size-3xl); }
+  .btn-lg { padding: 0 var(--spona-space-6); font-size: var(--spona-font-size-body-sm); }
+  .stat-big { font-size: var(--spona-font-size-3xl); }
 
-  /* Compact cards at narrow widths */
-  .hero-card { padding: 12px 12px; border-radius: 12px; }
-  .hc-amount { font-size: 1rem; }
-  .hc-stat-num { font-size: 0.75rem; }
-  .hc-name { font-size: 0.75rem; }
-  .hc-price { font-size: 0.95rem; margin-bottom: 6px; }
-  .hc-order-num { font-size: 0.95rem; }
-  .hc-eyebrow { font-size: 0.6rem; }
+  .hero-card { padding: var(--spona-space-3); border-radius: var(--spona-radius-md); }
+  .hc-amount,
+  .hc-price,
+  .hc-order-num { font-size: var(--spona-font-size-body); }
+  .hc-stat-num,
+  .hc-name { font-size: var(--spona-font-size-base); }
 }
 
-/* Stack hero cards to single column on very small screens */
+/* Stack hero cards to a single column on very small screens */
 @media (max-width: 380px) {
-  .hero-cards {
-    flex-direction: column;
-    gap: 10px;
-  }
+  .hero-cards { flex-direction: column; gap: var(--spona-space-3); }
 }
 
-/* ─── Medium screen: compact hero preview ────────────────────── */
+/* ─── Medium screens: compact hero ───────────────────────────── */
 @media (min-width: 769px) and (max-width: 1100px) {
-  .hero { padding: 130px 0 100px; }
-  .hero-inner { grid-template-columns: 170px 1fr 170px; gap: 24px; }
+  .hero { padding: var(--spona-space-20) 0 var(--spona-space-16); }
+  .hero-inner { grid-template-columns: 170px 1fr 170px; gap: var(--spona-space-6); }
   .hero-card { width: 100%; }
-  .hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); }
 }
-
-/* ─── CTA Button Glow ────────────────────────────────────────── */
-.btn-primary.btn-glow {
-  animation: glowPulse 2.4s ease-in-out infinite;
-}
-

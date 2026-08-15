@@ -31,11 +31,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="hero" id="pocetak">
-        <div className="mesh-orb mesh-orb--1" />
-        <div className="mesh-orb mesh-orb--2" />
-        <div className="mesh-orb mesh-orb--3" />
-        <div className="mesh-orb mesh-orb--4" />
+      <section className="hero spona-inverse" id="pocetak">
         <div className="container">
           <div className="hero-inner">
 
@@ -65,7 +61,6 @@ export default function HomePage() {
                   </div>
                   <div className="hc-dot" />
                 </div>
-                <div className="hc-divider" />
                 <div className="hc-stats-row">
                   <div>
                     <div className="hc-stat-num">47</div>
@@ -90,7 +85,7 @@ export default function HomePage() {
                 <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
                   Probaj besplatno <i className="bi bi-arrow-right" />
                 </a>
-                <a href="#" className="btn btn-outline-white btn-lg" onClick={(e) => { e.preventDefault(); scrollTo('radni-dan') }}>Kako funkcioniše</a>
+                <a href="#" className="btn btn-secondary btn-lg" onClick={(e) => { e.preventDefault(); scrollTo('radni-dan') }}>Kako funkcioniše</a>
               </div>
               <div className="hero-scroll-hint">
                 <i className="bi bi-mouse2" />
@@ -106,19 +101,17 @@ export default function HomePage() {
                   <span className="hc-status-badge">Novo</span>
                 </div>
                 <div className="hc-order-num">#0042</div>
-                <div className="hc-sub" style={{ marginBottom: '10px' }}>Popović Gradnja</div>
+                <div className="hc-sub">Popović Gradnja</div>
                 <div className="hc-items">
                   <div className="hc-item"><span>3× Prozori ALU</span><span>280.000</span></div>
                   <div className="hc-item"><span>1× Montaža</span><span>70.000</span></div>
                 </div>
-                <div className="hc-divider" />
                 <div className="hc-total">Ukupno <strong>375.000 RSD</strong></div>
               </div>
               <div className="hero-card hero-card--product">
                 <div className="hc-eyebrow"><i className="bi bi-tag" /> Artikal</div>
-                <div className="hc-name" style={{ marginBottom: '6px' }}>Prozor ALU</div>
+                <div className="hc-name">Prozor ALU</div>
                 <div className="hc-price">56.000 din <span>/kom</span></div>
-                <div className="hc-divider" />
                 <div className="hc-desc">Aluminijumski prozor. Dostupan u više dimenzija i boja po zahtevu.</div>
               </div>
             </div>
@@ -190,28 +183,16 @@ export default function HomePage() {
       </section>
 
       {/* ── Workflow ───────────────────────────────────────────────── */}
-      <section
-        className="section-workflow"
-        id="radni-dan"
-        style={{
-          padding: '80px 0',
-          background: 'rgba(2,204,129,0.05)',
-          borderTop: '1px solid rgba(2,204,129,0.1)',
-          borderBottom: '1px solid rgba(2,204,129,0.1)',
-        }}
-      >
+      <section className="section-workflow" id="radni-dan">
         <div className="container">
-          <div className="section-header-center reveal" style={{ marginBottom: '48px' }}>
-            <div className="eyebrow" style={{ color: 'var(--brand-primary-dark)' }}>Kako Spona menja radni dan</div>
+          <div className="section-header-center reveal">
+            <div className="eyebrow">Kako Spona menja radni dan</div>
             <h2 className="section-title">Od upisa do naplate — <br />pravo iz džepa</h2>
             <p className="section-sub">
               Zaboravi na prepisivanje iz sveske u svesku. Ovako izgleda tok posla kada firma pređe na Sponu.
             </p>
           </div>
-          <div
-            className="steps-timeline-scrollable steps-timeline stagger"
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '24px' }}
-          >
+          <div className="steps-timeline-scrollable steps-timeline steps-timeline--auto stagger">
             <div className="step-node reveal">
               <div className="step-node-icon"><i className="bi bi-phone-vibrate" /></div>
               <div className="step-num-badge">01</div>
@@ -237,28 +218,20 @@ export default function HomePage() {
               <p>Jednim klikom odštampaš radni nalog ili pošalješ PDF predračun na email. Čisto, brzo i profesionalno.</p>
             </div>
           </div>
-          <div style={{ textAlign: 'center', marginTop: '48px' }}>
+          <div className="workflow-cta">
             <a
               href="#"
               onClick={(e) => { e.preventDefault(); scrollTo('kako-poceti') }}
-              className="btn btn-primary"
-              style={{
-                background: 'var(--brand-primary-dark)',
-                color: '#fff',
-                padding: '12px 32px',
-                borderRadius: '30px',
-                fontWeight: 600,
-                textDecoration: 'none',
-              }}
+              className="btn btn-primary btn-lg"
             >
-              Vidi kako da počneš →
+              Vidi kako da počneš <i className="bi bi-arrow-right" />
             </a>
           </div>
         </div>
       </section>
 
       {/* ── Stats ──────────────────────────────────────────────────── */}
-      <div className="stats-strip">
+      <div className="stats-strip spona-inverse">
         <div className="container">
           <div className="stats-inner stagger">
             <div className="stat-item reveal scale">
@@ -343,18 +316,18 @@ export default function HomePage() {
       </section>
 
       {/* ── Devices ────────────────────────────────────────────────── */}
-      <section className="section-devices" id="uredjaji">
+      <section className="section-devices spona-inverse" id="uredjaji">
         <div className="container">
-          <div className="section-header-center reveal" style={{ marginBottom: '48px' }}>
-            <div className="eyebrow" style={{ color: 'rgba(2,204,129,0.8)' }}>Jednostavno kao daljinski od TV-a</div>
-            <h2 className="section-title" style={{ color: '#fff', margin: '0 auto 12px' }}>
+          <div className="section-header-center reveal">
+            <div className="eyebrow">Jednostavno kao daljinski od TV-a</div>
+            <h2 className="section-title">
               Radi na telefonu,<br />tabletu i računaru
             </h2>
-            <p className="section-sub" style={{ color: 'rgba(255,255,255,0.5)', margin: '0 auto' }}>
+            <p className="section-sub">
               Nema komplikovane obuke — ako umeš da koristiš telefon, umeš da koristiš Sponu.
             </p>
           </div>
-          <div className="three-col mobile-scroll-row stagger" style={{ marginBottom: '28px' }}>
+          <div className="three-col mobile-scroll-row stagger">
             <div className="device-card reveal">
               <div className="d-frame d-frame-desktop">
                 <div className="d-monitor">
@@ -364,9 +337,9 @@ export default function HomePage() {
                     </div>
                     <div className="ds-content">
                       <div className="ds-row hi" />
-                      <div style={{ display: 'flex', gap: '4px' }}>
-                        <div className="ds-row full" style={{ height: '28px', background: 'rgba(0,0,0,0.05)', borderRadius: '4px', flex: 1 }} />
-                        <div className="ds-row full" style={{ height: '28px', background: 'rgba(2,204,129,0.12)', borderRadius: '4px', width: '38%' }} />
+                      <div className="ds-split">
+                        <div className="ds-block" />
+                        <div className="ds-block ds-block--accent" />
                       </div>
                       <div className="ds-row med" />
                       <div className="ds-row sml" />
@@ -389,7 +362,7 @@ export default function HomePage() {
                       <div className="ds-row hi" />
                       <div className="ds-row full" />
                       <div className="ds-row med" />
-                      <div className="ds-row full" style={{ height: '20px', background: 'rgba(2,204,129,0.18)', borderRadius: '4px' }} />
+                      <div className="ds-row full ds-row--tall" />
                       <div className="ds-row sml" />
                       <div className="ds-row med" />
                     </div>
@@ -425,7 +398,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="no-install-strip reveal">
-            <div className="eyebrow" style={{ color: 'rgba(2,204,129,0.8)' }}>Nema instalacije, nema komplikacija</div>
+            <div className="eyebrow">Nema instalacije, nema komplikacija</div>
             <strong>
               Spona radi u pretraživaču — otvoriš kao stranicu, kao Facebook ili YouTube. Ništa posebno ne treba instalirati.
             </strong>
@@ -503,7 +476,7 @@ export default function HomePage() {
       <FaqSection />
 
       {/* ── CTA ────────────────────────────────────────────────────── */}
-      <section className="section-cta" id="kontakt">
+      <section className="section-cta spona-inverse" id="kontakt">
         <div className="container">
           <div className="cta-inner">
             <h2 className="reveal">Tvoj biznis,<br /><em>pod kontrolom.</em></h2>
@@ -514,7 +487,7 @@ export default function HomePage() {
               <button type="button" className="btn btn-primary btn-lg" onClick={() => openLeadModal('')}>
                 <i className="bi bi-envelope-fill" /> Pošalji upit
               </button>
-              <a href="tel:+381693318024" className="btn btn-outline-white btn-lg">
+              <a href="tel:+381693318024" className="btn btn-secondary btn-lg">
                 <i className="bi bi-telephone-fill" /> Pozovi nas
               </a>
             </div>

@@ -1,51 +1,46 @@
 /* ═══════════════════════════════════════════════════════════════
-   Spona Landing Page — Styles
+   Spona Landing Page — base layer
+   Tokens live in tokens.css. Nothing here declares a raw colour,
+   a raw radius, or a box-shadow other than the focus ring.
    ═══════════════════════════════════════════════════════════════ */
-
-/* ─── Design Tokens ──────────────────────────────────────────── */
-:root {
-  --brand-primary:       #02cc81;
-  --brand-secondary:     #ffba00;
-  --brand-primary-dark:  #019660;
-  --brand-primary-light: #c9f6e1;
-  --bg-base:      #ffffff;
-  --bg-container: #f8f9fa;
-  --bg-overlay:   #161c26;
-  --text-primary:   #343a40;
-  --text-secondary: #6c757d;
-  --text-tertiary:  #adb5bd;
-  --error: #dc3545;
-  --radius-sm: 0.75rem;
-  --radius-md: 1rem;
-  --radius-lg: 1.5rem;
-  --shadow-card: 0 4px 24px rgba(0,0,0,0.07);
-  --shadow-card-hover: 0 12px 40px rgba(0,0,0,0.13);
-  --shadow-green: 0 8px 32px rgba(2,204,129,0.25);
-  --transition-base: 0.2s ease;
-  --transition-slow: 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-  --font-sans: 'Bricolage Grotesque', 'Inter', sans-serif;
-}
 
 /* ─── Reset ──────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: var(--bg-base);
-  color: var(--text-primary);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-family: var(--spona-font-sans);
+  background: var(--spona-surface-page);
+  color: var(--spona-color-text-primary);
+  font-size: var(--spona-font-size-body);
+  line-height: var(--spona-line-height-prose);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 
-/* ─── Keyframe Animations ────────────────────────────────────── */
+/* ─── Focus ──────────────────────────────────────────────────── */
+/* The only box-shadow permitted anywhere in this codebase: a zero-offset,
+   no-blur keyboard focus indicator (§4.6). It is an accessibility affordance,
+   not elevation. */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--spona-focus-ring);
+  border-radius: var(--spona-radius-sm);
+}
+
+/* ─── Motion ─────────────────────────────────────────────────── */
+/* Entrance and state motion only. Nothing animates a shadow or a glow — a
+   lift is expressed as a transform or a surface change (§4.6, R12). */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(36px); }
+  from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -54,86 +49,19 @@ a { text-decoration: none; color: inherit; }
   to   { opacity: 1; }
 }
 
-@keyframes fadeLeft {
-  from { opacity: 0; transform: translateX(-48px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes fadeRight {
-  from { opacity: 0; transform: translateX(48px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
 @keyframes slideLeft {
-  from { transform: translateX(-48px); }
-  to   { transform: translateX(0); }
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slideRight {
-  from { transform: translateX(48px); }
-  to   { transform: translateX(0); }
-}
-
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to   { opacity: 1; transform: scale(1); }
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes scrollBounce {
   0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(10px); }
-}
-
-@keyframes pulseGreen {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(2,204,129,0.5), 0 0 0 0 rgba(2,204,129,0.25); }
-  50%       { box-shadow: 0 0 0 12px rgba(2,204,129,0), 0 0 0 24px rgba(2,204,129,0); }
-}
-
-@keyframes glowPulse {
-  0%, 100% { box-shadow: 0 4px 16px rgba(2,204,129,0.35), 0 0 0 0 rgba(2,204,129,0.5); }
-  50%       { box-shadow: 0 8px 40px rgba(2,204,129,0.65), 0 0 0 8px rgba(2,204,129,0); }
-}
-
-@keyframes dividerGrow {
-  0%   { width: 0; opacity: 0; }
-  60%  { width: 64px; }
-  100% { width: 52px; opacity: 1; }
-}
-
-@keyframes shimmerSlide {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-@keyframes shimmerBadge {
-  0%   { background-position: -300% center; }
-  100% { background-position: 300% center; }
-}
-
-@keyframes iconFloat {
-  0%, 100% { transform: translateY(0) scale(1); }
-  40%       { transform: translateY(-12px) scale(1.08); }
-  70%       { transform: translateY(-8px) scale(1.04); }
-}
-
-@keyframes stepNumPop {
-  from { transform: scale(0.75); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
-}
-
-@keyframes navSlideDown {
-  from { top: -80px; opacity: 0; }
-  to   { top: 0; opacity: 1; }
-}
-
-@keyframes orbitSlow {
-  from { transform: rotate(0deg) translateX(40px) rotate(0deg); }
-  to   { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
-}
-
-@keyframes heroOrbPulse {
-  0%, 100% { opacity: 0.85; transform: scale(1); }
-  50%       { opacity: 1; transform: scale(1.08); }
+  50%      { transform: translateY(8px); }
 }
 
 @keyframes faqSlideOpen {
@@ -141,63 +69,54 @@ a { text-decoration: none; color: inherit; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pricingCardIn {
-  from { opacity: 0; transform: translateY(32px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 /* ─── Scroll-Reveal System ───────────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(24px);
+  transition: opacity 600ms var(--spona-ease-standard),
+              transform 600ms var(--spona-ease-standard);
 }
-.reveal.from-left {
-  transform: translateX(-48px);
-}
-.reveal.from-right {
-  transform: translateX(48px);
-}
-.reveal.scale {
-  transform: scale(0.92) translateY(12px);
-}
+.reveal.scale { transform: scale(0.96) translateY(8px); }
 .reveal.visible {
   opacity: 1;
   transform: none;
 }
 
 /* Stagger delays for grid children */
-.stagger > *:nth-child(1) { transition-delay: 0.05s; }
-.stagger > *:nth-child(2) { transition-delay: 0.15s; }
-.stagger > *:nth-child(3) { transition-delay: 0.25s; }
-.stagger > *:nth-child(4) { transition-delay: 0.35s; }
+.stagger > *:nth-child(1) { transition-delay: 0ms; }
+.stagger > *:nth-child(2) { transition-delay: 80ms; }
+.stagger > *:nth-child(3) { transition-delay: 160ms; }
+.stagger > *:nth-child(4) { transition-delay: 240ms; }
 
 /* ─── Layout Utilities ───────────────────────────────────────── */
 .container {
-  max-width: 1100px;
+  max-width: var(--spona-container-max);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--spona-container-gutter);
 }
-.section       { padding: 96px 0; }
-.section-sm    { padding: 64px 0; }
-.two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: start;
-}
-.two-col--center { align-items: center; gap: 64px; }
+
+.section { padding: var(--spona-section-padding) 0; }
 
 .three-col {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: var(--spona-space-5);
 }
+
 .section-header-center {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: var(--spona-space-12);
 }
-.section-header-center .section-title { margin: 0 auto 12px; }
+.section-header-center .section-title { margin: 0 auto var(--spona-space-3); }
 .section-header-center .section-sub   { margin: 0 auto; }
 
+/* ─── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}

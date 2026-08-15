@@ -1,228 +1,150 @@
+/* ═══════════════════════════════════════════════════════════════
+   Shared typography + primitives
+   ═══════════════════════════════════════════════════════════════ */
+
 /* ─── Typography ─────────────────────────────────────────────── */
+
+/* The app's section label: small, uppercase, letter-spaced (see
+   DesktopSectionTitle.css). Brand-green as TEXT, so it takes
+   --spona-color-primary-text, never the fill green (R2). */
 .eyebrow {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-size: var(--spona-font-size-sm);
+  font-weight: var(--spona-font-weight-semibold);
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: var(--brand-primary);
-  margin-bottom: 10px;
+  color: var(--spona-color-primary-text);
+  margin-bottom: var(--spona-space-3);
 }
+
 .section-title {
-  font-family: var(--font-sans);
-  font-size: 2.1rem;
-  font-weight: 800;
-  line-height: 1.2;
+  font-family: var(--spona-font-display);
+  font-size: var(--spona-font-size-4xl);
+  font-weight: var(--spona-font-weight-bold);
+  line-height: var(--spona-line-height-display);
   letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin-bottom: 12px;
+  color: var(--spona-color-text-primary);
+  margin-bottom: var(--spona-space-3);
 }
 .section-title em {
-  font-family: var(--font-sans);
   font-style: italic;
-  font-weight: 600;
+  font-weight: var(--spona-font-weight-semibold);
   letter-spacing: -0.01em;
 }
-.section-title .accent { color: var(--brand-primary); }
+.section-title .accent { color: var(--spona-color-primary-text); }
+
 .section-sub {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
+  font-size: var(--spona-font-size-body);
+  color: var(--spona-color-text-secondary);
+  line-height: var(--spona-line-height-prose);
   max-width: 540px;
 }
 
-/* ─── Components ─────────────────────────────────────────────── */
-
-/* Pill */
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(2,204,129,0.15);
-  color: var(--brand-primary);
-  border-radius: 100px;
-  padding: 6px 18px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  transition: background var(--transition-base), transform var(--transition-base);
-}
-.pill:hover {
-  background: rgba(2,204,129,0.28);
-  transform: translateY(-2px);
-}
-
-/* Divider */
-.divider {
-  width: 52px;
-  height: 4px;
-  background: var(--brand-primary);
-  border-radius: 2px;
-}
-.divider.animate {
-  width: 0;
-  opacity: 0;
-  transition: width 0.6s cubic-bezier(0.16,1,0.3,1) 0.2s,
-              opacity 0.4s ease 0.2s;
-}
-.divider.animate.visible {
-  width: 52px;
-  opacity: 1;
-}
-
-/* Card */
+/* ─── Card ───────────────────────────────────────────────────── */
+/* Borderless and shadowless: a card is a surface step above its ground,
+   nothing more (§4.3, R3). Matches the app's DesktopCard content block. */
 .card {
-  background: var(--bg-container);
-  border-radius: var(--radius-md);
-  padding: 20px 24px;
-  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  background: var(--spona-surface-card);
+  border-radius: var(--spona-radius-lg);
+  padding: var(--spona-space-5) var(--spona-space-6);
 }
 
-/* Quote */
+.card--sunken { background: var(--spona-surface-sunken); }
+.card--tint   { background: var(--spona-color-primary-tint); }
+
+/* ─── Quote ──────────────────────────────────────────────────── */
 .quote {
-  background: var(--bg-container);
-  border-left: 4px solid var(--brand-primary);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  padding: 14px 18px;
-  font-size: 0.95rem;
+  background: var(--spona-surface-sunken);
+  border-radius: var(--spona-radius-md);
+  padding: var(--spona-space-3) var(--spona-space-4);
+  font-size: var(--spona-font-size-body-sm);
   font-style: italic;
-  color: var(--text-secondary);
+  color: var(--spona-color-text-secondary);
 }
 
-/* Feature icon */
-.feature-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: var(--brand-primary-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-  font-size: 1.4rem;
-  color: var(--brand-primary-dark);
-  flex-shrink: 0;
-}
-
-/* Check-list */
-ul.check-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-ul.check-list li {
-  padding: 7px 0 7px 28px;
-  position: relative;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.55;
-  transition: color var(--transition-base);
-}
-ul.check-list li::before {
-  content: '\2713';
-  position: absolute;
-  left: 0;
-  top: 8px;
-  color: var(--brand-primary);
-  font-weight: 700;
-  font-size: 1rem;
-  transition: transform var(--transition-base);
-}
-ul.check-list li:hover { color: var(--text-primary); }
-ul.check-list li:hover::before { transform: scale(1.25); }
-ul.check-list li strong { color: var(--text-primary); }
-
-/* Dot-list */
+/* ─── Dot-list ───────────────────────────────────────────────── */
 ul.dot-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 ul.dot-list li {
-  padding: 6px 0 6px 22px;
+  padding: var(--spona-space-1) 0 var(--spona-space-1) var(--spona-space-6);
   position: relative;
-  color: var(--text-secondary);
-  font-size: 0.88rem;
-  line-height: 1.5;
-  transition: color var(--transition-base);
+  color: var(--spona-color-text-secondary);
+  font-size: var(--spona-font-size-body-sm);
+  line-height: var(--spona-line-height-prose);
 }
 ul.dot-list li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 14px;
-  width: 8px;
-  height: 8px;
-  background: var(--brand-primary);
-  border-radius: 50%;
-  transition: transform var(--transition-base);
+  top: 13px;
+  width: var(--spona-space-2);
+  height: var(--spona-space-2);
+  background: var(--spona-color-primary);
+  border-radius: var(--spona-radius-pill);
 }
-ul.dot-list li:hover { color: var(--text-primary); }
-ul.dot-list li:hover::before { transform: scale(1.4); }
-ul.dot-list li strong { color: var(--text-primary); }
+ul.dot-list li strong { color: var(--spona-color-text-primary); }
 
 /* ─── Buttons ────────────────────────────────────────────────── */
+/* Radius comes from --spona-radius-input, the app's button radius. Height
+   meets the touch floor (R11): 44px, 48px for the large/primary size. */
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 11px 24px;
-  border-radius: 100px;
-  font-size: 0.88rem;
-  font-weight: 700;
+  justify-content: center;
+  gap: var(--spona-space-2);
+  min-height: var(--spona-touch-min);
+  padding: 0 var(--spona-space-6);
+  border-radius: var(--spona-button-radius);
+  font-family: inherit;
+  font-size: var(--spona-font-size-body-sm);
+  font-weight: var(--spona-font-weight-semibold);
+  line-height: var(--spona-line-height);
   cursor: pointer;
   border: none;
-  transition: opacity var(--transition-base),
-              transform var(--transition-base),
-              box-shadow var(--transition-base);
-  position: relative;
-  overflow: hidden;
+  transition: background var(--spona-duration-base) var(--spona-ease-standard),
+              color var(--spona-duration-base) var(--spona-ease-standard),
+              transform var(--spona-duration-fast) var(--spona-ease-standard);
 }
-.btn::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0);
-  border-radius: inherit;
-  transition: background 0.2s;
-}
-.btn:hover { transform: translateY(-2px); }
-.btn:active { transform: translateY(0) scale(0.97); }
+.btn:active { transform: scale(0.98); }
 
+/* Primary — the green FILL. */
 .btn-primary {
-  background: var(--brand-primary);
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(2,204,129,0.3);
+  background: var(--spona-color-primary);
+  color: var(--spona-color-text-on-primary);
+  min-height: var(--spona-touch-comfortable);
 }
-.btn-primary:hover {
-  box-shadow: var(--shadow-green);
-}
-.btn-primary i { transition: transform var(--transition-base); }
-.btn-primary:hover i { transform: translateX(3px); }
 
-.btn-outline-white {
-  background: transparent;
-  border: 1.5px solid rgba(255,255,255,0.25);
-  color: #fff;
-}
-.btn-outline-white:hover {
-  border-color: rgba(255,255,255,0.6);
-  background: rgba(255,255,255,0.05);
+/* Secondary — transparent-leaning, adapts to whatever surface holds it, so it
+   reads correctly on the dark hero and on a light card without an override
+   (§7, "buttons are transparent"). Both legacy names resolve here; the
+   light/dark difference is carried by the inverse token scope, not by a
+   second rule. */
+.btn-secondary,
+.btn-outline-white,
+.btn-outline-dark {
+  background: var(--spona-surface-muted);
+  color: var(--spona-color-text-primary);
 }
 
 .btn-lg {
-  padding: 15px 36px;
-  font-size: 1rem;
+  min-height: var(--spona-touch-comfortable);
+  padding: 0 var(--spona-space-8);
+  font-size: var(--spona-font-size-body);
 }
 
-
-/* ─── Utility extras ─────────────────────────────────────────── */
-.btn-outline-dark {
-  background: transparent;
-  border: 1.5px solid var(--text-tertiary);
-  color: var(--text-primary);
+/* Hover is guarded so a tap never leaves a control stuck in hover (R12). */
+@media (hover: hover) {
+  .btn-primary:hover { background: var(--spona-color-primary-strong); }
+  .btn-secondary:hover,
+  .btn-outline-white:hover,
+  .btn-outline-dark:hover { background: var(--spona-surface-raised); }
+  .btn-primary:hover i { transform: translateX(3px); }
 }
-.btn-outline-dark:hover { border-color: var(--brand-primary); color: var(--brand-primary); }
-/* popular card CTA uses primary button — no overrides needed */
-.w-full { width: 100%; justify-content: center; margin-top: 28px; }
+.btn-primary i {
+  transition: transform var(--spona-duration-base) var(--spona-ease-standard);
+}
 
+/* ─── Utility ────────────────────────────────────────────────── */
+.w-full { width: 100%; }

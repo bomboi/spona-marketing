@@ -1,0 +1,237 @@
+/**
+ * ============================================================================
+ * SPONA MARKETING — DESIGN TOKENS
+ * ============================================================================
+ * Mirrors the product app's design language (see `client/DESIGN_LANGUAGE.md`
+ * and `client/src/styles/tokens.css` in the Spona repo). The app is the source
+ * of truth: Tier 1 and Tier 2 below are copied from it verbatim so the landing
+ * page and the product resolve to the same colours, radii and spacing.
+ *
+ *   Tier 1 · REFERENCE  — raw palette. Never referenced outside this file.
+ *   Tier 2 · SEMANTIC   — the ONLY tier stylesheets reference.
+ *   Tier 3 · COMPONENT  — values built from Tier 2.
+ *
+ * The app's legacy aliases (--spona-brand-primary, --spona-spacing-*, ...) are
+ * deliberately NOT carried over. This is new code, and the design language
+ * forbids new code from using them (R1).
+ *
+ * MARKETING EXTENSION: a landing page needs display type and section rhythm
+ * that a dense data UI does not. Those steps continue the app's ladders on the
+ * same base grid rather than starting a competing dialect — see the marked
+ * block below. Nothing else is added.
+ * ============================================================================ */
+
+:root {
+  /* ======================================================================
+     TIER 1 · REFERENCE PALETTE (light) — verbatim from the app
+     ====================================================================== */
+  /* Brand — green */
+  --ref-green-800: #017a4d; /* accessible green text on light (~5.5:1 on white) */
+  --ref-green-700: #019660;
+  --ref-green-500: #02cc81;
+  --ref-green-300: #3ddc97; /* green text on dark surfaces */
+  --ref-green-100: #c9f6e1;
+  --ref-green-50:  #e0faee;
+  /* Accent — amber */
+  --ref-amber-500: #ffba00;
+  --ref-amber-50:  #fff5df;
+  /* Danger — red */
+  --ref-red-600:   #c82333;
+  --ref-red-500:   #dc3545;
+  --ref-red-400:   #ff4d4f;
+  --ref-red-50:    #ffeded;
+  /* Info — cyan / Focus — teal */
+  --ref-cyan-500:  #17a2b8;
+  --ref-teal-400:  #2dd4bf;
+  /* Neutrals */
+  --ref-white:     #ffffff;
+  --ref-gray-50:   #fafbfc;
+  --ref-gray-100:  #f8f9fa;
+  --ref-gray-150:  #f0f2f5;
+  --ref-gray-200:  #e9ecef;
+  --ref-gray-400:  #adb5bd;
+  --ref-gray-500:  #9ca3af;
+  --ref-gray-600:  #6c757d;
+  --ref-gray-800:  #343a40;
+  --ref-gray-900:  #161c26;
+
+  /* ======================================================================
+     TIER 2 · SEMANTIC — reference these
+     ====================================================================== */
+  /* Brand / status */
+  --spona-color-primary:        var(--ref-green-500);
+  --spona-color-primary-strong: var(--ref-green-700);
+  --spona-color-primary-tint:   var(--ref-green-100);
+  --spona-color-primary-tint-2: var(--ref-green-50);
+  /* Brand green as TEXT on a light surface — WCAG AA. Green fills use
+     --spona-color-primary; green text/links/labels use this (R2). */
+  --spona-color-primary-text:   var(--ref-green-800);
+  --spona-color-secondary:      var(--ref-amber-500);
+  --spona-color-secondary-tint: var(--ref-amber-50);
+  --spona-color-danger:         var(--ref-red-500);
+  --spona-color-danger-hover:   var(--ref-red-600);
+  --spona-color-danger-strong:  var(--ref-red-400);
+  --spona-color-danger-tint:    var(--ref-red-50);
+  --spona-color-warning:        var(--ref-amber-500);
+  --spona-color-warning-tint:   var(--ref-amber-50);
+  --spona-color-success:        var(--ref-green-500);
+  --spona-color-info:           var(--ref-cyan-500);
+  --spona-focus-ring:           var(--ref-teal-400);
+
+  /* Surfaces — the elevation ladder. This is how surfaces are separated;
+     there are no borders and no shadows anywhere in this codebase (R3). */
+  --spona-surface-page:    var(--ref-gray-150);
+  --spona-surface-card:    var(--ref-white);
+  --spona-surface-raised:  var(--ref-white);
+  --spona-surface-sunken:  var(--ref-gray-100);
+  --spona-surface-subtle:  var(--ref-gray-50);
+  --spona-surface-muted:   var(--ref-gray-200);
+  --spona-surface-overlay: var(--ref-gray-900);
+
+  /* Text */
+  --spona-color-text-primary:    var(--ref-gray-800);
+  --spona-color-text-secondary:  var(--ref-gray-600);
+  --spona-color-text-tertiary:   var(--ref-gray-400);
+  --spona-color-text-muted:      var(--ref-gray-500);
+  --spona-color-text-inverse:    var(--ref-white);
+  /* White on the green fill measures 2.11:1. Only ever used on large/bold
+     button labels, never on body copy — see the app's note on this token. */
+  --spona-color-text-on-primary: var(--ref-white);
+
+  /* Radius */
+  --spona-radius-sm:    0.5rem;
+  --spona-radius-md:    0.75rem;
+  --spona-radius-lg:    1rem;
+  --spona-radius-xl:    1.5rem;
+  --spona-radius-input: 0.875rem;
+  --spona-radius-pill:  999px;
+
+  /* Spacing */
+  --spona-space-1: 4px;
+  --spona-space-2: 8px;
+  --spona-space-3: 12px;
+  --spona-space-4: 16px;
+  --spona-space-5: 20px;
+  --spona-space-6: 24px;
+  --spona-space-8: 32px;
+
+  /* Typography */
+  --spona-font-size-xs:      0.65rem;
+  --spona-font-size-sm:      0.75rem;
+  --spona-font-size-base:    0.8rem;
+  --spona-font-size-md:      0.85rem;
+  --spona-font-size-lg:      0.9rem;
+  --spona-font-size-xl:      1.15rem;
+  --spona-font-size-2xl:     1.5rem;
+  --spona-font-size-display: 3rem;
+  --spona-font-weight-normal:   400;
+  --spona-font-weight-medium:   500;
+  --spona-font-weight-semibold: 600;
+  --spona-font-weight-bold:     700;
+  --spona-line-height: 1.4;
+
+  /* Touch targets */
+  --spona-touch-min:         44px;
+  --spona-touch-comfortable: 48px;
+
+  /* Motion — one duration/easing vocabulary (R12) */
+  --spona-duration-fast: 120ms;
+  --spona-duration-base: 200ms;
+  --spona-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Z-index scale (R13) */
+  --spona-z-sticky:   900;
+  --spona-z-dropdown: 1000;
+  --spona-z-drawer:   1010;
+  --spona-z-modal:    1020;
+  --spona-z-popover:  1030;
+  --spona-z-toast:    1050;
+
+  /* ======================================================================
+     TIER 3 · COMPONENT
+     ====================================================================== */
+  --spona-card-padding:    var(--spona-space-4);
+  --spona-control-padding: var(--spona-space-3);
+  --spona-button-radius:   var(--spona-radius-input);
+
+  /* ======================================================================
+     MARKETING EXTENSION
+     ----------------------------------------------------------------------
+     The app's ladders are calibrated for a dense data UI: type stops at
+     1.5rem (a page title) and spacing at 32px. A landing page reads at a
+     different distance and needs a display range and a section rhythm above
+     those ceilings. Both continue the existing ladders — the same 4px
+     spacing grid, the same type ramp above 2xl — so there is one system, not
+     two. Everything below 3xl still comes from the app scale above.
+     ====================================================================== */
+
+  /* Spacing — continues the 4px grid past --spona-space-8 */
+  --spona-space-10: 40px;
+  --spona-space-12: 48px;
+  --spona-space-16: 64px;
+  --spona-space-20: 80px;
+  --spona-space-24: 96px;
+
+  /* Type — continues the ramp above --spona-font-size-2xl (1.5rem) */
+  --spona-font-size-3xl:  1.75rem;  /* feature headings */
+  --spona-font-size-4xl:  2.25rem;  /* section headings */
+  --spona-font-size-hero: clamp(2.2rem, 5vw, 4rem);
+  /* Marketing prose. The app's 0.8rem body is a data-density choice; long-form
+     reading copy needs a full 1rem. Both live on the same ramp. */
+  --spona-font-size-body:    1rem;
+  --spona-font-size-body-sm: 0.9rem;
+
+  /* Line heights — the app ships one (1.4, tuned for UI rows). Display type
+     needs to be tighter and prose needs to be looser. */
+  --spona-line-height-display: 1.12;
+  --spona-line-height-prose:   1.6;
+
+  /* Families. The app renders in the platform system stack; the landing page
+     keeps that stack for UI text so the two read as one product, and uses a
+     display face for headings only. */
+  --spona-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter',
+    'Roboto', 'Helvetica Neue', sans-serif;
+  --spona-font-display: 'Bricolage Grotesque', var(--spona-font-sans);
+
+  /* Page rhythm */
+  --spona-section-padding:    var(--spona-space-24);
+  --spona-section-padding-sm: var(--spona-space-16);
+  --spona-container-max:      1100px;
+  --spona-container-gutter:   var(--spona-space-6);
+}
+
+/* ==========================================================================
+   INVERSE SURFACE SCOPE
+   The app themes dark by overriding Tier-2 tokens under
+   `html[data-theme="dark"]`, and everything routed through the semantic layer
+   follows for free (§4.5). A landing page needs the same palette applied to a
+   *section* rather than the document, so the dark overrides are attached to
+   `.spona-inverse` as well. Any subtree carrying that class renders in the
+   product's dark theme with no per-element overrides — which is the test that
+   the subtree obeys R15.
+   ========================================================================== */
+:root[data-theme='dark'],
+.spona-inverse {
+  /* Surfaces */
+  --spona-surface-page:    #0f141b;
+  --spona-surface-card:    #1b2129;
+  --spona-surface-raised:  #232b35;
+  --spona-surface-sunken:  #161c24;
+  --spona-surface-subtle:  #1b2129;
+  --spona-surface-muted:   #2a333f;
+  --spona-surface-overlay: #0a0e13;
+
+  /* Text */
+  --spona-color-text-primary:   #e9edf1;
+  --spona-color-text-secondary: #aeb7c2;
+  --spona-color-text-tertiary:  #7d8794;
+  --spona-color-text-muted:     #6b7683;
+
+  /* Brand tints need more opacity on dark surfaces */
+  --spona-color-primary-tint:   rgba(2, 204, 129, 0.18);
+  --spona-color-primary-tint-2: rgba(2, 204, 129, 0.10);
+  --spona-color-primary-text:   var(--ref-green-300);
+  --spona-color-secondary-tint: rgba(255, 186, 0, 0.16);
+  --spona-color-danger-tint:    rgba(220, 53, 69, 0.16);
+  --spona-color-warning-tint:   rgba(255, 186, 0, 0.16);
+}

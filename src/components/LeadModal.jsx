@@ -123,7 +123,7 @@ export default function LeadModal({ plan, billing: initialBilling, onClose }) {
 
         {!success ? (
           <div id="lead-form-state">
-            <div className="eyebrow" style={{ color: 'var(--brand-primary)', marginBottom: '6px' }}>
+            <div className="eyebrow">
               Besplatan probni period — 30 dana
             </div>
             <h2 id="lead-modal-title" className="lead-modal-heading">
