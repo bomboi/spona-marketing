@@ -163,10 +163,12 @@
   .mockup-track .app-mockup:not(.mockup-active),
   .mockup-track .mockup-box:not(.mockup-active) { display: none; }
 
+  /* Fixed height so swapping panels never shifts the page. Trimmed from 280px:
+     the short mockups were leaving a band of dead space above the arrows. */
   .mockup-track {
     position: relative;
     width: 100%;
-    height: 280px;
+    height: 240px;
     overflow: visible;
     gap: 0;
   }

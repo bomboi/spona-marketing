@@ -62,25 +62,55 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: var(--spona-space-3);
-    padding-bottom: var(--spona-space-16);
+    gap: var(--spona-space-2);
+    padding-bottom: var(--spona-space-10);
   }
   .hero-text {
     order: -1;
     width: 100%;
     text-align: center;
     align-items: center;
-    padding-bottom: var(--spona-space-8);
+    padding-bottom: var(--spona-space-6);
   }
   .hero-cards {
     display: flex;
     flex-direction: column;
-    gap: var(--spona-space-3);
+    gap: var(--spona-space-2);
     flex: 1;
     min-width: 140px;
     align-items: stretch;
   }
-  .hero-card { width: auto; }
+
+  /* The tilt and the float are a wide-viewport flourish. At phone width the
+     columns are ~165px apart, so a rotated card overlaps its neighbour and
+     clips its own text — both come off and the cards tile flat. Specificity
+     has to match the per-card rules in hero.css that set them. */
+  .hero .hero-cards--left .hero-card,
+  .hero .hero-cards--right .hero-card {
+    rotate: none;
+    animation: none;
+  }
+  .hero-card {
+    width: auto;
+    padding: var(--spona-space-3);
+    gap: var(--spona-space-1);
+  }
+  .hero-card .hc-items { padding: var(--spona-space-1); }
+  .hc-amount { font-size: var(--spona-font-size-lg); }
+  .hc-order-num,
+  .hc-price { font-size: var(--spona-font-size-lg); }
+  .hc-avatar {
+    width: var(--spona-space-6);
+    height: var(--spona-space-6);
+    font-size: var(--spona-font-size-xs);
+  }
+  /* Long values must wrap rather than ellipsis away at this width. */
+  .hc-name,
+  .hc-stat-num {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
 
   /* ── Section padding ── */
   .section,
@@ -96,13 +126,30 @@
   .section-features-tabs,
   .feature-section,
   .stats-strip,
-  .section-cta { padding: var(--spona-space-12) 0; }
-  .section-header-center { margin-bottom: var(--spona-space-8); }
+  .section-cta { padding: var(--spona-space-10) 0; }
+  .section-header-center { margin-bottom: var(--spona-space-6); }
 
   /* ── Stats ── */
-  .stats-inner { gap: var(--spona-space-10); justify-content: center; }
+  /* Four stats in a single column ran to 367px of mostly empty strip. A 2x2
+     grid halves that and keeps the figures paired. */
+  .stats-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spona-space-8) var(--spona-space-4);
+    justify-content: initial;
+  }
   .stat-big { font-size: var(--spona-font-size-4xl); }
-  .stat-item { min-width: 120px; }
+  .stat-item { min-width: 0; }
+  .stat-meta { font-size: var(--spona-font-size-sm); }
+
+  /* ── Demo video ── */
+  /* The clip is a 404x720 phone recording. Full-bleed it renders 624px tall
+     and swamps the section, so it is held to phone width and centred. */
+  .vd-video-wrap {
+    max-width: 240px;
+    margin-inline: auto;
+    width: 100%;
+  }
 
   /* ── Features ── */
   .mockup-box { min-height: 200px !important; }
