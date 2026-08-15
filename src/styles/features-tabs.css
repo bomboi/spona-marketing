@@ -129,10 +129,11 @@
 
 /* ─── Mobile ─────────────────────────────────────────────────── */
 @media (max-width: 768px) {
+  /* Section padding lives in responsive.css with every other section's. */
   .feature-content-layout {
     display: flex;
     flex-direction: column;
-    gap: var(--spona-space-5);
+    gap: var(--spona-space-4);
     margin: 0;
     padding: var(--spona-space-4);
   }
@@ -163,12 +164,14 @@
   .mockup-track .app-mockup:not(.mockup-active),
   .mockup-track .mockup-box:not(.mockup-active) { display: none; }
 
-  /* Fixed height so swapping panels never shifts the page. Trimmed from 280px:
-     the short mockups were leaving a band of dead space above the arrows. */
+  /* Fixed height so swapping mockups never shifts the page — but the card
+     inside hugs its own content instead of being stretched to fill. The
+     mockups run 142-329px tall naturally; stretching every one to the track
+     height left up to 90px of blank card under the shorter ones. */
   .mockup-track {
     position: relative;
     width: 100%;
-    height: 240px;
+    height: 220px;
     overflow: visible;
     gap: 0;
   }
@@ -177,11 +180,18 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 100%;
     overflow: hidden;
     opacity: 0;
     pointer-events: none;
     transition: opacity var(--spona-duration-base) var(--spona-ease-standard);
+    /* The taller previews still exceed the slot. Overflow is shown with a
+       fade, never a hard cut or a shadow (§4.6) — so a clipped preview reads
+       as "continues below" rather than as a broken crop. A preview shorter
+       than the slot is white-on-white here, so the fade is invisible on it. */
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent 100%);
   }
   .mockup-track .mockup-active {
     display: flex !important;

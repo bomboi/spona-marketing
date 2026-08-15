@@ -11,12 +11,16 @@ import './styles/components.css'
 import './styles/nav.css'
 import './styles/hero.css'
 import './styles/sections.css'
-import './styles/responsive.css'
 import './styles/pricing.css'
 import './styles/features-tabs.css'
 import './styles/modal.css'
 import './styles/faq.css'
 import './styles/mockup.css'
+// responsive.css LAST. Its rules are plain overrides at the same specificity
+// as the base ones (a media query adds none), so it only wins if it is loaded
+// after every file it overrides. Imported mid-list it silently lost to
+// pricing/features-tabs/faq, and their mobile padding never applied.
+import './styles/responsive.css'
 
 // ── External fonts / icons ────────────────────────────────────
 const fontLink = document.createElement('link')

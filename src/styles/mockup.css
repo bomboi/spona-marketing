@@ -378,6 +378,33 @@
 }
 .am-role-badge--th { font-size: 0.5rem; }
 
+/* ─── Compact previews on mobile ─────────────────────────────── */
+/* All six feature panels share one fixed track height, so the section is
+   sized by the tallest preview (the statistics one, 329px natural). Rather
+   than crop that panel's chart away, the previews themselves get denser
+   below 768px — which shortens every panel at once. */
+@media (max-width: 768px) {
+  .am-body { padding: var(--spona-space-3); }
+  .am-stats-row { gap: var(--spona-space-1); margin-bottom: var(--spona-space-2); }
+  .am-stat-block { padding: var(--spona-space-2); }
+  .am-chart {
+    padding: var(--spona-space-2);
+    margin-bottom: var(--spona-space-2);
+  }
+  .am-chart-bars { height: var(--spona-space-8); }
+  .am-chart-label { margin-bottom: var(--spona-space-1); }
+  .am-order-row,
+  .am-product-row,
+  .am-team-row,
+  .am-item-row,
+  .am-cust-row { padding: var(--spona-space-1) var(--spona-space-2); }
+  .am-section-label { margin: var(--spona-space-1) 0; }
+  .am-tabs { margin-bottom: var(--spona-space-2); }
+  .am-cust-av { width: var(--spona-space-6); height: var(--spona-space-6); }
+  .am-cust-av--md,
+  .am-cust-av--lg { width: var(--spona-space-8); height: var(--spona-space-8); }
+}
+
 /* ─── Filter pills ───────────────────────────────────────────── */
 .am-tabs {
   display: flex;
