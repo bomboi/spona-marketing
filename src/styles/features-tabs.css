@@ -241,6 +241,36 @@
   .feature-tag   { margin-bottom: var(--spona-space-2); }
   .feature-layout-details .dot-list { margin-bottom: var(--spona-space-3) !important; }
 
+  /* ── Details block ──
+     The tallest panel's details block sizes the whole carousel, so this is
+     where the section's remaining height actually lives. The bullets were set
+     in prose leading (0.9rem/1.6) inside what is really a compact UI card,
+     which cost 54px for every two-line bullet. Dropping to the UI step and
+     the standard 1.4 leading takes a two-line bullet to ~42px. */
+  .feature-layout-details .dot-list li {
+    font-size: var(--spona-font-size-md);
+    line-height: var(--spona-line-height);
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+  .feature-layout-details .dot-list li::before { top: 8px; }
+
+  .feature-layout-details .card { padding: var(--spona-space-4); }
+  .feature-layout-details .card .eyebrow { margin-bottom: var(--spona-space-2); }
+  .feature-layout-details .feature-callout-title {
+    font-size: var(--spona-font-size-md);
+    margin-bottom: var(--spona-space-1);
+  }
+  .feature-layout-details .feature-note {
+    font-size: var(--spona-font-size-md);
+    line-height: var(--spona-line-height);
+  }
+  .feature-layout-details .feature-fineprint {
+    margin-top: var(--spona-space-2);
+    font-size: var(--spona-font-size-sm);
+    line-height: var(--spona-line-height);
+  }
+
   /* Workflow timeline carousel */
   .steps-timeline-scrollable {
     display: flex !important;
