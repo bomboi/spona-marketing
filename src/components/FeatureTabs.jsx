@@ -1,16 +1,49 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import React from 'react'
 import invoiceImg from '../assets/invoice.jpg'
+
+const MOBILE_QUERY = '(max-width: 768px)'
+
+/**
+ * Tracks the mobile breakpoint in JS. The details slide has to be added or
+ * removed from the carousel itself rather than hidden with CSS, otherwise
+ * desktop would render a dot for a slide it never shows.
+ */
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia(MOBILE_QUERY).matches
+  )
+
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_QUERY)
+    const onChange = e => setIsMobile(e.matches)
+    setIsMobile(mq.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+
+  return isMobile
+}
 
 /**
  * Wraps app-mockup / mockup-box children in a track with prev/next nav.
  * On desktop (CSS): all children are visible stacked.
- * On mobile (CSS): only the child with `mockup-active` class is shown.
+ * On mobile (CSS): only the child with `mockup-active` class is shown, and
+ * `details` is appended as the final slide so the panel's supporting copy
+ * costs no extra page height.
  */
-function MockupCarousel({ children }) {
-  const items = React.Children.toArray(children)
+function MockupCarousel({ children, details }) {
+  const isMobile = useIsMobile()
   const [active, setActive] = useState(0)
+
+  const mockups = React.Children.toArray(children)
+  const items = isMobile && details
+    ? [...mockups, <div className="mockup-detail-slide">{details}</div>]
+    : mockups
   const count = items.length
+
+  // Switching to desktop drops the details slide; don't strand the index on it.
+  const current = Math.min(active, count - 1)
 
   return (
     <>
@@ -18,7 +51,7 @@ function MockupCarousel({ children }) {
         {items.map((child, i) =>
           React.cloneElement(child, {
             key: i,
-            className: [child.props.className, i === active ? 'mockup-active' : '']
+            className: [child.props.className, i === current ? 'mockup-active' : '']
               .filter(Boolean)
               .join(' '),
           })
@@ -28,8 +61,8 @@ function MockupCarousel({ children }) {
         <div className="mockup-nav">
           <button
             className="mockup-arrow"
-            disabled={active === 0}
-            onClick={() => setActive(a => a - 1)}
+            disabled={current === 0}
+            onClick={() => setActive(current - 1)}
           >
             <i className="bi bi-chevron-left" />
           </button>
@@ -37,15 +70,15 @@ function MockupCarousel({ children }) {
             {items.map((_, i) => (
               <span
                 key={i}
-                className={`mockup-dot${i === active ? ' active' : ''}`}
+                className={`mockup-dot${i === current ? ' active' : ''}`}
                 onClick={() => setActive(i)}
               />
             ))}
           </div>
           <button
             className="mockup-arrow"
-            disabled={active === count - 1}
-            onClick={() => setActive(a => a + 1)}
+            disabled={current === count - 1}
+            onClick={() => setActive(current + 1)}
           >
             <i className="bi bi-chevron-right" />
           </button>
@@ -60,6 +93,7 @@ const TAB_COUNT = 6
 export default function FeatureTabs() {
   const [activeTab, setActiveTab] = useState(0)
   const bodyRef = useRef(null)
+  const isMobile = useIsMobile()
 
   function goToTab(i) {
     const next = Math.max(0, Math.min(TAB_COUNT - 1, i))
@@ -68,6 +102,103 @@ export default function FeatureTabs() {
       bodyRef.current.scrollTo({ left: next * bodyRef.current.clientWidth, behavior: 'smooth' })
     }
   }
+
+  // Each panel's supporting detail. On mobile it rides along as the final
+  // carousel slide instead of stacking under the preview, so it costs the
+  // panel no extra height; on desktop it keeps its own column.
+  const kupciDetails = (
+    <div className="feature-details-body">
+    <ul className="dot-list">
+      <li><strong>Ime, telefon i istorija</strong> — sve na jednom mestu</li>
+      <li><strong>Nađeš bilo koga za sekundu</strong> — samo ukucaš ime</li>
+      <li><strong>Beleške i dogovori</strong> uz svaki profil kupca</li>
+    </ul>
+    <div className="card">
+      <div className="eyebrow">Mirna glava</div>
+      <span className="feature-note">
+        Znaš ko ti šta duguje — čak i kad si na odmoru.
+      </span>
+    </div>
+    </div>
+  )
+
+  const porudzbineDetails = (
+    <div className="feature-details-body">
+    <ul className="dot-list">
+      <li><strong>Odabereš kupca</strong> jednim klikom</li>
+      <li><strong>Dodaš artikle</strong> — cene se same upišu</li>
+      <li><strong>Gotovina, kartica ili faktura</strong> — sve beleži, vidiš ko je platio</li>
+      <li><strong>Radnik menja status</strong> — jednim klikom, ti vidiš odmah</li>
+    </ul>
+    <div className="card card--tint">
+      <h3 className="feature-callout-title">
+        <i className="bi bi-printer-fill" /> Radni nalozi za radnike
+      </h3>
+      <span className="feature-note">
+        Odštampaš nalog za radionicu jednim klikom — sve jasno ispisano, bez telefona.
+      </span>
+    </div>
+    </div>
+  )
+
+  const predracuniDetails = (
+    <div className="feature-details-body">
+    <ul className="dot-list">
+      <li><strong>Sve se samo popuni</strong> iz porudžbine</li>
+      <li><strong>Odštampaj ili pošalji mejlom</strong> — dva klika</li>
+      <li><strong>Tvoj logo i naziv firme</strong> na svakom predračunu</li>
+      <li><strong>Vidiš ko je platio, a ko nije</strong></li>
+    </ul>
+    <div className="quote">
+      "Predračun je gotov pre nego što kupac izađe iz radnje."
+    </div>
+    </div>
+  )
+
+  const cenovnikDetails = (
+    <div className="feature-details-body">
+    <ul className="dot-list">
+      <li><strong>Naziv i cena</strong> za svaki artikal ili uslugu</li>
+      <li><strong>Varijante po meri</strong> — dimenzija, boja, tip, materijal</li>
+      <li><strong>Kategorije</strong> za lakši pregled</li>
+      <li><strong>Cena se sama upiše</strong> kad dodaješ artikal u porudžbinu</li>
+    </ul>
+    <div className="card">
+      <div className="eyebrow">Kako to izgleda</div>
+      <span className="feature-note">
+        Ukucaš par slova — Spona odmah ponudi artikl i cenu. Odabereš količinu, gotovo.
+      </span>
+    </div>
+    </div>
+  )
+
+  const zaradaDetails = (
+    <div className="feature-details-body">
+    <ul className="dot-list">
+      <li><strong>Zarada po danu, mesecu ili godini</strong> — bez sabiranja</li>
+      <li><strong>Ko ti donosi najviše para</strong></li>
+      <li><strong>Šta se dobro prodaje, a šta stoji</strong></li>
+      <li><strong>Ko od radnika šta uradi</strong> — bez ispitivanja</li>
+    </ul>
+    </div>
+  )
+
+  const timDetails = (
+    <div className="feature-details-body">
+    <div className="card">
+      <div className="eyebrow">Ko šta vidi</div>
+      <ul className="dot-list">
+        <li><strong>Admin (Ti)</strong> — zarada, cene i sva podešavanja</li>
+        <li><strong>Prodavac</strong> — kupci i porudžbine, bez zarade</li>
+        <li><strong>Radnik</strong> — samo artikli i materijali. Nula pristupa cenama.</li>
+        <li><strong>Partner</strong> — unosi porudžbine, vidi isključivo svoje</li>
+      </ul>
+      <p className="feature-fineprint">
+        Tvoja zarada i baza kupaca ostaju isključivo između tebe i Spone.
+      </p>
+    </div>
+    </div>
+  )
 
   return (
     <section className="section-features-tabs" id="prednosti">
@@ -91,7 +222,7 @@ export default function FeatureTabs() {
                 </p>
               </div>
               <div className="feature-layout-visual">
-                <MockupCarousel>
+                <MockupCarousel details={kupciDetails}>
                   <div className="app-mockup">
                     <div className="am-body">
                       <div className="am-cust-row active">
@@ -157,19 +288,7 @@ export default function FeatureTabs() {
                   </div>
                 </MockupCarousel>
               </div>
-              <div className="feature-layout-details">
-                <ul className="dot-list">
-                  <li><strong>Ime, telefon i istorija</strong> — sve na jednom mestu</li>
-                  <li><strong>Nađeš bilo koga za sekundu</strong> — samo ukucaš ime</li>
-                  <li><strong>Beleške i dogovori</strong> uz svaki profil kupca</li>
-                </ul>
-                <div className="card">
-                  <div className="eyebrow">Mirna glava</div>
-                  <span className="feature-note">
-                    Znaš ko ti šta duguje — čak i kad si na odmoru.
-                  </span>
-                </div>
-              </div>
+              {!isMobile && <div className="feature-layout-details">{kupciDetails}</div>}
             </div>
           </div>
 
@@ -185,7 +304,7 @@ export default function FeatureTabs() {
                 </p>
               </div>
               <div className="feature-layout-visual">
-                <MockupCarousel>
+                <MockupCarousel details={porudzbineDetails}>
                   <div className="app-mockup">
                     <div className="am-body">
                       <div className="am-tabs">
@@ -255,22 +374,7 @@ export default function FeatureTabs() {
                   </div>
                 </MockupCarousel>
               </div>
-              <div className="feature-layout-details">
-                <ul className="dot-list">
-                  <li><strong>Odabereš kupca</strong> jednim klikom</li>
-                  <li><strong>Dodaš artikle</strong> — cene se same upišu</li>
-                  <li><strong>Gotovina, kartica ili faktura</strong> — sve beleži, vidiš ko je platio</li>
-                  <li><strong>Radnik menja status</strong> — jednim klikom, ti vidiš odmah</li>
-                </ul>
-                <div className="card card--tint">
-                  <h3 className="feature-callout-title">
-                    <i className="bi bi-printer-fill" /> Radni nalozi za radnike
-                  </h3>
-                  <span className="feature-note">
-                    Odštampaš nalog za radionicu jednim klikom — sve jasno ispisano, bez telefona.
-                  </span>
-                </div>
-              </div>
+              {!isMobile && <div className="feature-layout-details">{porudzbineDetails}</div>}
             </div>
           </div>
 
@@ -286,7 +390,7 @@ export default function FeatureTabs() {
                 </p>
               </div>
               <div className="feature-layout-visual">
-                <MockupCarousel>
+                <MockupCarousel details={predracuniDetails}>
                   <div className="mockup-box">
                     <img alt="Gotov predračun" src={invoiceImg} />
                     <span className="m-label">
@@ -296,17 +400,7 @@ export default function FeatureTabs() {
                   </div>
                 </MockupCarousel>
               </div>
-              <div className="feature-layout-details">
-                <ul className="dot-list">
-                  <li><strong>Sve se samo popuni</strong> iz porudžbine</li>
-                  <li><strong>Odštampaj ili pošalji mejlom</strong> — dva klika</li>
-                  <li><strong>Tvoj logo i naziv firme</strong> na svakom predračunu</li>
-                  <li><strong>Vidiš ko je platio, a ko nije</strong></li>
-                </ul>
-                <div className="quote">
-                  "Predračun je gotov pre nego što kupac izađe iz radnje."
-                </div>
-              </div>
+              {!isMobile && <div className="feature-layout-details">{predracuniDetails}</div>}
             </div>
           </div>
 
@@ -322,7 +416,7 @@ export default function FeatureTabs() {
                 </p>
               </div>
               <div className="feature-layout-visual">
-                <MockupCarousel>
+                <MockupCarousel details={cenovnikDetails}>
                   <div className="app-mockup">
                     <div className="am-body">
                       <div className="am-tabs">
@@ -372,20 +466,7 @@ export default function FeatureTabs() {
                   </div>
                 </MockupCarousel>
               </div>
-              <div className="feature-layout-details">
-                <ul className="dot-list">
-                  <li><strong>Naziv i cena</strong> za svaki artikal ili uslugu</li>
-                  <li><strong>Varijante po meri</strong> — dimenzija, boja, tip, materijal</li>
-                  <li><strong>Kategorije</strong> za lakši pregled</li>
-                  <li><strong>Cena se sama upiše</strong> kad dodaješ artikal u porudžbinu</li>
-                </ul>
-                <div className="card">
-                  <div className="eyebrow">Kako to izgleda</div>
-                  <span className="feature-note">
-                    Ukucaš par slova — Spona odmah ponudi artikl i cenu. Odabereš količinu, gotovo.
-                  </span>
-                </div>
-              </div>
+              {!isMobile && <div className="feature-layout-details">{cenovnikDetails}</div>}
             </div>
           </div>
 
@@ -401,7 +482,7 @@ export default function FeatureTabs() {
                 </p>
               </div>
               <div className="feature-layout-visual">
-                <MockupCarousel>
+                <MockupCarousel details={zaradaDetails}>
                   <div className="app-mockup">
                     <div className="am-body">
                       <div className="am-stats-row">
@@ -452,14 +533,7 @@ export default function FeatureTabs() {
                   </div>
                 </MockupCarousel>
               </div>
-              <div className="feature-layout-details">
-                <ul className="dot-list">
-                  <li><strong>Zarada po danu, mesecu ili godini</strong> — bez sabiranja</li>
-                  <li><strong>Ko ti donosi najviše para</strong></li>
-                  <li><strong>Šta se dobro prodaje, a šta stoji</strong></li>
-                  <li><strong>Ko od radnika šta uradi</strong> — bez ispitivanja</li>
-                </ul>
-              </div>
+              {!isMobile && <div className="feature-layout-details">{zaradaDetails}</div>}
             </div>
           </div>
 
@@ -475,7 +549,7 @@ export default function FeatureTabs() {
                 </p>
               </div>
               <div className="feature-layout-visual">
-                <MockupCarousel>
+                <MockupCarousel details={timDetails}>
                   <div className="app-mockup">
                     <div className="am-body">
                       <div className="am-team-row">
@@ -546,20 +620,7 @@ export default function FeatureTabs() {
                   </div>
                 </MockupCarousel>
               </div>
-              <div className="feature-layout-details">
-                <div className="card">
-                  <div className="eyebrow">Ko šta vidi</div>
-                  <ul className="dot-list">
-                    <li><strong>Admin (Ti)</strong> — zarada, cene i sva podešavanja</li>
-                    <li><strong>Prodavac</strong> — kupci i porudžbine, bez zarade</li>
-                    <li><strong>Radnik</strong> — samo artikli i materijali. Nula pristupa cenama.</li>
-                    <li><strong>Partner</strong> — unosi porudžbine, vidi isključivo svoje</li>
-                  </ul>
-                  <p className="feature-fineprint">
-                    Tvoja zarada i baza kupaca ostaju isključivo između tebe i Spone.
-                  </p>
-                </div>
-              </div>
+              {!isMobile && <div className="feature-layout-details">{timDetails}</div>}
             </div>
           </div>
 

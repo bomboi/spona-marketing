@@ -74,12 +74,12 @@
   color: var(--spona-color-text-tertiary);
   margin-top: var(--spona-space-3);
 }
-.feature-layout-details .dot-list { margin-bottom: var(--spona-space-6); }
-.feature-layout-details .card + .card { margin-top: var(--spona-space-3); }
+.feature-details-body .dot-list { margin-bottom: var(--spona-space-6); }
+.feature-details-body .card + .card { margin-top: var(--spona-space-3); }
 /* The panel is itself a card surface, so a card inside it drops to sunken —
    otherwise it is white on white and reads as nothing (§4.3). */
-.feature-layout-details .card { background: var(--spona-surface-sunken); }
-.feature-layout-details .card.card--tint { background: var(--spona-color-primary-tint); }
+.feature-details-body .card { background: var(--spona-surface-sunken); }
+.feature-details-body .card.card--tint { background: var(--spona-color-primary-tint); }
 
 /* ─── Panel navigation ───────────────────────────────────────── */
 .features-panel-nav {
@@ -162,21 +162,26 @@
   .feature-layout-details { order: 3; }
 
   .mockup-track .app-mockup:not(.mockup-active),
-  .mockup-track .mockup-box:not(.mockup-active) { display: none; }
+  .mockup-track .mockup-box:not(.mockup-active),
+  .mockup-track .mockup-detail-slide:not(.mockup-active) { display: none; }
 
-  /* Fixed height so swapping mockups never shifts the page — but the card
-     inside hugs its own content instead of being stretched to fill. The
-     mockups run 142-329px tall naturally; stretching every one to the track
-     height left up to 90px of blank card under the shorter ones. */
+  /* Fixed height so swapping slides never shifts the page — but the card
+     inside hugs its own content instead of being stretched to fill, so a
+     short preview leaves no blank card behind it.
+
+     Sized to the tallest details slide (273px on panel 06), since those must
+     not clip — they are copy, not decoration. The previews are white cards on
+     a white panel, so the slack under a short one is invisible. */
   .mockup-track {
     position: relative;
     width: 100%;
-    height: 220px;
+    height: 280px;
     overflow: visible;
     gap: 0;
   }
   .mockup-track .app-mockup,
-  .mockup-track .mockup-box {
+  .mockup-track .mockup-box,
+  .mockup-track .mockup-detail-slide {
     position: absolute;
     top: 0; left: 0; right: 0;
     width: 100%;
@@ -197,6 +202,14 @@
     display: flex !important;
     opacity: 1;
     pointer-events: all;
+  }
+  /* The details slide is copy, not a preview: no fade (the track is sized to
+     fit the tallest one, so it never clips) and no card chrome of its own. */
+  .mockup-track .mockup-detail-slide {
+    flex-direction: column;
+    justify-content: center;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
   .mockup-track .am-body {
     max-height: 100%;
@@ -239,7 +252,7 @@
   .feature-title { font-size: var(--spona-font-size-2xl) !important; margin-bottom: var(--spona-space-2) !important; }
   .feature-desc  { font-size: var(--spona-font-size-md) !important; margin-bottom: var(--spona-space-3) !important; }
   .feature-tag   { margin-bottom: var(--spona-space-2); }
-  .feature-layout-details .dot-list { margin-bottom: var(--spona-space-3) !important; }
+  .feature-details-body .dot-list { margin-bottom: var(--spona-space-3) !important; }
 
   /* ── Details block ──
      The tallest panel's details block sizes the whole carousel, so this is
@@ -247,25 +260,25 @@
      in prose leading (0.9rem/1.6) inside what is really a compact UI card,
      which cost 54px for every two-line bullet. Dropping to the UI step and
      the standard 1.4 leading takes a two-line bullet to ~42px. */
-  .feature-layout-details .dot-list li {
+  .feature-details-body .dot-list li {
     font-size: var(--spona-font-size-md);
     line-height: var(--spona-line-height);
     padding-top: 2px;
     padding-bottom: 2px;
   }
-  .feature-layout-details .dot-list li::before { top: 8px; }
+  .feature-details-body .dot-list li::before { top: 8px; }
 
-  .feature-layout-details .card { padding: var(--spona-space-4); }
-  .feature-layout-details .card .eyebrow { margin-bottom: var(--spona-space-2); }
-  .feature-layout-details .feature-callout-title {
+  .feature-details-body .card { padding: var(--spona-space-4); }
+  .feature-details-body .card .eyebrow { margin-bottom: var(--spona-space-2); }
+  .feature-details-body .feature-callout-title {
     font-size: var(--spona-font-size-md);
     margin-bottom: var(--spona-space-1);
   }
-  .feature-layout-details .feature-note {
+  .feature-details-body .feature-note {
     font-size: var(--spona-font-size-md);
     line-height: var(--spona-line-height);
   }
-  .feature-layout-details .feature-fineprint {
+  .feature-details-body .feature-fineprint {
     margin-top: var(--spona-space-2);
     font-size: var(--spona-font-size-sm);
     line-height: var(--spona-line-height);
