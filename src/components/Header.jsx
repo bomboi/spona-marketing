@@ -3,7 +3,7 @@ import { APP_URL, PHONE_NUMBER_DISPLAY, PHONE_NUMBER_LINK } from '../contact.js'
 
 export default function Header() {
   return (
-    <header className="site-header">
+    <header className="site-header spona-inverse">
       <div className="page-width site-header__inner">
         <a className="brand" href="#" aria-label="Spona, početak">
           <SponaLogo className="brand__logo" />
@@ -11,10 +11,7 @@ export default function Header() {
         </a>
         <div className="site-header__end">
           <a className="site-header__phone" href={PHONE_NUMBER_LINK}>{PHONE_NUMBER_DISPLAY}</a>
-          <a className="site-header__login" href={APP_URL}>
-            <small>Već koristite Sponu?</small>
-            <span>Prijava</span>
-          </a>
+          <a className="site-header__login" href={APP_URL}>Prijava</a>
         </div>
       </div>
     </header>

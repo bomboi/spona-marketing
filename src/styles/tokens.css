@@ -175,6 +175,7 @@
      ====================================================================== */
   --spona-space-10: 40px;
   --spona-space-12: 48px;
+  --spona-space-16: 64px;
 
   --spona-font-size-reading:    1.125rem;
   --spona-font-size-reading-lg: 1.25rem;
@@ -221,6 +222,9 @@
   --spona-color-primary-tint:   rgba(2, 204, 129, 0.18);
   --spona-color-primary-tint-2: rgba(2, 204, 129, 0.10);
   --spona-color-primary-text:   var(--ref-green-300);
+  --spona-color-success-text:   var(--ref-green-300);
+  --spona-order-status-in-progress: var(--ref-gray-400);
+  --spona-order-status-track:       #3a4552;
   --spona-color-secondary-tint: rgba(255, 186, 0, 0.16);
   --spona-color-danger-tint:    rgba(220, 53, 69, 0.16);
   --spona-color-warning-tint:   rgba(255, 186, 0, 0.16);

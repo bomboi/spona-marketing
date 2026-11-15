@@ -1,48 +1,58 @@
-import { ComputerFrame, PhoneFrame } from '../components/DeviceFrames.jsx'
+import { OrderStatusArc, ProgressBar } from '../components/AppElements.jsx'
 import { useLandingActions } from '../context/LandingActionsContext.jsx'
+import { exampleOrder, exampleWorkerTask } from '../exampleOrder.js'
 import { PHONE_NUMBER_DISPLAY, PHONE_NUMBER_LINK } from '../contact.js'
 
 export default function HeroSection() {
   const { openRequestForm } = useLandingActions()
   return (
-    <section className="section" aria-labelledby="hero-title">
-      <div className="hero">
-        <div className="hero__copy">
-          <span className="eyebrow">Za radionice koje rade po meri</span>
-          <h1 className="hero__title" id="hero-title">
-            Sve porudžbine na jednom mestu. Znate šta je gotovo i koliko ste zaradili.
-          </h1>
-          <p className="lead">Umesto sveske i Excel tabele. Radi na telefonu, tabletu i računaru.</p>
-          <div>
-            <button className="button button--primary button--large hero__try" type="button" onClick={openRequestForm}>
-              Probajte besplatno 30 dana
-            </button>
-          </div>
-          <p className="hero__call">
-            Ili nas pozovite: <a href={PHONE_NUMBER_LINK}>{PHONE_NUMBER_DISPLAY}</a> (i Viber)
-          </p>
-          <p className="hero__small">Bez platne kartice. Mi Vam otvaramo nalog i unosimo Vaše proizvode.</p>
+    <section className="hero spona-inverse" aria-labelledby="hero-title">
+      <div className="page-width hero__copy">
+        <span className="pill">Za radionice koje rade po meri</span>
+        <h1 className="hero__title" id="hero-title">Radionica bez sveske.</h1>
+        <p className="hero__lead">Porudžbine, radnici i zarada na jednom mestu.</p>
+        <div className="hero__actions">
+          <button className="button button--primary button--large" type="button" onClick={openRequestForm}>
+            Probajte besplatno
+          </button>
+          <span className="hero__call">
+            ili pozovite <a href={PHONE_NUMBER_LINK}>{PHONE_NUMBER_DISPLAY}</a>
+          </span>
         </div>
-        <div className="hero__screens">
-          <ComputerFrame
-            className="hero__computer"
-            src="/screens/order-payments-computer.jpg"
-            alt="Porudžbina u Sponi na računaru: uplate, preostali iznos i zarada"
-            width={1892}
-            height={1216}
-            isLazy={false}
-          />
-          <PhoneFrame
-            className="hero__phone"
+        <span className="hero__small">30 dana besplatno. Bez platne kartice.</span>
+      </div>
+
+      <div className="page-width hero__stage">
+        <figure className="hero__phone">
+          <img
             src="/screens/worker-phone.jpg"
-            alt="Ekran radnika na telefonu: Gornji elementi, 1 od 4 gotovo, dugme Završi 1"
+            alt="Ekran radnika u Sponi: Gornji elementi, 1 od 4 gotovo, dugme Završi 1"
             width={780}
             height={1688}
-            isLazy={false}
           />
+        </figure>
+
+        <div className="hero-card hero-card--status">
+          <span className="hero-card__strong"><OrderStatusArc progressPercent={40} />U izradi</span>
+          <span className="hero-card__muted hero-card__detail">{exampleOrder.title} · {exampleOrder.articlesDone} od {exampleOrder.articleCount} gotovo</span>
+        </div>
+
+        <div className="hero-card hero-card--profit">
+          <span className="hero-card__muted">Zarada na porudžbini</span>
+          <span className="hero-card__profit">{exampleOrder.profit} RSD</span>
+        </div>
+
+        <div className="hero-card hero-card--paid">
+          <span className="hero-card__muted">Uplaćeno</span>
+          <span className="hero-card__strong">{exampleOrder.paid} od {exampleOrder.total}</span>
+          <ProgressBar percent={exampleOrder.paidPercent} />
+        </div>
+
+        <div className="hero-card hero-card--task">
+          <span className="hero-card__strong">{exampleWorkerTask.name}</span>
+          <span className="hero-card__muted">{exampleWorkerTask.worker} · završio {exampleWorkerTask.doneCount} od {exampleWorkerTask.quantity}</span>
         </div>
       </div>
-      <p className="screens-note">Primer radionice sa izmišljenim kupcima i iznosima.</p>
     </section>
   )
 }

@@ -16,7 +16,7 @@ export default function App() {
   return (
     <LandingActionsContext.Provider value={landingActions}>
       <Header />
-      <main className="page-width page-sections">
+      <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>
