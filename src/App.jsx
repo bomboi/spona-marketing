@@ -1,41 +1,30 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { ModalContext } from './context/ModalContext'
-import Nav from './components/Nav'
-import Footer from './components/Footer'
-import LeadModal from './components/LeadModal'
-import ConsentBanner from './components/ConsentBanner'
-import HomePage from './pages/HomePage'
+import { LandingActionsContext } from './context/LandingActionsContext.jsx'
+import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx'
+import PhoneBottomBar from './components/PhoneBottomBar.jsx'
+import RequestForm from './components/RequestForm.jsx'
+import ConsentBanner from './components/ConsentBanner.jsx'
+import HomePage from './pages/HomePage.jsx'
 
 export default function App() {
-  const [modalState, setModalState] = useState(null)
-  // modalState: null | { plan: string, billing: string }
-
-  function openLeadModal(plan = '', billing = '') {
-    setModalState({ plan, billing })
-  }
-
-  function closeLeadModal() {
-    setModalState(null)
-  }
+  const [isRequestFormOpen, setIsRequestFormOpen] = useState(false)
+  const closeRequestForm = useCallback(() => setIsRequestFormOpen(false), [])
+  const landingActions = { openRequestForm: () => setIsRequestFormOpen(true) }
 
   return (
-    <ModalContext.Provider value={{ openLeadModal }}>
-      <Nav />
-      <main>
+    <LandingActionsContext.Provider value={landingActions}>
+      <Header />
+      <main className="page-width page-sections">
         <Routes>
-        <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
         </Routes>
       </main>
       <Footer />
-      {modalState !== null && (
-        <LeadModal
-          plan={modalState.plan}
-          billing={modalState.billing}
-          onClose={closeLeadModal}
-        />
-      )}
+      <PhoneBottomBar />
+      {isRequestFormOpen && <RequestForm onClose={closeRequestForm} />}
       <ConsentBanner />
-    </ModalContext.Provider>
+    </LandingActionsContext.Provider>
   )
 }
