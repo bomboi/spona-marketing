@@ -1,21 +1,25 @@
-// One made-up order, shown in the hero cards and the steps, so every number on the page agrees.
+// One made-up order, shown in the hero, the steps and the explanations, so every number on the page agrees.
 export const exampleOrder = {
   number: '26001',
   title: 'Kuhinja po meri',
   customer: 'Milan Petrović',
   deadline: '12. 12. 2026.',
+  deadlineShort: '12. 12.',
   total: '248.000',
+  deposit: '100.000',
+  depositDate: '12. 11. 2026.',
+  secondPayment: '80.000',
+  secondPaymentDate: '28. 11. 2026.',
   paid: '180.000',
   leftToPay: '68.000',
   paidPercent: 73,
+  cost: '186.600',
   profit: '61.400',
-  articlesDone: 1,
-  articleCount: 3,
-}
-
-export const exampleWorkerTask = {
-  name: 'Gornji elementi',
-  worker: 'Stefan',
-  doneCount: 1,
-  quantity: 4,
+  margin: '24,8 %',
+  note: 'Ploča: pozvati Marka',
+  articles: [
+    { name: 'Donji elementi', price: '96.000' },
+    { name: 'Gornji elementi', price: '84.000' },
+    { name: 'Radna ploča, hrast', price: '68.000' },
+  ],
 }

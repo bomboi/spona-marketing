@@ -1,17 +1,21 @@
 import HeroSection from '../sections/HeroSection.jsx'
-import StepsSection from '../sections/StepsSection.jsx'
+import WhatIsSponaSection from '../sections/WhatIsSponaSection.jsx'
+import HowItWorksSection from '../sections/HowItWorksSection.jsx'
+import TrustSection from '../sections/TrustSection.jsx'
 import PricingSection from '../sections/PricingSection.jsx'
+import QuestionsSection from '../sections/QuestionsSection.jsx'
 import ClosingSection from '../sections/ClosingSection.jsx'
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <div className="page-width page-sections">
-        <StepsSection />
-        <PricingSection />
-        <ClosingSection />
-      </div>
+      <WhatIsSponaSection />
+      <HowItWorksSection />
+      <TrustSection />
+      <PricingSection />
+      <QuestionsSection />
+      <ClosingSection />
     </>
   )
 }

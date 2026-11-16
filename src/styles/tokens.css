@@ -229,3 +229,25 @@
   --spona-color-danger-tint:    rgba(220, 53, 69, 0.16);
   --spona-color-warning-tint:   rgba(255, 186, 0, 0.16);
 }
+
+/* ==========================================================================
+   LIGHT SURFACE SCOPE
+   The app's light palette again, for a light element drawn on an inverse
+   section (the white order card and the notebook page on the dark hero).
+   ========================================================================== */
+.spona-light {
+  --spona-surface-page:    var(--ref-gray-150);
+  --spona-surface-card:    var(--ref-white);
+  --spona-surface-muted:   var(--ref-gray-200);
+  --spona-color-text-primary:   var(--ref-gray-800);
+  --spona-color-text-secondary: var(--ref-gray-600);
+  --spona-color-text-tertiary:  var(--ref-gray-400);
+  --spona-color-primary-tint:   var(--ref-green-100);
+  --spona-color-primary-tint-2: var(--ref-green-50);
+  --spona-color-primary-text:   var(--ref-green-800);
+  --spona-color-success-text:   var(--ref-green-800);
+  --spona-color-secondary-tint: var(--ref-amber-50);
+  --spona-order-status-in-progress: var(--ref-gray-700);
+  --spona-order-status-track:       var(--ref-gray-400);
+  color: var(--spona-color-text-primary);
+}

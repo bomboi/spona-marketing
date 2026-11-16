@@ -1,56 +1,68 @@
-import { OrderStatusArc, ProgressBar } from '../components/AppElements.jsx'
+import { Chevron, OrderStatusArc } from '../components/AppElements.jsx'
 import { useLandingActions } from '../context/LandingActionsContext.jsx'
-import { exampleOrder, exampleWorkerTask } from '../exampleOrder.js'
+import { exampleOrder } from '../exampleOrder.js'
 import { PHONE_NUMBER_DISPLAY, PHONE_NUMBER_LINK } from '../contact.js'
 
+const NOTEBOOK_LINES = [
+  <>Petrović – kuhinja</>,
+  <><s>rok 1. 12.</s> 12. 12.</>,
+  <>avans 100 + 80?</>,
+  <>ostalo 68 ili 88?</>,
+  <>Stefan – gornji gotov?</>,
+  <>ploča – zvati Marka</>,
+  <>zarada ???</>,
+]
+
+const ORDER_ROWS = [
+  { label: 'Rok', value: exampleOrder.deadline, stepIndex: 0 },
+  { label: 'Uplaćeno', value: `${exampleOrder.paid} od ${exampleOrder.total}`, stepIndex: 3 },
+  { label: 'Ostaje', value: exampleOrder.leftToPay, stepIndex: 3 },
+  { label: 'Gornji elementi', value: <span className="hero-order__done"><OrderStatusArc progressPercent={100} />Stefan, gotovo</span>, stepIndex: 2 },
+  { label: 'Napomena', value: exampleOrder.note, stepIndex: 0 },
+  { label: 'Zarada', value: exampleOrder.profit, stepIndex: 4, isProfit: true },
+]
+
 export default function HeroSection() {
-  const { openRequestForm } = useLandingActions()
+  const { openRequestForm, openStepExplanation } = useLandingActions()
   return (
     <section className="hero spona-inverse" aria-labelledby="hero-title">
-      <div className="page-width hero__copy">
-        <span className="pill">Za radionice koje rade po meri</span>
-        <h1 className="hero__title" id="hero-title">Radionica bez sveske.</h1>
-        <p className="hero__lead">Porudžbine, radnici i zarada na jednom mestu.</p>
-        <div className="hero__actions">
-          <button className="button button--primary button--large" type="button" onClick={openRequestForm}>
-            Probajte besplatno
-          </button>
-          <span className="hero__call">
-            ili pozovite <a href={PHONE_NUMBER_LINK}>{PHONE_NUMBER_DISPLAY}</a>
-          </span>
-        </div>
-        <span className="hero__small">30 dana besplatno. Bez platne kartice.</span>
-      </div>
-
-      <div className="page-width hero__stage">
-        <figure className="hero__phone">
-          <img
-            src="/screens/worker-phone.jpg"
-            alt="Ekran radnika u Sponi: Gornji elementi, 1 od 4 gotovo, dugme Završi 1"
-            width={780}
-            height={1688}
-          />
-        </figure>
-
-        <div className="hero-card hero-card--status">
-          <span className="hero-card__strong"><OrderStatusArc progressPercent={40} />U izradi</span>
-          <span className="hero-card__muted hero-card__detail">{exampleOrder.title} · {exampleOrder.articlesDone} od {exampleOrder.articleCount} gotovo</span>
+      <div className="page-width hero__inner">
+        <div className="hero__copy">
+          <h1 className="hero__title" id="hero-title">Radionica<br /><span>bez sveske.</span></h1>
+          <p className="hero__lead">Porudžbine, radnici i zarada na jednom mestu.</p>
+          <div className="hero__actions">
+            <button className="button button--primary button--large" type="button" onClick={openRequestForm}>
+              Probajte besplatno
+            </button>
+            <span className="hero__call">ili pozovite <a href={PHONE_NUMBER_LINK}>{PHONE_NUMBER_DISPLAY}</a></span>
+          </div>
+          <p className="hero__note">30 dana besplatno. Bez platne kartice.</p>
         </div>
 
-        <div className="hero-card hero-card--profit">
-          <span className="hero-card__muted">Zarada na porudžbini</span>
-          <span className="hero-card__profit">{exampleOrder.profit} RSD</span>
-        </div>
-
-        <div className="hero-card hero-card--paid">
-          <span className="hero-card__muted">Uplaćeno</span>
-          <span className="hero-card__strong">{exampleOrder.paid} od {exampleOrder.total}</span>
-          <ProgressBar percent={exampleOrder.paidPercent} />
-        </div>
-
-        <div className="hero-card hero-card--task">
-          <span className="hero-card__strong">{exampleWorkerTask.name}</span>
-          <span className="hero-card__muted">{exampleWorkerTask.worker} · završio {exampleWorkerTask.doneCount} od {exampleWorkerTask.quantity}</span>
+        <div className="hero__picture">
+          <span className="hero__label hero__label--notebook">Sveska</span>
+          <div className="notebook spona-light" aria-label="Stranica iz sveske">
+            {NOTEBOOK_LINES.map((line, index) => <span key={index}>{line}</span>)}
+          </div>
+          <div className="hero-order">
+            <div className="hero-order__card spona-light" aria-label="Ista porudžbina u Sponi">
+              <span className="hero-order__title">{exampleOrder.title}</span>
+              <span className="hero-order__customer">{exampleOrder.customer}</span>
+              {ORDER_ROWS.map((row) => (
+                <button
+                  key={row.label}
+                  className={`hero-order__row${row.isProfit ? ' hero-order__row--profit' : ''}`}
+                  type="button"
+                  onClick={() => openStepExplanation(row.stepIndex)}
+                >
+                  <span className="hero-order__label">{row.label}</span>
+                  <b className="hero-order__value">{row.value}</b>
+                  <Chevron />
+                </button>
+              ))}
+            </div>
+            <span className="hero__label hero__label--spona">Ista porudžbina u Sponi. Kliknite red.</span>
+          </div>
         </div>
       </div>
     </section>
